@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="85406" started-at="2020-04-07T20:05:44Z" finished-at="2020-04-07T20:07:09Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="85406" started-at="2020-04-07T20:05:44Z" finished-at="2020-04-07T20:07:09Z">
+      <class name="com.surveillance.Test.CameraLiveUnitTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.surveillance.Test.CameraLiveUnitTest@5034c75a]" name="setUp" is-config="true" duration-ms="181" started-at="2020-04-08T01:35:43Z" finished-at="2020-04-08T01:35:44Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="startReport()[pri:0, instance:com.surveillance.Test.CameraLiveUnitTest@5034c75a]" name="startReport" is-config="true" duration-ms="8" started-at="2020-04-08T01:35:44Z" finished-at="2020-04-08T01:35:44Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startReport -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.surveillance.Test.CameraLiveUnitTest@5034c75a]" name="setup" is-config="true" duration-ms="19363" started-at="2020-04-08T01:35:44Z" finished-at="2020-04-08T01:36:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="verifyCameraLiveUnit(java.util.Hashtable)[pri:0, instance:com.surveillance.Test.CameraLiveUnitTest@5034c75a]" name="verifyCameraLiveUnit" duration-ms="63819" started-at="2020-04-08T01:36:04Z" data-provider="setData1" finished-at="2020-04-08T01:37:07Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{ActivePopUps=accept, TestID=TC_01, Password=Kb100684@, SerialNumber=123456, ActiveDeactive=Active, Email=kalyan.babu@contractor.liveviewtech.com}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyCameraLiveUnit -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.surveillance.Test.CameraLiveUnitTest@5034c75a]" name="getResult" is-config="true" duration-ms="1447" started-at="2020-04-08T01:37:07Z" finished-at="2020-04-08T01:37:09Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyCameraLiveUnit status=SUCCESS method=CameraLiveUnitTest.verifyCameraLiveUnit(java.util.Hashtable)[pri:0, instance:com.surveillance.Test.CameraLiveUnitTest@5034c75a] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getResult -->
+        <test-method status="PASS" signature="endReport()[pri:0, instance:com.surveillance.Test.CameraLiveUnitTest@5034c75a]" name="endReport" is-config="true" duration-ms="471" started-at="2020-04-08T01:37:09Z" finished-at="2020-04-08T01:37:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endReport -->
+      </class> <!-- com.surveillance.Test.CameraLiveUnitTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
