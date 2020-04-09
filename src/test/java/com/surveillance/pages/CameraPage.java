@@ -56,16 +56,16 @@ PropertySingleton _instance = null;
 	
 	public CameraPage clickOnDeactive() throws Throwable
 	{
-		keywords.scrollElementfound("xpath", _instance.getValue("Archives.BTN_Deactive"));
-		keywords.jsClick("xpath", _instance.getValue("Archives.BTN_Deactive"));
+		keywords.scrollElementfound("xpath", _instance.getValue("CameraPage.BTN_Deactive"));
+		keywords.jsClick("xpath", _instance.getValue("CameraPage.BTN_Deactive"));
 //		keywords.waitForPageLoad();
 		return this;
 	}
 	
 	public CameraPage clickOnActive() throws Throwable
 	{
-		keywords.scrollElementfound("xpath", _instance.getValue("Archives.BTN_Active"));
-		keywords.jsClick("xpath", _instance.getValue("Archives.BTN_Active"));
+		keywords.scrollElementfound("xpath", _instance.getValue("CameraPage.BTN_Active"));
+		keywords.jsClick("xpath", _instance.getValue("CameraPage.BTN_Active"));
 //		keywords.waitForPageLoad();
 		return this;
 	}
@@ -103,6 +103,61 @@ PropertySingleton _instance = null;
 		keywords.handleAlert(confirm);
 
 		
+		return this;
+	}
+	
+	public String getSerialNumber() throws Throwable 
+	{
+		
+		String text=keywords.getText("xpath", _instance.getValue("CameraPage.SerialNumber"));
+		
+		return text;
+	}
+	
+	public boolean verifyActiveButton() throws Throwable
+	{
+		keywords.scrollElementfound("xpath", _instance.getValue("CameraPage.BTN_Active"));
+	boolean active=	keywords.isDisplayed("xpath", _instance.getValue("CameraPage.BTN_Active"));
+
+		
+		return active;
+	}
+	public boolean verifyDeActiveButton() throws Throwable
+	{
+		keywords.scrollElementfound("xpath", _instance.getValue("CameraPage.BTN_Deactive"));
+	boolean active=	keywords.isDisplayed("xpath", _instance.getValue("CameraPage.BTN_Deactive"));
+
+		
+		return active;
+	}
+	
+	public CameraPage clickOnInvoiceDataReport() throws Throwable
+	{
+		keywords.scrollElementfound("xpath", _instance.getValue("CameraPage.InvoiceDataReport"));
+		keywords.jsClick("xpath", _instance.getValue("CameraPage.InvoiceDataReport"));
+//		keywords.waitForPageLoad();
+		return this;
+	}
+	
+	public boolean verifyInvoiceDataReport() throws Throwable
+	{
+	keywords.scrollElementfound("xpath", _instance.getValue("CameraPage.InvoiceDataReport"));
+	boolean invoice=	keywords.isDisplayed("xpath", _instance.getValue("CameraPage.InvoiceDataReport"));
+	return invoice;
+	}
+	
+	public CameraPage clickOnReturntoLiveUnit() throws Throwable
+	{
+		keywords.scrollElementfound("xpath", _instance.getValue("CameraPage.ReturntoLiveUnit"));
+		keywords.jsClick("xpath", _instance.getValue("CameraPage.ReturntoLiveUnit"));
+//		keywords.waitForPageLoad();
+		return this;
+	}
+	
+	public CameraPage verifyInvoicePage() throws Throwable
+	{
+		keywords.verifyTitle("LiveView Technologies QA - System Management - Billing Transactions");
+//		keywords.waitForPageLoad();
 		return this;
 	}
 	/*public boolean VerifyActiveOrDeactive(String ActiveDeactive) throws Throwable

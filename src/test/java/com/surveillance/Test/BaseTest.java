@@ -99,7 +99,10 @@ public class BaseTest {
 	}
 
 	@AfterMethod
-	public void getResult(ITestResult result) throws Exception {
+	public void getResult(ITestResult result) throws Exception 
+	{
+		try
+		{
 		if (result.getStatus() == ITestResult.FAILURE) {
 			// MarkupHelper is used to display the output in different colors
 			System.out.println("Failed log Start");
@@ -132,6 +135,15 @@ public class BaseTest {
 			// To add it in the extent report
 			extentLoggerECP.pass(
 					"Test Case Passed Snapshot is below " + extentLoggerECP.addScreenCaptureFromPath(screenshotPath));
+		}
+		}
+		catch(Throwable t1)
+		{
+			extentLoggerECP.log(Status.SKIP,
+					MarkupHelper.createLabel(" - Test Case Skipped", ExtentColor.ORANGE));
+			extentLoggerECP.log(Status.SKIP,
+					MarkupHelper.createLabel(result.getThrowable() + " - Test Case Skipped", ExtentColor.ORANGE));
+			System.out.println(t1);
 		}
 		keywords.quitWindow();
 		

@@ -30,5 +30,9 @@ public class LoginPage
 		return this;
 	}
 	
+//	public LoginPage enterPassword(String value) throws Exception {
+//		keywords.enterData("xpath", _instance.getValue("loginPage.Edit_Password"), value);
+//		return this;
+//	}
 	
 }

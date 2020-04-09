@@ -35,13 +35,8 @@ public class CameraLiveUnitTest extends BaseTest
 		beforeClassForChild(this);
 	}
 	
-	
-	@Test(priority = 0, dataProvider = "setData1")
-	public void verifyCameraLiveUnit(Hashtable<String, String> h2) throws Throwable 
+	public void tillGotoLiveUnit() throws Throwable
 	{
-		extentLoggerECP = parentExtentLogger.createNode("verify D3CommandCenterTest verifyCameraLiveUnit");
-		loginTest.logintest(h2);
-		passLog();
 		homePage.clickOnCameras();
 		passLog();
 		cameraPage.clickOnLiveUnit();
@@ -58,17 +53,83 @@ public class CameraLiveUnitTest extends BaseTest
 		passLog();
 		cameraPage.clickOnGoToLiveUnit();
 		passLog();
+	
+	}
+	
+	@Test(priority =0, dataProvider = "setData1")
+	public void verifyPopUpCancelButton(Hashtable<String, String> h2) throws Throwable 
+	{
+		extentLoggerECP = parentExtentLogger.createNode("verify  Popup window cancel option");
+		loginTest.logintest(h2);
+		passLog();
+		tillGotoLiveUnit();
+		cameraPage.clickOnDeactive();
+		Thread.sleep(5000);
+		cameraPage.DismisOrActivePopUp("dismiss");
+		Thread.sleep(10000);
+		passLog();
+		s_assert.assertTrue(cameraPage.verifyDeActiveButton()==true);
+		s_assert.assertAll();
+				
+	}
+	@Test(priority = 1, dataProvider = "setData1")
+	public void verifyCameraLiveUnitDeactive(Hashtable<String, String> h2) throws Throwable 
+	{
+		extentLoggerECP = parentExtentLogger.createNode("verify  verifyCameraLiveUnit to Deactive");
+		loginTest.logintest(h2);
+		passLog();
+		tillGotoLiveUnit();
+		String serialNumber=cameraPage.getSerialNumber();
 		cameraPage.clickOnDeactive();
 		Thread.sleep(5000);
 
-		cameraPage.enterSerialNumber(h2.get("SerialNumber"));
+		cameraPage.enterSerialNumber(serialNumber);
 		Thread.sleep(10000);
 //		cameraPage.DismisOrActivePopUp(h2.get("ActivePopUps"));
 		Thread.sleep(10000);
 		passLog();
+		s_assert.assertTrue(cameraPage.verifyActiveButton()==true);
+		s_assert.assertAll();
 		
+		}
+	
+	
+	
+	@Test(priority = 2, dataProvider = "setData1",dependsOnMethods="verifyCameraLiveUnitDeactive")
+	public void verifyCameraLiveUnitToActive(Hashtable<String, String> h2) throws Throwable 
+	{
+		extentLoggerECP = parentExtentLogger.createNode("verify  verifyCameraLiveUnit to Active");
+		loginTest.logintest(h2);
+		passLog();
+		tillGotoLiveUnit();
+		String serialNumber=cameraPage.getSerialNumber();
+		cameraPage.clickOnActive();
+		Thread.sleep(5000);
+
+		cameraPage.enterSerialNumber(serialNumber);
+		Thread.sleep(10000);
+//		cameraPage.DismisOrActivePopUp(h2.get("ActivePopUps"));
+		Thread.sleep(10000);
+		passLog();
+		s_assert.assertTrue(cameraPage.verifyDeActiveButton()==true);
+		s_assert.assertAll();
+			
+	}
+	
+	@Test(priority = 3, dataProvider = "setData1",dependsOnMethods="verifyCameraLiveUnitDeactive")
+	public void verifyCameraLiveUnitInvoiceDataReport(Hashtable<String, String> h2) throws Throwable 
+	{
+		extentLoggerECP = parentExtentLogger.createNode("verify  verifyCameraLiveUnit Invoice Data Report");
+		loginTest.logintest(h2);
+		passLog();
+		tillGotoLiveUnit();
+		cameraPage.clickOnInvoiceDataReport();
+		cameraPage.verifyInvoicePage();
+		cameraPage.clickOnReturntoLiveUnit();
 		
-		
+		s_assert.assertTrue(cameraPage.verifyInvoiceDataReport()==true);
+		s_assert.assertAll();
+			
 	}
 	
 	@DataProvider
@@ -76,5 +137,4 @@ public class CameraLiveUnitTest extends BaseTest
 		Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "\\TestData\\testdata.xlsx");
 		return ReadData.getData("LiveUnits", "CameraLiveUnits", xls);
 	}
-	
-}
+	}
