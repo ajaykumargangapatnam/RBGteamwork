@@ -1,1 +1,7 @@
 /target/
+.idea/
+LiveViewTech.iml
+Screenshots/
+log4jLogs/
+logs/
+testReports/
