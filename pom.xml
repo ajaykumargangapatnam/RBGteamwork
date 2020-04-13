@@ -135,6 +135,7 @@
 					<suiteXmlFiles>
 						<!-- TestNG suite XML files -->
 						<suiteXmlFile>..\surveillancetest\masterSuite.xml</suiteXmlFile>
+						<suiteXmlFile>src/test/java/com/surveillance/Test/LoginTest.java</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
