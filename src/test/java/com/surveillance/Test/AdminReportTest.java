@@ -78,7 +78,7 @@ public class AdminReportTest extends BaseTest
 	
 	@DataProvider
 	public Object[][] setDataForSimpleEventReports() {
-		Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "\\TestData\\testdata.xlsx");
+		Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "/TestData/testdata.xlsx");
 		
 		return ReadData.getData("D3CommandCenterTest", "HamburgerReports", xls);
 		
@@ -130,7 +130,7 @@ public class AdminReportTest extends BaseTest
 	
 	@DataProvider
 	public Object[][] setDataForFrequencybyLocationReport() {
-		Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "\\TestData\\testdata.xlsx");
+		Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "/TestData/testdata.xlsx");
 		
 		return ReadData.getData("D3CommandCenterTest", "HamburgerReports", xls);
 		

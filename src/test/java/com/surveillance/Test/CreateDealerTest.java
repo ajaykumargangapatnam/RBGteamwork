@@ -86,7 +86,7 @@ public class CreateDealerTest extends BaseTest {
 	
 	@DataProvider
 	public Object[][] setData1() {
-		Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "\\TestData\\testdata.xlsx");
+		Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "/TestData/testdata.xlsx");
 		return ReadData.getData("CreateDealerTests", "LoginTest1", xls);
 	}
 
@@ -150,7 +150,7 @@ public class CreateDealerTest extends BaseTest {
 
 	@DataProvider
 	public Object[][] setData2() {
-		Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "\\TestData\\testdata.xlsx");
+		Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "/TestData/testdata.xlsx");
 		return ReadData.getData("CreateDealerTests", "Validate RIA Type dealer to be create", xls);
 	}
 
@@ -210,7 +210,7 @@ public class CreateDealerTest extends BaseTest {
 
 	@DataProvider
 	public Object[][] setData3() {
-		Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "\\TestData\\testdata.xlsx");
+		Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "/TestData/testdata.xlsx");
 		return ReadData.getData("CreateDealerTests", "Validate DCIO Type dealer to be create", xls);
 	}
 
@@ -270,7 +270,7 @@ public class CreateDealerTest extends BaseTest {
 
 	@DataProvider
 	public Object[][] setData4() {
-		Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "\\TestData\\testdata.xlsx");
+		Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "/TestData/testdata.xlsx");
 		return ReadData.getData("CreateDealerTests", "Validate VAIO Type1 dealer to be create", xls);
 	}
 
@@ -331,7 +331,7 @@ public class CreateDealerTest extends BaseTest {
 
 	@DataProvider
 	public Object[][] setData5() {
-		Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "\\TestData\\testdata.xlsx");
+		Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "/TestData/testdata.xlsx");
 		return ReadData.getData("CreateDealerTests", "Validate VAIO Type2 dealer to be create", xls);
 	}
 
@@ -395,7 +395,7 @@ public class CreateDealerTest extends BaseTest {
 
 	@DataProvider
 	public Object[][] setData6() {
-		Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "\\TestData\\testdata.xlsx");
+		Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "/TestData/testdata.xlsx");
 		return ReadData.getData("CreateDealerTests", "Validate VAIO Type3 dealer to be create", xls);
 	}
 
