@@ -3,3 +3,6 @@
 /Screenshots/
 /logs/
 /test-output/
+.idea/
+LiveViewTech.iml
+log4jLogs/
