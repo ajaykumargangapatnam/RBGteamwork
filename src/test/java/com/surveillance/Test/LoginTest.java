@@ -31,7 +31,7 @@ public class LoginTest extends BaseTest{
 	@Test(priority = 0, dataProvider = "setData1")
 	public void logintest(Hashtable<String, String> h2) throws Exception 
 	{
-		extentLoggerECP = parentExtentLogger.createNode("Login Test");
+//		extentLoggerECP = parentExtentLogger.createNode("Login Test");
 		System.out.println("userEmail "+h2.get("Email"));
 		login.enterLoginEmail(h2.get("Email"));
 		
