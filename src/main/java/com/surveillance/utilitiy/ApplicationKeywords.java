@@ -6,9 +6,12 @@ import java.util.Date;
 import java.util.Hashtable;
 import java.util.Properties;
 
+import javax.mail.Message;
+
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 public class ApplicationKeywords 
 {
@@ -173,4 +176,34 @@ public class ApplicationKeywords
 	}
 
 	}
+	
+	
+	
+//	 public static void emailValidation(WebDriver driver,String subjectAndLinkName) {
+			public void emailValidation() {    
+				    //TODO: apply for a loan using criteria that will result in the application being rejected
+				    
+				    try{
+//				    String mailDetails[]=	subjectAndLinkName.split("::");
+//				    String subject=mailDetails[0];
+//				    String linkName=mailDetails[1];
+				    String subject="New LiveView Technologies User Account";
+				    String linkName="Activate Your Account";
+				     	EmailUtils emailUtils = new EmailUtils("LVTTestAutomation@gmail.com", "Password@123", "smtp.gmail.com", EmailUtils.EmailFolder.INBOX);
+//				      if(emailUtils.getMessagesBySubject("Welcome to Daton", true, 5).length<1);{
+//				    	  emailUtils = new EmailUtils("rbgtechnologies@gmail.com", "Kb100684@", "smtp.gmail.com", EmailUtils.EmailFolder.SPAM); 
+//				      }
+				      Message email = emailUtils.getMessagesBySubject(subject, true, 5)[emailUtils.getMessagesBySubject("New LiveView Technologies User Account", true, 5).length-1];
+				      String link = emailUtils.getUrlsFromMessage(email, linkName).get(0);
+				      
+				      driver.get(link);
+				      // driver.findElement(By.xpath("//*[@id='mat-dialog-0']/app-common-dialog/div/mat-dialog-actions/div/button")).click();
+//				      if(succesfullMail.)
+				      
+				      //TODO: continue testing
+				    } catch (Exception e) {
+				      e.printStackTrace();
+				      Assert.fail(e.getMessage());
+				    }
+				  }
 }

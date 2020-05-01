@@ -34,7 +34,7 @@ public class LoginTest extends BaseTest{
 //		extentLoggerECP = parentExtentLogger.createNode("Login Test");
 		System.out.println("userEmail "+h2.get("Email"));
 		login.enterLoginEmail(h2.get("Email"));
-		
+		System.out.println();
 		login.clickOnLogin();
 		
 		login.enterPassword(h2.get("Password"));

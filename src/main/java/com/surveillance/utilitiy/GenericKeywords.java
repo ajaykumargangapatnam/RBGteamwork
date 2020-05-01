@@ -482,6 +482,7 @@ public class GenericKeywords extends ApplicationKeywords {
 
 			}
 		}
+		logger.info("clear and enter data is : "+data);
 		logger.info("clear and enter action is completed");
 	}
 	
