@@ -17,7 +17,7 @@ public class ArchivesLiveUnitsTest extends BaseTest
 {
 	
 	PropertySingleton _instance = null;
-	SoftAssert s_assert = new SoftAssert();
+	SoftAssert s_assert = new SoftAssert(); 
 	
 	LoginTest loginTest=new LoginTest();
 	HomePage homePage=new HomePage();

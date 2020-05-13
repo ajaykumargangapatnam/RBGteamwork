@@ -160,6 +160,47 @@ PropertySingleton _instance = null;
 //		keywords.waitForPageLoad();
 		return this;
 	}
+	
+	public CameraPage clickOnSetDemo() throws Throwable
+	{
+		keywords.scrollElementfound("xpath", _instance.getValue("CameraPage.BTN_SetDemo"));
+		keywords.jsClick("xpath", _instance.getValue("CameraPage.BTN_SetDemo"));
+//		keywords.waitForPageLoad();
+		return this;
+	}
+	
+	public CameraPage SelectSetDemoDate() throws Throwable
+	{
+		
+		keywords.selectSetDemoDate();
+		return this;
+	}
+	public boolean gettextDemoDateCalender() throws Throwable
+	{
+	boolean text=false;
+	String Acttext	=keywords.getText("xpath", _instance.getValue("CameraPage.TXT_SetDemoStatus"));
+	String expectData="Changing the demo status will affect billing for this unit.";
+	if(Acttext.equals(expectData))
+	{
+		text=true;
+	}
+		return text;
+	}
+	
+	
+	public boolean verifyLBLDemoEndDate() throws Throwable
+	{
+		boolean text=false;
+		String Acttext	=keywords.getText("xpath", _instance.getValue("CameraPage.BTN_SetDemoEndDate"));
+		String expectData="Set Demo End Date";
+		if(Acttext.equals(expectData))
+		{
+			text=true;
+		}
+			return text;
+		
+	}
+
 	/*public boolean VerifyActiveOrDeactive(String ActiveDeactive) throws Throwable
 	{
 		if(ActiveDeactive.equals("Active"))

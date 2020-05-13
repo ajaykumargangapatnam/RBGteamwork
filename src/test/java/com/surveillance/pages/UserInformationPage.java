@@ -21,6 +21,13 @@ public class UserInformationPage
 		return this;
 	}
 	
+	public UserInformationPage clickOnNotifications() throws Throwable
+	{
+		keywords.scrollElementfound("xpath", _instance.getValue("UserInformationPage.BTN_Notifications"));
+		keywords.jsClick("xpath", _instance.getValue("UserInformationPage.BTN_Notifications"));
+		return this;
+	}
+	
 	public UserInformationPage clickOnD3CommandCenter() throws Throwable
 	{
 		keywords.scrollElementfound("xpath", _instance.getValue("UserInformationPage.CHK_D3CommandCenter"));

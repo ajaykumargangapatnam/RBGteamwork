@@ -294,12 +294,24 @@ public class GenericKeywords extends ApplicationKeywords {
 
 	}
 
+	public void SelectDropDownByIndex(String locatorindicator, String locatorvalue, int index) {
+		logger.info("SelectDropDown action is started");
+		highlightElement(locatorindicator, locatorvalue);
+		WebElement element = elementFind(locatorindicator, locatorvalue);
+		System.out.println("Drop down is Reached");
+		Select dropdown = new Select(element);
+		System.out.println("Drop down selected");
+		dropdown.selectByIndex(index);
+		logger.info("SelectDropDown action is completed");
+
+	}
+	
 	/**
 	 * Method Name : SelectDropDown purpose : Selecting the values form drop based
 	 * on the data parameters : locator type,locator value ,data Example : Example
 	 * :<xpath>,<//input[@id='email']>,<TXTData>
 	 */
-	public void SelectALLDropDown(String locatorindicator, String locatorvalue, String data) {
+	/*public void SelectALLDropDown(String locatorindicator, String locatorvalue, String data) {
 		logger.info("SelectDropDown action is started");
 		highlightElement(locatorindicator, locatorvalue);
 		WebElement element = elementFind(locatorindicator, locatorvalue);
@@ -310,7 +322,7 @@ public class GenericKeywords extends ApplicationKeywords {
 		dropdown.selectByVisibleText(data);
 		logger.info("SelectDropDown action is completed");
 
-	}
+	}*/
 	/**
 	 * Method Name : verifyDropDownVisibleText purpose : checks whether "Web page
 	 * data matching with expected data or not in a dropdown. parameters : locator
@@ -344,6 +356,34 @@ public class GenericKeywords extends ApplicationKeywords {
 		return elementText;
 	}
 
+	public void deSelectAll(String locatorindicator, String locatorvalue)
+			throws Exception {
+		logger.info("verifyDropDownVisibleText action is started");
+		highlightElement(locatorindicator, locatorvalue);
+		WebElement element = elementFind(locatorindicator, locatorvalue);
+		Select dropdown = new Select(element);
+		 dropdown.deselectAll();
+		
+	}
+	
+	
+	public void selectAllOptions(String locatorindicator, String locatorvalue)
+	{
+		logger.info("verifyDropDownVisibleText action is started");
+		highlightElement(locatorindicator, locatorvalue);
+		WebElement element = elementFind(locatorindicator, locatorvalue);
+		Select select = new Select(element);
+		select.deselectAll();
+
+		List<WebElement> select31Options = select.getOptions();
+
+		for (WebElement option : select31Options) {
+		    select.selectByVisibleText(option.getText());
+		}
+	}
+	
+	
+	
 	/**
 	 * Method Name : selectWindow purpose : Selecting the window based on the title
 	 * parameters : data Example : <Data>
@@ -447,6 +487,7 @@ public class GenericKeywords extends ApplicationKeywords {
 		}
 		logger.info("checkClick action is completed");
 	}
+	
 
 	/**
 	 * Method Name : verifySelect purpose : Clicks the element if it is displayed
