@@ -93,7 +93,7 @@ public class BaseTest {
 	public void setup() throws Throwable {
 	//	extentLoggerECP=parentExtentLogger.createNode("TestCase - : "+i);
 		_propertySingleton = PropertySingleton.getInstance();
-		//keywords.openBrowser(_propertySingleton.getValue("browser"));
+		keywords.openBrowser(_propertySingleton.getValue("browser"));
 		keywords.openURL(_propertySingleton.getValue("URL"));
 		//i++;
 	}
