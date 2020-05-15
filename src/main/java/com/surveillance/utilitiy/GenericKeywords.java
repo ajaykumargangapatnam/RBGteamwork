@@ -47,8 +47,8 @@ public class GenericKeywords extends ApplicationKeywords {
 		if (browserName.equalsIgnoreCase("Chrome")) {
 			logger.info("openBrowser action is started");
 			System.setProperty("webdriver.chrome.driver",
-					//System.getProperty("user.dir") + "/webDrivers/chromedriver.exe");
-					System.getProperty("user.dir") + "../../tools/chromedriver/chromedriver.exe");
+					System.getProperty("user.dir") + "/webDrivers/chromedriver.exe");
+					//System.getProperty("user.dir") + "../../tools/chromedriver/chromedriver.exe");
 			driver = new ChromeDriver();
 		} else if (browserName.equalsIgnoreCase("IE")) {
 			DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
