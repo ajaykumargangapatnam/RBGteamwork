@@ -47,8 +47,8 @@ public class GenericKeywords extends ApplicationKeywords {
 		if (browserName.equalsIgnoreCase("Chrome")) {
 			logger.info("openBrowser action is started");
 			System.setProperty("webdriver.chrome.driver",
-					//System.getProperty("user.dir") + "/webDrivers/chromedriver.exe");
-					 "/var/lib/jenkins/tools/chromedriver/chromedriver");
+					System.getProperty("user.dir") + "/webDrivers/chromedriver.exe");
+					 //"/var/lib/jenkins/tools/chromedriver/chromedriver");
 			//adam added this
 			ChromeOptions chromeOptions = new ChromeOptions();
 			//chromeOptions.addArguments("--headless");
