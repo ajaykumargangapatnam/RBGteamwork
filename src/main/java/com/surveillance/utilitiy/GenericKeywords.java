@@ -49,7 +49,11 @@ public class GenericKeywords extends ApplicationKeywords {
 			System.setProperty("webdriver.chrome.driver",
 					//System.getProperty("user.dir") + "/webDrivers/chromedriver.exe");
 					 "/var/lib/jenkins/tools/chromedriver/chromedriver");
-			driver = new ChromeDriver();
+			//adam added this
+			ChromeOptions chromeOptions = new ChromeOptions();
+			chromeOptions.addArguments("--headless");
+			driver = new ChromeDriver(chromeOptions);		
+			//driver = new ChromeDriver();
 		} else if (browserName.equalsIgnoreCase("IE")) {
 			DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
 			capabilities.setCapability("requireWindowFocus", true);
