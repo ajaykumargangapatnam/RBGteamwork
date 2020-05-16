@@ -51,7 +51,8 @@ public class GenericKeywords extends ApplicationKeywords {
 					 "/var/lib/jenkins/tools/chromedriver/chromedriver");
 			//adam added this
 			ChromeOptions chromeOptions = new ChromeOptions();
-			chromeOptions.addArguments("--headless");
+			//chromeOptions.addArguments("--headless");
+			chromeOptions.setBinary("/tmp/jenkins8310505582594043713.sh");
 			driver = new ChromeDriver(chromeOptions);
 			//driver = new ChromeDriver();
 		} else if (browserName.equalsIgnoreCase("IE")) {
