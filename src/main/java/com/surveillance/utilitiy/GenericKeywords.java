@@ -52,6 +52,7 @@ public class GenericKeywords extends ApplicationKeywords {
 			//adam added this
 			ChromeOptions chromeOptions = new ChromeOptions();
 //			chromeOptions.addArguments("--headless");
+			
 			chromeOptions.setBinary(System.getProperty("user.dir") + "/node_modules/chromium");
 			driver = new ChromeDriver(chromeOptions);
 			//driver = new ChromeDriver();
