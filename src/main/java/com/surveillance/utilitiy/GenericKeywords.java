@@ -49,7 +49,7 @@ public class GenericKeywords extends ApplicationKeywords {
 			System.setProperty("webdriver.chrome.driver",
 					//System.getProperty("user.dir") + "/webDrivers/chromedriver.exe");
 					 //"/var/lib/jenkins/tools/chromedriver/chromedriver");
-					System.getProperty("user.dir") + "/webDrivers/chromedriver");
+					System.getProperty("user.dir") + "/webDrivers/chromedriver.exe");
 			//adam added this
 //			ChromeOptions chromeOptions = new ChromeOptions();
 //			chromeOptions.addArguments("--headless");
