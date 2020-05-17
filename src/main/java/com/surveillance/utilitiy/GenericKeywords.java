@@ -50,10 +50,10 @@ public class GenericKeywords extends ApplicationKeywords {
 					//System.getProperty("user.dir") + "/webDrivers/chromedriver.exe");
 					 "/var/lib/jenkins/tools/chromedriver/chromedriver");
 			//adam added this
-//			ChromeOptions chromeOptions = new ChromeOptions();
+			ChromeOptions chromeOptions = new ChromeOptions();
 //			chromeOptions.addArguments("--headless");
-			//chromeOptions.setBinary("/tmp/");
-			driver = new ChromeDriver();
+			chromeOptions.setBinary(System.getProperty("user.dir") + "/node_modules/chromium");
+			driver = new ChromeDriver(chromeOptions);
 			//driver = new ChromeDriver();
 		} else if (browserName.equalsIgnoreCase("IE")) {
 			DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
