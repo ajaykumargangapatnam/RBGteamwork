@@ -52,7 +52,7 @@ public class GenericKeywords extends ApplicationKeywords {
 			//adam added this
 			ChromeOptions chromeOptions = new ChromeOptions();
 			//chromeOptions.addArguments("--headless");
-			chromeOptions.setBinary("/usr/bin/chromium-browser");
+			chromeOptions.setBinary("/webDrivers/chromedriver");
 			driver = new ChromeDriver(chromeOptions);
 			//driver = new ChromeDriver();
 		} else if (browserName.equalsIgnoreCase("IE")) {
