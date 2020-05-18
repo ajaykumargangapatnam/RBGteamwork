@@ -54,7 +54,6 @@ public class GenericKeywords extends ApplicationKeywords {
 			//chromeOptions.addArguments("--headless");
 			chromeOptions.setBinary(System.getProperty("user.dir") + "/node_modules/chromium");
 			driver = new ChromeDriver(chromeOptions);
-
 			//driver = new ChromeDriver();
 		} else if (browserName.equalsIgnoreCase("IE")) {
 			DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
