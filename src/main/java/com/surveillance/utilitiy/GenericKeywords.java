@@ -52,9 +52,9 @@ public class GenericKeywords extends ApplicationKeywords {
 			//adam added this
 			ChromeOptions chromeOptions = new ChromeOptions();
 			//chromeOptions.addArguments("--headless");
-			//chromeOptions.setBinary(System.getProperty("user.dir") + "/node_modules/chromium");
+			chromeOptions.setBinary(System.getProperty("user.dir") + "/usr/bin/google-chrome-stable");
 			//driver = new ChromeDriver(chromeOptions);
-			driver = new ChromeDriver();
+			driver = new ChromeDriver(chromeOptions);
 		} else if (browserName.equalsIgnoreCase("IE")) {
 			DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
 			capabilities.setCapability("requireWindowFocus", true);
