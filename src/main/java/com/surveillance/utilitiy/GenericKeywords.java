@@ -58,7 +58,7 @@ public class GenericKeywords extends ApplicationKeywords {
 			//driver = new ChromeDriver(chromeOptions);
 			ChromeOptions opt = new ChromeOptions();
 			opt.setBinary("/usr/bin/google-chrome-stable");  //chrome binary location specified here
-			opt.addArguments("start-maximized");
+			opt.addArguments("start-maximized","--disable-gpu", "--no-sandbox", "--disable-extensions", "--disable-dev-shm-usage");
 			opt.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
 			opt.setExperimentalOption("useAutomationExtension", false);
 
