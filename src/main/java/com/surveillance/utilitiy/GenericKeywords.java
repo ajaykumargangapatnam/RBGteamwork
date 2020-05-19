@@ -48,8 +48,8 @@ public class GenericKeywords extends ApplicationKeywords {
 		if (browserName.equalsIgnoreCase("Chrome")) {
 			logger.info("openBrowser action is started");
 			System.setProperty("webdriver.chrome.driver",
-					System.getProperty("user.dir") + "/webDrivers/chromedriver");
-					//"/var/lib/jenkins/tools/chromedriver/chromedriver");
+					//System.getProperty("user.dir") + "/webDrivers/chromedriver.exe");
+					"/var/lib/jenkins/tools/chromedriver/chromedriver");
 					//"/usr/bin/google-chrome-stable");
 			//adam added this
 			//ChromeOptions chromeOptions = new ChromeOptions();
