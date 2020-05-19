@@ -70,7 +70,7 @@ public class D3CommandCenterTest extends BaseTest
 
 	@DataProvider
 	public Object[][] setData1() {
-		Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "\\TestData\\testdata.xlsx");
+		Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "/TestData/testdata.xlsx");
 		return ReadData.getData("D3CommandCenterTest", "D3CommandCenterTest", xls);
 	}
 	

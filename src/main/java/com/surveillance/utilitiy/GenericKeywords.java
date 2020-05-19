@@ -1,6 +1,7 @@
 package com.surveillance.utilitiy;
 
 import java.text.SimpleDateFormat;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -45,10 +46,24 @@ public class GenericKeywords extends ApplicationKeywords {
 	public void openBrowser(String browserName) {
 
 		if (browserName.equalsIgnoreCase("Chrome")) {
+			if(System.getProperty("os.name").equalsIgnoreCase("Linux"))
+			{
+				logger.info("openBrowser action is started");
+				   System.setProperty("webdriver.chrome.driver", "/var/lib/jenkins/tools/chromedriver/chromedriver");
+				   ChromeOptions opt = new ChromeOptions();
+				   opt.setBinary("/usr/bin/google-chrome-stable");  //chrome binary location specified here
+				   opt.addArguments("start-maximized", "--disable-gpu", "--no-sandbox", "--disable-extensions", "--disable-dev-shm-usage", "--headless");
+				   opt.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
+				   opt.setExperimentalOption("useAutomationExtension", false);
+				   driver = new ChromeDriver(opt);
+			}
+			else
+			{
 			logger.info("openBrowser action is started");
 			System.setProperty("webdriver.chrome.driver",
-					System.getProperty("user.dir") + "\\webDrivers\\chromedriver.exe");
+					System.getProperty("user.dir") + "/webDrivers/chromedriver.exe");
 			driver = new ChromeDriver();
+			}
 		} else if (browserName.equalsIgnoreCase("IE")) {
 			DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
 			capabilities.setCapability("requireWindowFocus", true);
