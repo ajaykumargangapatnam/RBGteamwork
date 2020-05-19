@@ -47,15 +47,15 @@ public class GenericKeywords extends ApplicationKeywords {
 		if (browserName.equalsIgnoreCase("Chrome")) {
 			logger.info("openBrowser action is started");
 			System.setProperty("webdriver.chrome.driver",
-					//System.getProperty("user.dir") + "/webDrivers/chromedriver.exe");
-					"/var/lib/jenkins/tools/chromedriver/chromedriver");
+					System.getProperty("user.dir") + "/webDrivers/chromedriver.exe");
+					//"/var/lib/jenkins/tools/chromedriver/chromedriver");
 					//"/usr/bin/google-chrome-stable");
 			//adam added this
-			ChromeOptions chromeOptions = new ChromeOptions();
+			//ChromeOptions chromeOptions = new ChromeOptions();
 			//chromeOptions.addArguments("--headless");
-			chromeOptions.setBinary("/usr/bin/google-chrome-stable");
-			driver = new ChromeDriver(chromeOptions);
-			//driver = new ChromeDriver();
+			//chromeOptions.setBinary("/usr/bin/google-chrome-stable");
+			//driver = new ChromeDriver(chromeOptions);
+			driver = new ChromeDriver();
 		} else if (browserName.equalsIgnoreCase("IE")) {
 			DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
 			capabilities.setCapability("requireWindowFocus", true);
