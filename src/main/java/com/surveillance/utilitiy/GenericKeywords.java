@@ -1,6 +1,7 @@
 package com.surveillance.utilitiy;
 
 import java.text.SimpleDateFormat;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -55,7 +56,13 @@ public class GenericKeywords extends ApplicationKeywords {
 			//chromeOptions.addArguments("--headless");
 			//chromeOptions.setBinary("/usr/bin/google-chrome-stable");
 			//driver = new ChromeDriver(chromeOptions);
-			driver = new ChromeDriver();
+			ChromeOptions opt = new ChromeOptions();
+			opt.setBinary("/usr/bin/google-chrome-stable");  //chrome binary location specified here
+			opt.addArguments("start-maximized");
+			opt.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
+			opt.setExperimentalOption("useAutomationExtension", false);
+			
+			driver = new ChromeDriver(opt);
 		} else if (browserName.equalsIgnoreCase("IE")) {
 			DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
 			capabilities.setCapability("requireWindowFocus", true);
