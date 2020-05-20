@@ -48,22 +48,20 @@ public class GenericKeywords extends ApplicationKeywords {
 		if (browserName.equalsIgnoreCase("Chrome")) {
 			logger.info("openBrowser action is started");
 			System.setProperty("webdriver.chrome.driver",
-					//System.getProperty("user.dir") + "/webDrivers/chromedriver.exe");
-					"/var/lib/jenkins/tools/chromedriver/chromedriver");
-					//"/usr/bin/google-chrome-stable");
-			//adam added this
-			//ChromeOptions chromeOptions = new ChromeOptions();
-			//chromeOptions.addArguments("--headless");
-			//chromeOptions.setBinary("/usr/bin/google-chrome-stable");
-			//driver = new ChromeDriver(chromeOptions);
+					System.getProperty("user.dir") + "/webDrivers/chromedriver.exe");
+			driver = new ChromeDriver();
+
+		} else if (browserName.equalsIgnoreCase("Jenkins")){
+			logger.info("openBrowser action is started");
+			System.setProperty("webdriver.chrome.driver", "/var/lib/jenkins/tools/chromedriver/chromedriver");
 			ChromeOptions opt = new ChromeOptions();
 			opt.setBinary("/usr/bin/google-chrome-stable");  //chrome binary location specified here
-			opt.addArguments("start-maximized","--disable-gpu", "--no-sandbox", "--disable-extensions", "--disable-dev-shm-usage", "--headless");
+			opt.addArguments("start-maximized", "--disable-gpu", "--no-sandbox", "--disable-extensions", "--disable-dev-shm-usage", "--headless");
 			opt.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
 			opt.setExperimentalOption("useAutomationExtension", false);
-
 			driver = new ChromeDriver(opt);
-		} else if (browserName.equalsIgnoreCase("IE")) {
+
+		}else if (browserName.equalsIgnoreCase("IE")) {
 			DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
 			capabilities.setCapability("requireWindowFocus", true);
 			capabilities.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, false);
