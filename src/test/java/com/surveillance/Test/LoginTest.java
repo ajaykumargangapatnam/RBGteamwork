@@ -41,7 +41,7 @@ public class LoginTest extends BaseTest{
 		
 		login.clickOnLogin();
 		
-		
+		s_assert.assertAll();
 		
 		
 	}
