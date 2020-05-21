@@ -1,6 +1,7 @@
 package com.surveillance.utilitiy;
 
 import java.text.SimpleDateFormat;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -33,7 +34,7 @@ public class GenericKeywords extends ApplicationKeywords {
 	public GenericKeywords(String classname) {
 		System.out.println("GenericKeywords class Name: " + classname);
 		logger =Logger.getLogger(classname);
-		PropertyConfigurator.configure(System.getProperty("user.dir") + "\\ConfigProperties\\log4j.properties");
+		PropertyConfigurator.configure(System.getProperty("user.dir") + "/ConfigProperties/log4j.properties");
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hhmmss");
 		System.setProperty("current.date", classname + "_" + dateFormat.format(new Date()));
 	}
@@ -47,20 +48,31 @@ public class GenericKeywords extends ApplicationKeywords {
 		if (browserName.equalsIgnoreCase("Chrome")) {
 			logger.info("openBrowser action is started");
 			System.setProperty("webdriver.chrome.driver",
-					System.getProperty("user.dir") + "\\webDrivers\\chromedriver.exe");
+					System.getProperty("user.dir") + "/webDrivers/chromedriver.exe");
 			driver = new ChromeDriver();
-		} else if (browserName.equalsIgnoreCase("IE")) {
+
+		} else if (browserName.equalsIgnoreCase("Jenkins")){
+			logger.info("openBrowser action is started");
+			System.setProperty("webdriver.chrome.driver", "/var/lib/jenkins/tools/chromedriver/chromedriver");
+			ChromeOptions opt = new ChromeOptions();
+			opt.setBinary("/usr/bin/google-chrome-stable");  //chrome binary location specified here
+			opt.addArguments("start-maximized", "--disable-gpu", "--no-sandbox", "--disable-extensions", "--disable-dev-shm-usage", "--headless");
+			opt.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
+			opt.setExperimentalOption("useAutomationExtension", false);
+			driver = new ChromeDriver(opt);
+
+		}else if (browserName.equalsIgnoreCase("IE")) {
 			DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
 			capabilities.setCapability("requireWindowFocus", true);
 			capabilities.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, false);
 			capabilities.setCapability("ie.ensureCleanSession", true);
 			System.setProperty("webdriver.ie.driver",
-					System.getProperty("user.dir") + "\\webDrivers\\IEDriverServer.exe");
+					System.getProperty("user.dir") + "/webDrivers/IEDriverServer.exe");
 			driver = new InternetExplorerDriver();
 
 		} else if (browserName.equalsIgnoreCase("Edge")) {
 			System.setProperty("webdriver.edge.driver",
-					System.getProperty("user.dir") + "\\webDrivers\\MicrosoftWebDriver.exe");
+					System.getProperty("user.dir") + "/webDrivers/MicrosoftWebDriver.exe");
 			driver = new EdgeDriver();
 
 		} else if (browserName.equalsIgnoreCase("firefox")) {

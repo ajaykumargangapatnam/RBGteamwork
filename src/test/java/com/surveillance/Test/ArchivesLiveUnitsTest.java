@@ -61,7 +61,7 @@ public class ArchivesLiveUnitsTest extends BaseTest
 	
 	@DataProvider
 	public Object[][] setData1() {
-		Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "\\TestData\\testdata.xlsx");
+		Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "/TestData/testdata.xlsx");
 		return ReadData.getData("LiveUnits", "ArchiveLiveUnits", xls);
 	}
 

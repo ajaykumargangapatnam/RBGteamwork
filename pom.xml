@@ -134,8 +134,7 @@
 				<configuration>
 					<suiteXmlFiles>
 						<!-- TestNG suite XML files -->
-						<suiteXmlFile>..\surveillancetest\masterSuite.xml</suiteXmlFile>
-						<suiteXmlFile>..\Agile367\masterSuite.xml</suiteXmlFile>
+						<suiteXmlFile>./masterSuite.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>

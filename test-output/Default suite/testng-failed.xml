@@ -6,4 +6,21 @@
       <class name="com.surveillance.Test.CameraLiveUnitTest"/>
     </classes>
   </test> <!-- Default test -->
+  <test name="Default test(failed)">
+    <classes>
+      <class name="com.surveillance.Test.CameraLiveUnitTest">
+        <methods>
+          <include name="verifyCameraLiveUnitDeactive" invocation-numbers="0"/>
+          <include name="setUp"/>
+          <include name="setup"/>
+          <include name="verifyCameraLiveUnitToActive"/>
+          <include name="endReport"/>
+          <include name="verifyCameraLiveUnitInvoiceDataReport"/>
+          <include name="verifyPopUpCancelButton" invocation-numbers="0"/>
+          <include name="startReport"/>
+          <include name="getResult"/>
+        </methods>
+      </class> <!-- com.surveillance.Test.CameraLiveUnitTest -->
+    </classes>
+  </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
