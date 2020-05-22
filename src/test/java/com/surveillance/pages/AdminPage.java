@@ -115,5 +115,10 @@ public class AdminPage
 		return this;
 	}
 	
+	public AdminPage clickonClients() throws Throwable
+	{
+		keywords.jsClick("xpath", _instance.getValue("AdminPage.Clients"));
+		return this;
+	}
 
 }
