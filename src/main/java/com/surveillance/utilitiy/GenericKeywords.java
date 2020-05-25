@@ -56,9 +56,7 @@ public class GenericKeywords extends ApplicationKeywords {
 				   opt.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
 				   opt.setExperimentalOption("useAutomationExtension", false);
 				   driver = new ChromeDriver(opt);
-			}
-			else
-			{
+			
 			logger.info("openBrowser action is started");
 			System.setProperty("webdriver.chrome.driver",
 					System.getProperty("user.dir") + "/webDrivers/chromedriver.exe");
@@ -104,6 +102,7 @@ public class GenericKeywords extends ApplicationKeywords {
 		 */
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		logger.info(browserName + " launched successfully");
+		}
 	}
 
 	/**
