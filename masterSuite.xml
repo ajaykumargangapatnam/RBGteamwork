@@ -5,11 +5,12 @@
 		<classes>
 			<class name="com.surveillance.Test.LoginTest"/>
 			<class name="com.surveillance.Test.AddNewUserTest"/>
-			<class name="com.surveillance.Test.LoginTest"/>
-			<class name="com.surveillance.Test.LoginTest"/>
-			<class name="com.surveillance.Test.LoginTest"/>
-			<class name="com.surveillance.Test.LoginTest"/>
-			
+			<class name="com.surveillance.Test.AdminReportTest"/>
+			<class name="com.surveillance.Test.ArchivesLiveUnitsTest"/>
+			<class name="com.surveillance.Test.CameraLiveUnitTest"/>
+			<class name="com.surveillance.Test.D3CommandCenterTest"/>
+			<class name="com.surveillance.Test.NotificationsTest"/>
+			<class name="com.surveillance.Test.RevenuePerLiveUnitTest"/>
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

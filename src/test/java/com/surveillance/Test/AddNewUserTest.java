@@ -65,7 +65,7 @@ public class AddNewUserTest extends BaseTest{
 
 	}		
 	
-	@Test(priority = 0, dataProvider = "setData1")
+//	@Test(priority = 0, dataProvider = "setData1")
 	public void AddNewUserWithAllFields(Hashtable<String, String> h2) throws Throwable 
 	{
 		extentLoggerECP = parentExtentLogger.createNode("Login Test");
@@ -105,9 +105,7 @@ public class AddNewUserTest extends BaseTest{
 		addNewUserPage.enterNewPassword(h2.get("NewPassword"));
 		addNewUserPage.enterConfirmPassword(h2.get("ConfirmPassword"));
 		addNewUserPage.clickonResetSubmit();
-			
-
-	}	
+			}	
 
 	@DataProvider
 	public Object[][] setData1() {
