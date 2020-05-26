@@ -192,6 +192,8 @@ public class CreateNewClientTest extends BaseTest
 	createNewClientPage.clickOnAddNewClient_clientpage();
 	passLog();
 	}
+	
+	
 	@DataProvider
 	public Object[][] setDataforAllFileds() {
 		Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "\\TestData\\testdata.xlsx");

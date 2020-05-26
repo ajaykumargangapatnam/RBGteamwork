@@ -56,11 +56,13 @@ public class GenericKeywords extends ApplicationKeywords {
 				   opt.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
 				   opt.setExperimentalOption("useAutomationExtension", false);
 				   driver = new ChromeDriver(opt);
-			
+			}
+			else{
 			logger.info("openBrowser action is started");
 			System.setProperty("webdriver.chrome.driver",
 					System.getProperty("user.dir") + "/webDrivers/chromedriver.exe");
 			driver = new ChromeDriver();
+			}
 
 		} else if (browserName.equalsIgnoreCase("Jenkins")){
 			logger.info("openBrowser action is started");
@@ -103,7 +105,7 @@ public class GenericKeywords extends ApplicationKeywords {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		logger.info(browserName + " launched successfully");
 		}
-	}
+	
 
 	/**
 	 * Method Name : selectParentWindow purpose : gets back to the previous window.

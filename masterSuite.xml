@@ -4,6 +4,12 @@
 	<test thread-count="10" name="DealerTest">
 		<classes>
 			<class name="com.surveillance.Test.LoginTest"/>
+			<class name="com.surveillance.Test.AddNewUserTest"/>
+			<class name="com.surveillance.Test.LoginTest"/>
+			<class name="com.surveillance.Test.LoginTest"/>
+			<class name="com.surveillance.Test.LoginTest"/>
+			<class name="com.surveillance.Test.LoginTest"/>
+			
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

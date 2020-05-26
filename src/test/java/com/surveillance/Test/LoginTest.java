@@ -28,24 +28,35 @@ public class LoginTest extends BaseTest{
 	}
 
 	
-	@Test(priority = 0, dataProvider = "setData1")
+
 	public void logintest(Hashtable<String, String> h2) throws Exception 
 	{
-//		extentLoggerECP = parentExtentLogger.createNode("Login Test");
+		
 		System.out.println("userEmail "+h2.get("Email"));
 		login.enterLoginEmail(h2.get("Email"));
-		System.out.println();
 		login.clickOnLogin();
-		
 		login.enterPassword(h2.get("Password"));
-		
 		login.clickOnLogin();
 		
-		s_assert.assertAll();
+
 		
 		
 	}
 	
+	
+	@Test(priority = 0, dataProvider = "setData1")
+	public void loginWithValidCredentials(Hashtable<String, String> h2) throws Exception 
+	{
+		extentLoggerECP = parentExtentLogger.createNode("Login Test");
+		System.out.println("userEmail "+h2.get("Email"));
+		login.enterLoginEmail(h2.get("Email"));
+		login.clickOnLogin();
+		login.enterPassword(h2.get("Password"));
+		login.clickOnLogin();
+		s_assert.assertAll();
+		
+		
+	}
 	@DataProvider
 	public Object[][] setData1() {
 		Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "/TestData/testdata.xlsx");
