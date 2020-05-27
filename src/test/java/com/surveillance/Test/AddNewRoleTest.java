@@ -37,6 +37,7 @@ public class AddNewRoleTest  extends BaseTest{
 		
 	}
 	
+	
 	@Test(priority = 0, dataProvider = "setData1")
 	public void CancelCreateNewRoleTest(Hashtable<String, String> h2) throws Throwable 
 	{

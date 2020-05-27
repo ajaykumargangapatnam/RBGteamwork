@@ -45,12 +45,13 @@ public class LoginTest extends BaseTest{
 	public void loginWithValidCredentials(Hashtable<String, String> h2) throws Exception 
 	{
 		extentLoggerECP = parentExtentLogger.createNode("login With Valid Credentials");
+		s_assert = new SoftAssert();
 		System.out.println("userEmail "+h2.get("Email"));
 		login.enterLoginEmail(h2.get("Email"));
 		login.clickOnLogin();
 		login.enterPassword(h2.get("Password"));
 		login.clickOnLogin();
-		s_assert.assertAll();
+	
 		
 		
 	}
@@ -65,6 +66,7 @@ public class LoginTest extends BaseTest{
 	public void loginWithInvalidCredentials() throws Exception 
 	{
 		extentLoggerECP = parentExtentLogger.createNode("login With Invalid Credentials");
+		s_assert = new SoftAssert();
 		System.out.println("userEmail "+"Email");
 		login.enterLoginEmail("Email@tetii1.com");
 		System.out.println();
@@ -76,12 +78,14 @@ public class LoginTest extends BaseTest{
 		String actualData=login.verifyInvalidCredentialsText();
 		s_assert.assertEquals(actualData, "Invalid email/password combination");
 		passLog();
+		s_assert.assertAll();
 		}
 	
 	
 	@Test(priority = 0)
 	public void loginPage() throws Exception {
 		extentLoggerECP = parentExtentLogger.createNode("Login Page fields validation");
+		s_assert = new SoftAssert();
 	String actualLoginViaGoogleLable=login.verifyLoginViaGoogleLable();
 	s_assert.assertEquals(actualLoginViaGoogleLable, "LOGIN VIA GOOGLE");
 	passLog();
@@ -101,16 +105,18 @@ public class LoginTest extends BaseTest{
 	passLog();
 	login.clickOnLogin();
 	passLog();
+	Thread.sleep(5000);
 	String actualNOTYOU=login.verifyNOTYOU();
+	System.out.println("actualNOTYOU "+actualNOTYOU);
 	s_assert.assertEquals(actualNOTYOU, "NOT YOU?");
 	passLog();
-	String actualPassword=login.verifyNOTYOU();
+	String actualPassword=login.verifyPassword();
 	s_assert.assertEquals(actualPassword, "Password");
 	passLog();
 	boolean actualInputPassword=login.verifyInputPassword();
 	s_assert.assertEquals(actualInputPassword, true);
 	passLog();
-	
+	s_assert.assertAll();
 	}
 	
 }
