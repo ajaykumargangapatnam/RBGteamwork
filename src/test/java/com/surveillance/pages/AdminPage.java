@@ -120,5 +120,11 @@ public class AdminPage
 		keywords.jsClick("xpath", _instance.getValue("AdminPage.Clients"));
 		return this;
 	}
+	
+	public AdminPage clickonRoles() throws Throwable
+	{
+		keywords.jsClick("xpath", _instance.getValue("AdminPage.Roles"));
+		return this;
+	}
 
 }

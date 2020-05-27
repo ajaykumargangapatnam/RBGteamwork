@@ -39,7 +39,7 @@ public class CreateNewClientTest extends BaseTest
 	@Test(priority = 0, dataProvider = "setData1",enabled =false)
 	public void NewClientwithmandatoryfields(Hashtable<String, String> h2) throws Throwable 
 	{
-	extentLoggerECP = parentExtentLogger.createNode("NewClientwithmandatoryfields");
+	extentLoggerECP = parentExtentLogger.createNode("New Client with mandatory fields");
 	
 	loginTest.logintest(h2);
 	passLog();
@@ -68,7 +68,7 @@ public class CreateNewClientTest extends BaseTest
 	@Test(priority = 0, dataProvider = "setDataforAllFileds")
 	public void createNewClientWithAllFields(Hashtable<String, String> h2) throws Throwable 
 	{
-	extentLoggerECP = parentExtentLogger.createNode("createNewClientWithAllFields");
+	extentLoggerECP = parentExtentLogger.createNode("create NewClient With All Fields");
 	loginTest.logintest(h2);
 	passLog();
 	homePage.clickOnUserAdmin();

@@ -38,16 +38,13 @@ public class LoginTest extends BaseTest{
 		login.enterPassword(h2.get("Password"));
 		login.clickOnLogin();
 		
-
-		
-		
 	}
 	
 	
 	@Test(priority = 0, dataProvider = "setData1")
 	public void loginWithValidCredentials(Hashtable<String, String> h2) throws Exception 
 	{
-		extentLoggerECP = parentExtentLogger.createNode("Login Test");
+		extentLoggerECP = parentExtentLogger.createNode("login With Valid Credentials");
 		System.out.println("userEmail "+h2.get("Email"));
 		login.enterLoginEmail(h2.get("Email"));
 		login.clickOnLogin();
@@ -57,11 +54,63 @@ public class LoginTest extends BaseTest{
 		
 		
 	}
+	
 	@DataProvider
 	public Object[][] setData1() {
 		Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "/TestData/testdata.xlsx");
 		return ReadData.getData("Logintest", "LoginTC", xls);
 	}
 
-
+	@Test(priority = 0)
+	public void loginWithInvalidCredentials() throws Exception 
+	{
+		extentLoggerECP = parentExtentLogger.createNode("login With Invalid Credentials");
+		System.out.println("userEmail "+"Email");
+		login.enterLoginEmail("Email@tetii1.com");
+		System.out.println();
+		login.clickOnLogin();
+		passLog();
+		login.enterPassword("Password");
+		passLog();
+		login.clickOnLogin();
+		String actualData=login.verifyInvalidCredentialsText();
+		s_assert.assertEquals(actualData, "Invalid email/password combination");
+		passLog();
+		}
+	
+	
+	@Test(priority = 0)
+	public void loginPage() throws Exception {
+		extentLoggerECP = parentExtentLogger.createNode("Login Page fields validation");
+	String actualLoginViaGoogleLable=login.verifyLoginViaGoogleLable();
+	s_assert.assertEquals(actualLoginViaGoogleLable, "LOGIN VIA GOOGLE");
+	passLog();
+	String actualEmailLable=login.verifyEmailLable();
+	s_assert.assertEquals(actualEmailLable, "Email");
+	passLog();
+	boolean actualuserName=login.verifyuserName();
+	s_assert.assertEquals(actualuserName, true);
+	passLog();
+	boolean actualBTNLogin=login.verifyuserName();
+	s_assert.assertEquals(actualBTNLogin, true);
+	passLog();
+	String actualForgetYourPassword=login.verifyForgetYourPassword();
+	s_assert.assertEquals(actualForgetYourPassword, "FORGOT YOUR PASSWORD?");
+	passLog();
+	login.enterLoginEmail("kalyan.babu@contractor.liveviewtech.com");
+	passLog();
+	login.clickOnLogin();
+	passLog();
+	String actualNOTYOU=login.verifyNOTYOU();
+	s_assert.assertEquals(actualNOTYOU, "NOT YOU?");
+	passLog();
+	String actualPassword=login.verifyNOTYOU();
+	s_assert.assertEquals(actualPassword, "Password");
+	passLog();
+	boolean actualInputPassword=login.verifyInputPassword();
+	s_assert.assertEquals(actualInputPassword, true);
+	passLog();
+	
+	}
+	
 }

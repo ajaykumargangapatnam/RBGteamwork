@@ -38,7 +38,7 @@ public class AddNewUserTest extends BaseTest{
 	@Test(priority = 0, dataProvider = "setData1")
 	public void AddNewUserWithMadatoryFields(Hashtable<String, String> h2) throws Throwable 
 	{
-		extentLoggerECP = parentExtentLogger.createNode("Login Test");
+		extentLoggerECP = parentExtentLogger.createNode("Add User with Madatory Fields");
 		loginTest.logintest(h2);
 		passLog();
 		homePage.clickOnUserAdmin();
@@ -68,7 +68,7 @@ public class AddNewUserTest extends BaseTest{
 	@Test(priority = 0, dataProvider = "setData1")
 	public void AddNewUserWithAllFields(Hashtable<String, String> h2) throws Throwable 
 	{
-		extentLoggerECP = parentExtentLogger.createNode("Login Test");
+		extentLoggerECP = parentExtentLogger.createNode("Add User with all Fields");
 		loginTest.logintest(h2);
 		passLog();
 		homePage.clickOnUserAdmin();
