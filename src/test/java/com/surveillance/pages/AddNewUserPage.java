@@ -232,4 +232,31 @@ PropertySingleton _instance = null;
 		return this;
 	}
 	
+	
+	public AddNewUserPage SelectAllPoliciesAssigned() throws Throwable
+	{
+	keywords.selectAllOptions("xpath", _instance.getValue("AddNewUser.DropDown_PoliciesAssigned"));
+	return this;
+	}
+	public AddNewUserPage SelectAllQueuesAssigned() throws Throwable
+	{
+	keywords.selectAllOptions("xpath", _instance.getValue("AddNewUser.Dropdown_QueuesAssigned"));
+	return this;
+	}
+	public AddNewUserPage clickonRemove() throws Throwable
+	{
+		keywords.jsClick("xpath", _instance.getValue("AddNewUser.BTN_Remove"));
+		return this;
+	}
+	public AddNewUserPage clickOnUpdateUser()
+	{
+		keywords.jsClick("xpath", _instance.getValue("AddNewUser.BTN_UpdateUser"));
+		return this;
+	}
+	
+	public AddNewUserPage SelectAllQueues() throws Throwable
+	{
+	keywords.selectAllOptions("xpath", _instance.getValue("AddNewUser.DropDown_Queues"));
+	return this;
+	}
 }
