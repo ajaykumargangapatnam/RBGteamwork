@@ -81,7 +81,7 @@ public class CameraLiveUnitTest extends BaseTest
 		tillGotoLiveUnit();
 		String serialNumber=cameraPage.getSerialNumber();
 		cameraPage.clickOnDeactive();
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 
 		cameraPage.enterSerialNumber(serialNumber);
 		Thread.sleep(10000);
