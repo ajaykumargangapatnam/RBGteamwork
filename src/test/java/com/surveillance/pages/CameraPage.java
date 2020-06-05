@@ -73,7 +73,7 @@ PropertySingleton _instance = null;
 	public CameraPage enterSerialNumber(String SerialNumber) throws Throwable
 	{
 //		keywords.EntertextInAlert("MAC00232");
-		
+		System.setProperty("java.awt.headless", "false");
 		Robot rb =new Robot();
 		
 		String string="MAC00232";
