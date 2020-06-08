@@ -82,8 +82,7 @@ public class CameraLiveUnitTest extends BaseTest
 		String serialNumber=cameraPage.getSerialNumber();
 		cameraPage.clickOnDeactive();
 		Thread.sleep(1000);
-		//cameraPage.enterSerialNumber(serialNumber);
-		cameraPage.enterSerialNumber("MAC00232");
+		cameraPage.enterSerialNumber(serialNumber);
 		Thread.sleep(1000);
 		cameraPage.DismisOrActivePopUp(h2.get("ActivePopUps"));
 		Thread.sleep(1000);
