@@ -68,7 +68,7 @@ public class CameraLiveUnitTest extends BaseTest
 		cameraPage.DismisOrActivePopUp("dismiss");
 		Thread.sleep(10000);
 		passLog();
-		s_assert.assertTrue(cameraPage.verifyDeActiveButton()==true);
+		s_assert.assertTrue(cameraPage.verifyDeActiveButton()==false);
 		s_assert.assertAll();
 				
 	}
@@ -81,12 +81,11 @@ public class CameraLiveUnitTest extends BaseTest
 		tillGotoLiveUnit();
 		String serialNumber=cameraPage.getSerialNumber();
 		cameraPage.clickOnDeactive();
-		Thread.sleep(10000);
-
+		Thread.sleep(1000);
 		cameraPage.enterSerialNumber(serialNumber);
-		Thread.sleep(10000);
-//		cameraPage.DismisOrActivePopUp(h2.get("ActivePopUps"));
-		Thread.sleep(10000);
+		Thread.sleep(1000);
+		cameraPage.DismisOrActivePopUp(h2.get("ActivePopUps"));
+		Thread.sleep(1000);
 		passLog();
 		s_assert.assertTrue(cameraPage.verifyActiveButton()==true);
 		s_assert.assertAll();
@@ -111,7 +110,7 @@ public class CameraLiveUnitTest extends BaseTest
 //		cameraPage.DismisOrActivePopUp(h2.get("ActivePopUps"));
 		Thread.sleep(10000);
 		passLog();
-		s_assert.assertTrue(cameraPage.verifyDeActiveButton()==true);
+		s_assert.assertTrue(cameraPage.verifyDeActiveButton()==false);
 		s_assert.assertAll();
 			
 	}
@@ -127,7 +126,7 @@ public class CameraLiveUnitTest extends BaseTest
 		cameraPage.verifyInvoicePage();
 		cameraPage.clickOnReturntoLiveUnit();
 		
-		s_assert.assertTrue(cameraPage.verifyInvoiceDataReport()==true);
+		s_assert.assertTrue(cameraPage.verifyInvoiceDataReport()==false);
 		s_assert.assertAll();
 			
 	}

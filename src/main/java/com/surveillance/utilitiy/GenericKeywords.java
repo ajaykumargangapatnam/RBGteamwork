@@ -7,7 +7,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
-
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.Alert;
@@ -29,7 +31,6 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class GenericKeywords extends ApplicationKeywords {
-	
 
 	public GenericKeywords(String classname) {
 		System.out.println("GenericKeywords class Name: " + classname);
@@ -563,7 +564,14 @@ public class GenericKeywords extends ApplicationKeywords {
 	public void EntertextInAlert(String data) throws Throwable {
 		System.out.println("alert text "+data);
 		Alert alert=driver.switchTo().alert();
-//		alert.sendKeys(data);
+		alert.sendKeys(data);
+		String str = data;
+		Toolkit toolkit = Toolkit.getDefaultToolkit();
+		Clipboard clipboard = toolkit.getSystemClipboard();
+		StringSelection strSel = new StringSelection(str);
+		clipboard.setContents(strSel, null);
+		Actions builder = new Actions(driver);
+		builder.keyDown(Keys.CONTROL).sendKeys("v");
 		
 		logger.info("Alert enter text action is completed");	
 		}
