@@ -116,9 +116,9 @@ PropertySingleton _instance = null;
 		String text=keywords.getText("xpath", _instance.getValue("CameraPage.SerialNumber"));
 		//WebElement elem = keywords.elementFind("xpath", "//h2/following::td[5]");
 		keywords.driver.findElement(By.xpath("//h2/following::td[5]")).click();
-		Actions actions = new Actions(keywords.driver);
+		//Actions actions = new Actions(keywords.driver);
 		//actions.doubleClick(elem).keyDown(Keys.CONTROL).sendKeys("c").keyUp(Keys.CONTROL).perform();
-		actions.keyDown(Keys.CONTROL).sendKeys("c").keyUp(Keys.CONTROL).perform();
+		//actions.keyDown(Keys.CONTROL).sendKeys("c").keyUp(Keys.CONTROL).perform();
 		return text;
 	}
 	
