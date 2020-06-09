@@ -565,11 +565,11 @@ public class GenericKeywords extends ApplicationKeywords {
 		System.out.println("alert text "+data);
 		Alert alert=driver.switchTo().alert();
 		alert.sendKeys(data);
-		String str = data;
-		Toolkit toolkit = Toolkit.getDefaultToolkit();
-		Clipboard clipboard = toolkit.getSystemClipboard();
-		StringSelection strSel = new StringSelection(str);
-		clipboard.setContents(strSel, null);
+//		String str = data;
+//		Toolkit toolkit = Toolkit.getDefaultToolkit();
+//		Clipboard clipboard = toolkit.getSystemClipboard();
+//		StringSelection strSel = new StringSelection(str);
+//		clipboard.setContents(strSel, null);
 		Actions builder = new Actions(driver);
 		builder.keyDown(Keys.CONTROL).sendKeys("v");
 		
