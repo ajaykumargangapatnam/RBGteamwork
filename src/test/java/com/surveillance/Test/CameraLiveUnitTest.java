@@ -57,8 +57,8 @@ public class CameraLiveUnitTest extends BaseTest
 	
 	}
 	
-	@Test(priority =1, dataProvider = "setData1")
-	public void verifyPopUpCancelButton(Hashtable<String, String> h2) throws Throwable 
+	@Test(dataProvider = "setData1")
+	public void a_verifyPopUpCancelButton(Hashtable<String, String> h2) throws Throwable
 	{
 		extentLoggerECP = parentExtentLogger.createNode("verify  Popup window cancel option");
 		loginTest.logintest(h2);
@@ -73,8 +73,8 @@ public class CameraLiveUnitTest extends BaseTest
 		s_assert.assertAll();
 				
 	}
-	@Test(priority =2, dataProvider = "setData1")
-	public void verifyCameraLiveUnitDeactive(Hashtable<String, String> h2) throws Throwable 
+	@Test(dataProvider = "setData1")
+	public void b_verifyCameraLiveUnitDeactive(Hashtable<String, String> h2) throws Throwable
 	{
 		extentLoggerECP = parentExtentLogger.createNode("verify  verifyCameraLiveUnit to Deactive");
 		loginTest.logintest(h2);
@@ -93,8 +93,8 @@ public class CameraLiveUnitTest extends BaseTest
 		
 		}
 
-	@Test(priority =3, dataProvider = "setData1")//, dependsOnMethods="verifyCameraLiveUnitDeactive"
-	public void verifyCameraLiveUnitToActive(Hashtable<String, String> h2) throws Throwable 
+	@Test(dataProvider = "setData1")//, dependsOnMethods="verifyCameraLiveUnitDeactive"
+	public void c_verifyCameraLiveUnitToActive(Hashtable<String, String> h2) throws Throwable
 	{
 		extentLoggerECP = parentExtentLogger.createNode("verify  verifyCameraLiveUnit to Active");
 		loginTest.logintest(h2);
@@ -113,8 +113,8 @@ public class CameraLiveUnitTest extends BaseTest
 			
 	}
 	
-	@Test(priority =4, dataProvider = "setData1")//, dependsOnMethods="verifyCameraLiveUnitDeactive"
-	public void verifyCameraLiveUnitInvoiceDataReport(Hashtable<String, String> h2) throws Throwable 
+	@Test(dataProvider = "setData1")//, dependsOnMethods="verifyCameraLiveUnitDeactive"
+	public void d_verifyCameraLiveUnitInvoiceDataReport(Hashtable<String, String> h2) throws Throwable
 	{
 		extentLoggerECP = parentExtentLogger.createNode("verify  verifyCameraLiveUnit Invoice Data Report");
 		loginTest.logintest(h2);
