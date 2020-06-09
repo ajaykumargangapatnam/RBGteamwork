@@ -1,5 +1,5 @@
 package com.surveillance.utilitiy;
-
+import java.awt.HeadlessException; //put this here for jenkins
 import java.text.SimpleDateFormat;
 import java.util.Collections;
 import java.util.Date;
@@ -7,7 +7,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
-
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.Alert;
@@ -29,7 +31,6 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class GenericKeywords extends ApplicationKeywords {
-	
 
 	public GenericKeywords(String classname) {
 		System.out.println("GenericKeywords class Name: " + classname);
@@ -46,10 +47,23 @@ public class GenericKeywords extends ApplicationKeywords {
 	public void openBrowser(String browserName) {
 
 		if (browserName.equalsIgnoreCase("Chrome")) {
+			if(System.getProperty("os.name").equalsIgnoreCase("Linux"))
+			{
+				logger.info("openBrowser action is started");
+				   System.setProperty("webdriver.chrome.driver", "/var/lib/jenkins/tools/chromedriver/chromedriver");
+				   ChromeOptions opt = new ChromeOptions();
+				   opt.setBinary("/usr/bin/google-chrome-stable");  //chrome binary location specified here
+				   opt.addArguments("start-maximized", "--disable-gpu", "--no-sandbox", "--disable-extensions", "--disable-dev-shm-usage", "--headless");
+				   opt.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
+				   opt.setExperimentalOption("useAutomationExtension", false);
+				   driver = new ChromeDriver(opt);
+			}
+			else{
 			logger.info("openBrowser action is started");
 			System.setProperty("webdriver.chrome.driver",
 					System.getProperty("user.dir") + "/webDrivers/chromedriver.exe");
 			driver = new ChromeDriver();
+			}
 
 		} else if (browserName.equalsIgnoreCase("Jenkins")){
 			logger.info("openBrowser action is started");
@@ -62,6 +76,7 @@ public class GenericKeywords extends ApplicationKeywords {
 			driver = new ChromeDriver(opt);
 
 		}else if (browserName.equalsIgnoreCase("IE")) {
+
 			DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
 			capabilities.setCapability("requireWindowFocus", true);
 			capabilities.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, false);
@@ -90,7 +105,8 @@ public class GenericKeywords extends ApplicationKeywords {
 		 */
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		logger.info(browserName + " launched successfully");
-	}
+		}
+	
 
 	/**
 	 * Method Name : selectParentWindow purpose : gets back to the previous window.
@@ -306,12 +322,24 @@ public class GenericKeywords extends ApplicationKeywords {
 
 	}
 
+	public void SelectDropDownByIndex(String locatorindicator, String locatorvalue, int index) {
+		logger.info("SelectDropDown action is started");
+		highlightElement(locatorindicator, locatorvalue);
+		WebElement element = elementFind(locatorindicator, locatorvalue);
+		System.out.println("Drop down is Reached");
+		Select dropdown = new Select(element);
+		System.out.println("Drop down selected");
+		dropdown.selectByIndex(index);
+		logger.info("SelectDropDown action is completed");
+
+	}
+	
 	/**
 	 * Method Name : SelectDropDown purpose : Selecting the values form drop based
 	 * on the data parameters : locator type,locator value ,data Example : Example
 	 * :<xpath>,<//input[@id='email']>,<TXTData>
 	 */
-	public void SelectALLDropDown(String locatorindicator, String locatorvalue, String data) {
+	/*public void SelectALLDropDown(String locatorindicator, String locatorvalue, String data) {
 		logger.info("SelectDropDown action is started");
 		highlightElement(locatorindicator, locatorvalue);
 		WebElement element = elementFind(locatorindicator, locatorvalue);
@@ -322,7 +350,7 @@ public class GenericKeywords extends ApplicationKeywords {
 		dropdown.selectByVisibleText(data);
 		logger.info("SelectDropDown action is completed");
 
-	}
+	}*/
 	/**
 	 * Method Name : verifyDropDownVisibleText purpose : checks whether "Web page
 	 * data matching with expected data or not in a dropdown. parameters : locator
@@ -356,6 +384,34 @@ public class GenericKeywords extends ApplicationKeywords {
 		return elementText;
 	}
 
+	public void deSelectAll(String locatorindicator, String locatorvalue)
+			throws Exception {
+		logger.info("verifyDropDownVisibleText action is started");
+		highlightElement(locatorindicator, locatorvalue);
+		WebElement element = elementFind(locatorindicator, locatorvalue);
+		Select dropdown = new Select(element);
+		 dropdown.deselectAll();
+		
+	}
+	
+	
+	public void selectAllOptions(String locatorindicator, String locatorvalue)
+	{
+		logger.info("verifyDropDownVisibleText action is started");
+		highlightElement(locatorindicator, locatorvalue);
+		WebElement element = elementFind(locatorindicator, locatorvalue);
+		Select select = new Select(element);
+		select.deselectAll();
+
+		List<WebElement> select31Options = select.getOptions();
+
+		for (WebElement option : select31Options) {
+		    select.selectByVisibleText(option.getText());
+		}
+	}
+	
+	
+	
 	/**
 	 * Method Name : selectWindow purpose : Selecting the window based on the title
 	 * parameters : data Example : <Data>
@@ -459,6 +515,7 @@ public class GenericKeywords extends ApplicationKeywords {
 		}
 		logger.info("checkClick action is completed");
 	}
+	
 
 	/**
 	 * Method Name : verifySelect purpose : Clicks the element if it is displayed
@@ -494,6 +551,7 @@ public class GenericKeywords extends ApplicationKeywords {
 
 			}
 		}
+		logger.info("clear and enter data is : "+data);
 		logger.info("clear and enter action is completed");
 	}
 	
@@ -506,7 +564,14 @@ public class GenericKeywords extends ApplicationKeywords {
 	public void EntertextInAlert(String data) throws Throwable {
 		System.out.println("alert text "+data);
 		Alert alert=driver.switchTo().alert();
-//		alert.sendKeys(data);
+		alert.sendKeys(data);
+//		String str = data;
+//		Toolkit toolkit = Toolkit.getDefaultToolkit();
+//		Clipboard clipboard = toolkit.getSystemClipboard();
+//		StringSelection strSel = new StringSelection(str);
+//		clipboard.setContents(strSel, null);
+		Actions builder = new Actions(driver);
+		builder.keyDown(Keys.CONTROL).sendKeys("v");
 		
 		logger.info("Alert enter text action is completed");	
 		}

@@ -34,8 +34,8 @@ public class RevenuePerLiveUnitTest extends BaseTest
 
 	public GenericKeywords keywords = new GenericKeywords("RevenuePerLiveUnitPage");
 
-	@Test(priority = 1, dataProvider = "setData1")
-	public void BillableClientTest(Hashtable<String, String> h2) throws Exception 
+	@Test(dataProvider = "setData1")
+	public void a_BillableClientTest(Hashtable<String, String> h2) throws Exception
 	{
 		extentLoggerECP = parentExtentLogger.createNode("To Billable Client data");
 	
@@ -55,8 +55,10 @@ public class RevenuePerLiveUnitTest extends BaseTest
 		s_assert.assertAll();
 				
 	}
-	@Test(priority = 2, dataProvider = "setData1")
-	public void BillableClientTest2(Hashtable<String, String> h2) throws Exception 
+	
+	
+	@Test(dataProvider = "setData1")
+	public void b_BillableClientTest2(Hashtable<String, String> h2) throws Exception
 	{
 		extentLoggerECP = parentExtentLogger.createNode("To Billable Client data");
 	

@@ -111,8 +111,14 @@
 			<artifactId>excel-exporter</artifactId>
 			<version>1.0.0</version>
 		</dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.14.3</version>
+            <scope>compile</scope>
+        </dependency>
 
-	</dependencies>
+    </dependencies>
 	<build>
 		<plugins>
 			<!-- Compiler plug-in -->
@@ -136,6 +142,9 @@
 						<!-- TestNG suite XML files -->
 						<suiteXmlFile>./masterSuite.xml</suiteXmlFile>
 					</suiteXmlFiles>
+					<systemPropertyVariables>
+						<java.awt.headless>true</java.awt.headless>
+					</systemPropertyVariables>
 				</configuration>
 			</plugin>
 		</plugins>

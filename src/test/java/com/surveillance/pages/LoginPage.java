@@ -30,9 +30,47 @@ public class LoginPage
 		return this;
 	}
 	
-//	public LoginPage enterPassword(String value) throws Exception {
-//		keywords.enterData("xpath", _instance.getValue("loginPage.Edit_Password"), value);
-//		return this;
-//	}
+	public String verifyInvalidCredentialsText() throws Exception {
+		String Data= keywords.getText("xpath", _instance.getValue("loginPage.Lbl_InvalidCredentials"));
+		return Data;
+	}
+
+	public String verifyLoginViaGoogleLable() throws Exception {
+		String Data= keywords.getText("xpath", _instance.getValue("loginPage.Lbl_LoginViaGoogle"));
+		return Data;
+	}
+
+	public String verifyEmailLable() throws Exception {
+		String Data= keywords.getText("xpath", _instance.getValue("loginPage.Lbl_Email"));
+		return Data;
+	}
+	public boolean verifyuserName() throws Exception {
+	
+	boolean IsEnabled=keywords.isEnabled("xpath",  _instance.getValue("loginPage.Edit_userName"));
+	return IsEnabled;
+	}
+	public boolean verifyBTNLogin() throws Exception {
+		
+		boolean IsEnabled=keywords.isEnabled("xpath",  _instance.getValue("loginPage.BTN_Login"));
+		return IsEnabled;
+		}
+	public String verifyForgetYourPassword() throws Exception {
+		String Data= keywords.getText("xpath", _instance.getValue("loginPage.LBL_ForgetYourPassword"));
+		return Data;
+	}
+
+public String verifyNOTYOU() throws Exception {
+	String Data= keywords.getText("xpath", _instance.getValue("loginPage.LBL_NOTYOU"));
+	return Data;
+}
+public String verifyPassword() throws Exception {
+	String Data= keywords.getText("xpath", _instance.getValue("loginPage.LBL_Password"));
+	return Data;
+}
+public boolean verifyInputPassword() throws Exception {
+	
+	boolean IsEnabled=keywords.isEnabled("xpath",  _instance.getValue("loginPage.Edit_Password"));
+	return IsEnabled;
+	}
 	
 }

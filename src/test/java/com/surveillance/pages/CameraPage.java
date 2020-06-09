@@ -3,8 +3,13 @@ package com.surveillance.pages;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import com.surveillance.utilitiy.GenericKeywords;
 import com.surveillance.utilitiy.PropertySingleton;
+import org.openqa.selenium.WebElement;
 
 public class CameraPage
 {
@@ -16,7 +21,7 @@ PropertySingleton _instance = null;
 	}
 
 	public GenericKeywords keywords = new GenericKeywords("CameraPage");
-	
+
 	public CameraPage clickOnLiveUnit()
 	{
 		keywords.jsClick("xpath", _instance.getValue("CameraPage.LiveUnit1"));
@@ -72,27 +77,27 @@ PropertySingleton _instance = null;
 	
 	public CameraPage enterSerialNumber(String SerialNumber) throws Throwable
 	{
-//		keywords.EntertextInAlert("MAC00232");
-		
-		Robot rb =new Robot();
-		
-		String string="MAC00232";
-		rb.keyPress(KeyEvent.VK_CAPS_LOCK);
-		rb.keyRelease(KeyEvent.VK_CAPS_LOCK);
-		for (int i = 0; i < string.length (); ++i) {
-			
-		    char c = string.charAt(i);
-		    
-		    int j = (int)c;
-		    System.out.println("ASCII OF "+c +" = " + j + ".");
-		    rb.keyPress(j);
-			rb.keyRelease(j);
-		}
-		rb.keyPress(KeyEvent.VK_CAPS_LOCK);
-		rb.keyRelease(KeyEvent.VK_CAPS_LOCK);
-		rb.keyPress(KeyEvent.VK_ENTER);
-		rb.keyRelease(KeyEvent.VK_ENTER);
-	
+		keywords.EntertextInAlert(SerialNumber);
+
+//		Robot rb =new Robot();
+//
+//			String string="MAC00232";
+//			rb.keyPress(KeyEvent.VK_CAPS_LOCK);
+//			rb.keyRelease(KeyEvent.VK_CAPS_LOCK);
+//			for (int i = 0; i < string.length (); ++i) {
+//
+//				char c = string.charAt(i);
+//
+//				int j = (int)c;
+//				System.out.println("ASCII OF "+c +" = " + j + ".");
+//				rb.keyPress(j);
+//				rb.keyRelease(j);
+//		}
+//		rb.keyPress(KeyEvent.VK_CAPS_LOCK);
+//		rb.keyRelease(KeyEvent.VK_CAPS_LOCK);
+//		rb.keyPress(KeyEvent.VK_ENTER);
+//		rb.keyRelease(KeyEvent.VK_ENTER);
+//
 		
 		return this;
 	}
@@ -108,9 +113,12 @@ PropertySingleton _instance = null;
 	
 	public String getSerialNumber() throws Throwable 
 	{
-		
 		String text=keywords.getText("xpath", _instance.getValue("CameraPage.SerialNumber"));
-		
+		//WebElement elem = keywords.elementFind("xpath", "//h2/following::td[5]");
+		keywords.driver.findElement(By.xpath("//h2/following::td[5]")).click();
+		//Actions actions = new Actions(keywords.driver);
+		//actions.doubleClick(elem).keyDown(Keys.CONTROL).sendKeys("c").keyUp(Keys.CONTROL).perform();
+		//actions.keyDown(Keys.CONTROL).sendKeys("c").keyUp(Keys.CONTROL).perform();
 		return text;
 	}
 	
@@ -160,6 +168,47 @@ PropertySingleton _instance = null;
 //		keywords.waitForPageLoad();
 		return this;
 	}
+	
+	public CameraPage clickOnSetDemo() throws Throwable
+	{
+		keywords.scrollElementfound("xpath", _instance.getValue("CameraPage.BTN_SetDemo"));
+		keywords.jsClick("xpath", _instance.getValue("CameraPage.BTN_SetDemo"));
+//		keywords.waitForPageLoad();
+		return this;
+	}
+	
+	public CameraPage SelectSetDemoDate() throws Throwable
+	{
+		
+		keywords.selectSetDemoDate();
+		return this;
+	}
+	public boolean gettextDemoDateCalender() throws Throwable
+	{
+	boolean text=false;
+	String Acttext	=keywords.getText("xpath", _instance.getValue("CameraPage.TXT_SetDemoStatus"));
+	String expectData="Changing the demo status will affect billing for this unit.";
+	if(Acttext.equals(expectData))
+	{
+		text=true;
+	}
+		return text;
+	}
+	
+	
+	public boolean verifyLBLDemoEndDate() throws Throwable
+	{
+		boolean text=false;
+		String Acttext	=keywords.getText("xpath", _instance.getValue("CameraPage.BTN_SetDemoEndDate"));
+		String expectData="Set Demo End Date";
+		if(Acttext.equals(expectData))
+		{
+			text=true;
+		}
+			return text;
+		
+	}
+
 	/*public boolean VerifyActiveOrDeactive(String ActiveDeactive) throws Throwable
 	{
 		if(ActiveDeactive.equals("Active"))

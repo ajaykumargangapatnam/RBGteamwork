@@ -17,7 +17,7 @@ public class ArchivesLiveUnitsTest extends BaseTest
 {
 	
 	PropertySingleton _instance = null;
-	SoftAssert s_assert = new SoftAssert();
+	SoftAssert s_assert = new SoftAssert(); 
 	
 	LoginTest loginTest=new LoginTest();
 	HomePage homePage=new HomePage();
@@ -38,7 +38,7 @@ public class ArchivesLiveUnitsTest extends BaseTest
 	@Test(priority = 0, dataProvider = "setData1")
 	public void Archivescamera(Hashtable<String, String> h2) throws Throwable 
 	{
-		extentLoggerECP = parentExtentLogger.createNode("verify D3CommandCenterTest Archivescamera");
+		extentLoggerECP = parentExtentLogger.createNode("Verify Archieve Live Unit");
 		loginTest.logintest(h2);
 		passLog();
 		homePage.clickOnArchives();
