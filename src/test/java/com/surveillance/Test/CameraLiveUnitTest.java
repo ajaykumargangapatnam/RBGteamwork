@@ -2,6 +2,7 @@ package com.surveillance.Test;
 
 import java.util.Hashtable;
 
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -91,10 +92,8 @@ public class CameraLiveUnitTest extends BaseTest
 		s_assert.assertAll();
 		
 		}
-	
-	
-	
-	@Test(priority = 2, dataProvider = "setData1",dependsOnMethods="verifyCameraLiveUnitDeactive")
+
+	@Test(priority = 2, dataProvider = "setData1", dependsOnMethods="verifyCameraLiveUnitDeactive")
 	public void verifyCameraLiveUnitToActive(Hashtable<String, String> h2) throws Throwable 
 	{
 		extentLoggerECP = parentExtentLogger.createNode("verify  verifyCameraLiveUnit to Active");
@@ -114,7 +113,7 @@ public class CameraLiveUnitTest extends BaseTest
 			
 	}
 	
-	@Test(priority = 3, dataProvider = "setData1",dependsOnMethods="verifyCameraLiveUnitDeactive")
+	@Test(priority = 3, dataProvider = "setData1", dependsOnMethods="verifyCameraLiveUnitDeactive")
 	public void verifyCameraLiveUnitInvoiceDataReport(Hashtable<String, String> h2) throws Throwable 
 	{
 		extentLoggerECP = parentExtentLogger.createNode("verify  verifyCameraLiveUnit Invoice Data Report");
@@ -129,7 +128,7 @@ public class CameraLiveUnitTest extends BaseTest
 		s_assert.assertAll();
 			
 	}
-	
+
 	@DataProvider
 	public Object[][] setData1() {
 		Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "/TestData/testdata.xlsx");
