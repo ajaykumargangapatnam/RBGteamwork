@@ -68,7 +68,7 @@ public class CameraLiveUnitTest extends BaseTest
 		cameraPage.DismisOrActivePopUp("dismiss");
 		Thread.sleep(10000);
 		passLog();
-		s_assert.assertTrue(cameraPage.verifyDeActiveButton()==true);
+		s_assert.assertTrue(cameraPage.verifyDeActiveButton()==false);
 		s_assert.assertAll();
 				
 	}
