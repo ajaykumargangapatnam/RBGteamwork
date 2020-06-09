@@ -93,7 +93,7 @@ public class CameraLiveUnitTest extends BaseTest
 		
 		}
 
-	@Test(priority = 2, dataProvider = "setData1", dependsOnMethods="verifyCameraLiveUnitDeactive")
+	@Test(priority = 2, dataProvider = "setData1")//, dependsOnMethods="verifyCameraLiveUnitDeactive"
 	public void verifyCameraLiveUnitToActive(Hashtable<String, String> h2) throws Throwable 
 	{
 		extentLoggerECP = parentExtentLogger.createNode("verify  verifyCameraLiveUnit to Active");
@@ -113,7 +113,7 @@ public class CameraLiveUnitTest extends BaseTest
 			
 	}
 	
-	@Test(priority = 3, dataProvider = "setData1", dependsOnMethods="verifyCameraLiveUnitDeactive")
+	@Test(priority = 3, dataProvider = "setData1")//, dependsOnMethods="verifyCameraLiveUnitDeactive"
 	public void verifyCameraLiveUnitInvoiceDataReport(Hashtable<String, String> h2) throws Throwable 
 	{
 		extentLoggerECP = parentExtentLogger.createNode("verify  verifyCameraLiveUnit Invoice Data Report");
