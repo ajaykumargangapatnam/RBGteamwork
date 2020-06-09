@@ -104,10 +104,9 @@ public class CameraLiveUnitTest extends BaseTest
 		String serialNumber=cameraPage.getSerialNumber();
 		cameraPage.clickOnActive();
 		Thread.sleep(5000);
-
 		cameraPage.enterSerialNumber(serialNumber);
 		Thread.sleep(10000);
-//		cameraPage.DismisOrActivePopUp(h2.get("ActivePopUps"));
+		cameraPage.DismisOrActivePopUp(h2.get("ActivePopUps"));
 		Thread.sleep(10000);
 		passLog();
 		s_assert.assertTrue(cameraPage.verifyDeActiveButton()==false);
