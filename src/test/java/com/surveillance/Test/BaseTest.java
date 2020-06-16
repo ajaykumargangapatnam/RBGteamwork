@@ -27,7 +27,8 @@ import com.surveillance.utilitiy.GenericKeywords;
 import com.surveillance.utilitiy.PropertySingleton;
 
 
-public class BaseTest {
+public class BaseTest 
+{
 
 	public static ExtentHtmlReporter htmlReporter;
 	public static ExtentReports extent;
