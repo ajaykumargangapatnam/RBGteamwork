@@ -259,4 +259,10 @@ PropertySingleton _instance = null;
 	keywords.selectAllOptions("xpath", _instance.getValue("AddNewUser.DropDown_Queues"));
 	return this;
 	}
+
+	public AddNewUserPage GetBannerMsg(String displaymessage) throws Throwable
+	{
+		keywords.isdisplay("xpath", _instance.getValue("AddNewUser.SucessBanner"), displaymessage);
+		return this;
+	}
 }
