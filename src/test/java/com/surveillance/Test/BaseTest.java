@@ -72,9 +72,10 @@ public class BaseTest
 		String destination = System.getProperty("user.dir") + "/Screenshots/" + screenshotName + dateName + ".png";
 		File finalDestination = new File(destination);
 		FileUtils.copyFile(source, finalDestination);
+		//sys
 		return destination;
 	}
-
+ 
 	public void beforeClassForChild(Object o1) {
 
 		String className = o1.getClass().getSimpleName();
