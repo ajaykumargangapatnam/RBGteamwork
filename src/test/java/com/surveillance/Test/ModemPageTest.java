@@ -121,7 +121,7 @@ public class ModemPageTest  extends BaseTest{
         modempage.enterAdministrationPassword(h2.get("AdministrationPassword"));
         passLog();
         modempage.SelectISP(h2.get("ISP"));
-        passLog();
+        passLog();;
         modempage.enterISPAccountNumber(h2.get("ISPAccountNumber"));
         passLog();
         modempage.ClickonIsISPAccountOwnedbyClient("ON");
