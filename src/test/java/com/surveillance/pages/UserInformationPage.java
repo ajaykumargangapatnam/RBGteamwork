@@ -28,10 +28,10 @@ public class UserInformationPage
 		return this;
 	}
 	
-	public UserInformationPage clickOnD3CommandCenter(String OnOrOFF) throws Throwable
+	public UserInformationPage clickOnD3CommandCenter() throws Throwable
 	{
 		keywords.scrollElementfound("xpath", _instance.getValue("UserInformationPage.CHK_D3CommandCenter"));
-		keywords.checkClick("xpath", _instance.getValue("UserInformationPage.CHK_D3CommandCenter"),OnOrOFF);
+		keywords.jsClick("xpath", _instance.getValue("UserInformationPage.CHK_D3CommandCenter"));
 		return this;
 	}
 	
@@ -57,11 +57,6 @@ public class UserInformationPage
 	public UserInformationPage clickOnQueuesAdd()
 	{
 		keywords.jsClick("xpath", _instance.getValue("UserInformationPage.Select_QueuesAdd"));
-		return this;
-	}
-	public UserInformationPage SelectAllPolicies() throws Throwable
-	{
-		keywords.selectAllOptions("xpath", _instance.getValue("UserInformationPage.Select_Policies"));
 		return this;
 	}
 }

@@ -13,7 +13,7 @@ import com.surveillance.pages.CameraPage;
 import com.surveillance.pages.HomePage;
 import com.surveillance.pages.LoginPage;
 import com.surveillance.utilitiy.PropertySingleton;
-import com.surveillance.utilitiy.ReadData; 
+import com.surveillance.utilitiy.ReadData;
 import com.surveillance.utilitiy.Xls_Reader;
 
 public class ValidLinksTest extends BaseTest{

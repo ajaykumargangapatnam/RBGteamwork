@@ -1,8 +1,5 @@
 package com.surveillance.Test;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.Hashtable;
 
 import org.testng.annotations.BeforeClass;
@@ -38,10 +35,10 @@ public class AdminReportTest extends BaseTest
 	}
 
 	
-	@Test(priority = 0, dataProvider = "setDataForSimpleEventReports")
+//	@Test(priority = 0, dataProvider = "setDataForSimpleEventReports")
 	public void SimpleEventReports(Hashtable<String, String> h2) throws Throwable 
 	{
-		extentLoggerECP = parentExtentLogger.createNode("Simple Event Reports");
+		extentLoggerECP = parentExtentLogger.createNode("verify HamburgerReports");
 		
 		logintest.logintest(h2);
 		passLog();
@@ -54,25 +51,10 @@ public class AdminReportTest extends BaseTest
 		adminReportsPage.clickonSimpleReport();
 		passLog();
 		Thread.sleep(5000);
-		
-		Calendar cal = Calendar.getInstance();
-		Date d1=new Date();
-		Date d2=d1;
-		cal.setTime(d1);
-		cal.add(Calendar.MONTH, -2);
-		SimpleDateFormat SimplestartDate= new SimpleDateFormat("d/M/yyyy");
-		String Startdate=SimplestartDate.format(d1);
-		
-		SimpleDateFormat SimpleEndDate= new SimpleDateFormat("d/M/yyyy");
-		String endsdate=SimpleEndDate.format(d2);
-		
-//		adminReportsPage.selectStartDate(h2.get("StartDate"));
-		adminReportsPage.selectStartDate(Startdate);
+		adminReportsPage.selectStartDate(h2.get("StartDate"));
 		passLog();
 //		adminReportsPage.clickonstatlable();
-//		adminReportsPage.selectEndDate(h2.get("EndDate"));
-		adminReportsPage.selectEndDate(endsdate);
-		
+		adminReportsPage.selectEndDate(h2.get("EndDate"));
 		passLog();
 		adminReportsPage.SelectQueues(h2.get("Queues"));
 		passLog();
@@ -96,17 +78,17 @@ public class AdminReportTest extends BaseTest
 	
 	@DataProvider
 	public Object[][] setDataForSimpleEventReports() {
-		Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "/TestData/testdata.xlsx");
+		Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "\\TestData\\testdata.xlsx");
 		
 		return ReadData.getData("D3CommandCenterTest", "HamburgerReports", xls);
 		
 	
 	}
 	
-//	@Test(priority = 1, dataProvider = "setDataForFrequencybyLocationReport")
+	@Test(priority = 1, dataProvider = "setDataForFrequencybyLocationReport")
 	public void FrequencybyLocationReport(Hashtable<String, String> h2) throws Throwable 
 	{
-		extentLoggerECP = parentExtentLogger.createNode("Frequency by Location Report");
+		extentLoggerECP = parentExtentLogger.createNode("verify HamburgerReports");
 		
 		logintest.logintest(h2);
 		passLog();
@@ -119,29 +101,15 @@ public class AdminReportTest extends BaseTest
 		adminReportsPage.clickonFrequencybyLocationReport();
 		passLog();
 		Thread.sleep(5000);
-		
-		Calendar cal = Calendar.getInstance();
-		Date d1=new Date();
-		Date d2=d1;
-		cal.setTime(d1);
-		cal.add(Calendar.MONTH, -2);
-SimpleDateFormat SimplestartDate= new SimpleDateFormat("d/M/yyyy");
-String Startdate=SimplestartDate.format(d1);
-		
-SimpleDateFormat SimpleEndDate= new SimpleDateFormat("d/M/yyyy");
-String endsdate=SimpleEndDate.format(d2);
-		
-//		adminReportsPage.selectStartDate(h2.get("StartDate"));
-		adminReportsPage.selectStartDate(Startdate);
+		adminReportsPage.selectStartDate(h2.get("StartDate"));
 		passLog();
 //		adminReportsPage.clickonstatlable();
-//		adminReportsPage.selectEndDate(h2.get("EndDate"));
-		adminReportsPage.selectEndDate(endsdate);
+		adminReportsPage.selectEndDate(h2.get("EndDate"));
 		passLog();
 		adminReportsPage.SelectQueues(h2.get("Queues"));
 		passLog();
-//		adminReportsPage.SelectLocations(h2.get("Policies"));
-//		passLog();
+		adminReportsPage.SelectLocations(h2.get("Policies"));
+		passLog();
 		adminReportsPage.SelectUsers(h2.get("Users"));
 		passLog();
 		adminReportsPage.clickOnFetchReport();
@@ -162,7 +130,7 @@ String endsdate=SimpleEndDate.format(d2);
 	
 	@DataProvider
 	public Object[][] setDataForFrequencybyLocationReport() {
-		Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "/TestData/testdata.xlsx");
+		Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "\\TestData\\testdata.xlsx");
 		
 		return ReadData.getData("D3CommandCenterTest", "HamburgerReports", xls);
 		

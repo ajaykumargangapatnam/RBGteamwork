@@ -27,8 +27,7 @@ import com.surveillance.utilitiy.GenericKeywords;
 import com.surveillance.utilitiy.PropertySingleton;
 
 
-public class BaseTest 
-{
+public class BaseTest {
 
 	public static ExtentHtmlReporter htmlReporter;
 	public static ExtentReports extent;
@@ -69,13 +68,12 @@ public class BaseTest
 		File source = ts.getScreenshotAs(OutputType.FILE);
 		// after execution, you could see a folder "FailedTestsScreenshots" under src
 		// folder
-		String destination = System.getProperty("user.dir") + "/Screenshots/" + screenshotName + dateName + ".png";
+		String destination = System.getProperty("user.dir") + "\\Screenshots\\" + screenshotName + dateName + ".png";
 		File finalDestination = new File(destination);
 		FileUtils.copyFile(source, finalDestination);
-		//sys
 		return destination;
 	}
- 
+
 	public void beforeClassForChild(Object o1) {
 
 		String className = o1.getClass().getSimpleName();

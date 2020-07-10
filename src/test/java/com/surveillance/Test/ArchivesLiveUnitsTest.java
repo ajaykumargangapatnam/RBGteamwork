@@ -38,7 +38,7 @@ public class ArchivesLiveUnitsTest extends BaseTest
 	@Test(priority = 0, dataProvider = "setData1")
 	public void Archivescamera(Hashtable<String, String> h2) throws Throwable 
 	{
-		extentLoggerECP = parentExtentLogger.createNode("Verify Archieve Live Unit");
+		extentLoggerECP = parentExtentLogger.createNode("verify D3CommandCenterTest Archivescamera");
 		loginTest.logintest(h2);
 		passLog();
 		homePage.clickOnArchives();
@@ -61,7 +61,7 @@ public class ArchivesLiveUnitsTest extends BaseTest
 	
 	@DataProvider
 	public Object[][] setData1() {
-		Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "/TestData/testdata.xlsx");
+		Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "\\TestData\\testdata.xlsx");
 		return ReadData.getData("LiveUnits", "ArchiveLiveUnits", xls);
 	}
 
