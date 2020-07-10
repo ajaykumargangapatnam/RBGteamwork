@@ -34,8 +34,12 @@ public class LoginTest extends BaseTest{
 		
 		System.out.println("userEmail "+h2.get("Email"));
 		login.enterLoginEmail(h2.get("Email"));
+		
 		login.clickOnLogin();
+		
 		login.enterPassword(h2.get("Password"));
+		
+		
 		login.clickOnLogin();
 		
 	}

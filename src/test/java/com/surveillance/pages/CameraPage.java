@@ -1,6 +1,5 @@
 package com.surveillance.pages;
 
-import java.awt.Robot;
 import java.awt.event.KeyEvent;
 
 import org.openqa.selenium.By;
@@ -66,15 +65,38 @@ PropertySingleton _instance = null;
 //		keywords.waitForPageLoad();
 		return this;
 	}
-	
-	public CameraPage clickOnActive() throws Throwable
+	public CameraPage clickOnSubmit() throws Throwable
 	{
-		keywords.scrollElementfound("xpath", _instance.getValue("CameraPage.BTN_Active"));
-		keywords.jsClick("xpath", _instance.getValue("CameraPage.BTN_Active"));
+		keywords.scrollElementfound("xpath", _instance.getValue("CameraPage.BTN_Submit"));
+		keywords.jsClick("xpath", _instance.getValue("CameraPage.BTN_Submit"));
 //		keywords.waitForPageLoad();
 		return this;
 	}
 	
+	public CameraPage clickOnActive() throws Throwable
+	{
+		keywords.scrollElementfound("xpath", _instance.getValue("CameraPage.BTN_Active"));
+		Thread.sleep(5000);
+		keywords.jsClick("xpath", _instance.getValue("CameraPage.BTN_Active"));
+//		keywords.click("linktext", "Activate");
+		keywords.waitForPageLoad();
+		return this;
+	}
+	public CameraPage clickonLastAmount() throws Exception
+	{
+		keywords.click("xpath", _instance.getValue("CameraPage.RadioBTN_LastAmount"));
+		return this;
+	}
+	public CameraPage clickonCustom() throws Exception
+	{
+		keywords.click("xpath", _instance.getValue("CameraPage.RadioBTN_Custom"));
+		return this;
+	}
+	public CameraPage clickonMSRP() throws Exception
+	{
+		keywords.click("xpath", _instance.getValue("CameraPage.RadioBTN_MSRP"));
+		return this;
+	}
 	public CameraPage enterSerialNumber(String SerialNumber) throws Throwable
 	{
 		keywords.EntertextInAlert(SerialNumber);
