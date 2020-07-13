@@ -57,7 +57,7 @@ public class CameraLiveUnitTest extends BaseTest
 	
 	}
 	
-//	@Test(dataProvider = "setData1")
+	@Test(dataProvider = "setData1")
 	public void a_verifyPopUpCancelButton(Hashtable<String, String> h2) throws Throwable
 	{
 		extentLoggerECP = parentExtentLogger.createNode("verify  Popup window cancel option");
@@ -73,7 +73,7 @@ public class CameraLiveUnitTest extends BaseTest
 		s_assert.assertAll();
 				
 	}
-//	@Test(dataProvider = "setData1")
+	@Test(dataProvider = "setData1")
 	public void b_verifyCameraLiveUnitDeactive(Hashtable<String, String> h2) throws Throwable
 	{
 		extentLoggerECP = parentExtentLogger.createNode("verify  verifyCameraLiveUnit to Deactive");
@@ -103,9 +103,9 @@ public class CameraLiveUnitTest extends BaseTest
 		String serialNumber=cameraPage.getSerialNumber();
 		cameraPage.clickOnActive();
 		Thread.sleep(5000);
-		//cameraPage.enterSerialNumber(serialNumber);
+		cameraPage.enterSerialNumber(serialNumber);
 		Thread.sleep(10000);
-		//cameraPage.DismisOrActivePopUp(h2.get("ActivePopUps"));
+		cameraPage.DismisOrActivePopUp(h2.get("ActivePopUps"));
 		Thread.sleep(10000);
 		passLog();
 		s_assert.assertTrue(cameraPage.verifyDeActiveButton()==true);
@@ -113,7 +113,7 @@ public class CameraLiveUnitTest extends BaseTest
 			
 	}
 	
-//	@Test(dataProvider = "setData1")//, dependsOnMethods="verifyCameraLiveUnitDeactive"
+	@Test(dataProvider = "setData1")//, dependsOnMethods="verifyCameraLiveUnitDeactive"
 	public void d_verifyCameraLiveUnitInvoiceDataReport(Hashtable<String, String> h2) throws Throwable
 	{
 		extentLoggerECP = parentExtentLogger.createNode("verify  verifyCameraLiveUnit Invoice Data Report");

@@ -70,7 +70,6 @@ PropertySingleton _instance = null;
 	public CameraPage clickOnActive() throws Throwable
 	{
 		keywords.scrollElementfound("xpath", _instance.getValue("CameraPage.BTN_Active"));
-		Thread.sleep(5000);
 		keywords.jsClick("xpath", _instance.getValue("CameraPage.BTN_Active"));
 //		keywords.waitForPageLoad();
 		return this;
