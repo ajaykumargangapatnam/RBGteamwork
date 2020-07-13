@@ -28,7 +28,7 @@ public class AddNewRoleTest  extends BaseTest{
 	{
 		_instance = PropertySingleton.getInstance();
 	}
-	
+	 
 
 	@BeforeClass
 	public void startReport()
