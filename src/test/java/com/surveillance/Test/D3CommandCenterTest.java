@@ -7,9 +7,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-
+import com.surveillance.pages.AddNewUserPage;
 import com.surveillance.pages.HomePage;
-import com.surveillance.pages.LoginPage;
 import com.surveillance.pages.UserInformationPage;
 import com.surveillance.pages.ViewAllUsersPage;
 import com.surveillance.utilitiy.PropertySingleton;
@@ -25,14 +24,14 @@ public class D3CommandCenterTest extends BaseTest
 	HomePage homePage=new HomePage();
 	ViewAllUsersPage viewAllUsersPage=new ViewAllUsersPage();
 	UserInformationPage userInformationPage=new UserInformationPage();
-	
+	AddNewUserPage addNewuserPage=new AddNewUserPage();
 	public D3CommandCenterTest() throws Throwable 
 	{
 		_instance = PropertySingleton.getInstance();
 	}
-
+ 
 	@BeforeClass
-	public void startReport()
+	public void startReport() 
 	{
 		beforeClassForChild(this);
 	}
@@ -47,20 +46,50 @@ public class D3CommandCenterTest extends BaseTest
 		loginTest.logintest(h2);
 		passLog();
 		homePage.clickOnUserAdmin();
-		viewAllUsersPage.clickOnEmailAddress(h2.get("RoleType"));
 		passLog();
+		
+		viewAllUsersPage.clickOnEmailAddress(h2.get("UserEmaiIid"));
+		passLog();
+		
 		userInformationPage.clickOnEdit();
 		passLog();
-		userInformationPage.clickOnD3CommandCenter();
+		
+		addNewuserPage.selectClients(h2.get("Clients"));
 		passLog();
-		userInformationPage.SelectPolicie(h2.get("Policies"));
+		addNewuserPage.selectRole(h2.get("RoleType"));
+		passLog();
+		userInformationPage.clickOnD3CommandCenter("ON");
+		passLog();
+//		userInformationPage.SelectPolicie(h2.get("Policies"));
+//		passLog();
+//		userInformationPage.clickOnPolicieAdd();
+//		passLog();
+//		userInformationPage.SelectQueues(h2.get("Queues"));
+//		passLog();
+//		userInformationPage.clickOnQueuesAdd();
+//		passLog();
+		userInformationPage.SelectAllPolicies();
 		passLog();
 		userInformationPage.clickOnPolicieAdd();
 		passLog();
-		userInformationPage.SelectQueues(h2.get("Queues"));
+//		addNewuserPage.SelectAllPoliciesAssigned();
+//		passLog();
+		Thread.sleep(5000);
+		addNewuserPage.SelectAllQueues();
 		passLog();
-		userInformationPage.clickOnQueuesAdd();
+		addNewuserPage.clickonQueuesAdd();
 		passLog();
+//		addNewuserPage.SelectAllQueuesAssigned();
+//		passLog();
+		addNewuserPage.clickOnUpdateUser();
+		passLog();
+		userInformationPage.clickOnEdit();
+		addNewuserPage.SelectAllPoliciesAssigned();
+
+		addNewuserPage.clickonRemove();
+		userInformationPage.clickOnD3CommandCenter("OFF");
+		addNewuserPage.clickOnUpdateUser();
+
 	}
 	else if(h2.get("RunMode").equalsIgnoreCase("SKIP"))
 	{
@@ -73,8 +102,4 @@ public class D3CommandCenterTest extends BaseTest
 		Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "\\TestData\\testdata.xlsx");
 		return ReadData.getData("D3CommandCenterTest", "D3CommandCenterTest", xls);
 	}
-	
-	
-	
-//	
-}
+	}

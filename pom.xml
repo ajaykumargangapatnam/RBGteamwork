@@ -37,6 +37,13 @@
 			<version>3.141.59</version>
 		</dependency>
 
+<!-- https://mvnrepository.com/artifact/io.appium/java-client -->
+<dependency>
+    <groupId>io.appium</groupId>
+    <artifactId>java-client</artifactId>
+    <version>6.1.0</version>
+</dependency>
+
 		<!-- https://mvnrepository.com/artifact/log4j/log4j -->
 		<dependency>
 			<groupId>log4j</groupId>
@@ -111,8 +118,14 @@
 			<artifactId>excel-exporter</artifactId>
 			<version>1.0.0</version>
 		</dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.14.3</version>
+            <scope>compile</scope>
+        </dependency>
 
-	</dependencies>
+    </dependencies>
 	<build>
 		<plugins>
 			<!-- Compiler plug-in -->
@@ -134,9 +147,11 @@
 				<configuration>
 					<suiteXmlFiles>
 						<!-- TestNG suite XML files -->
-						<suiteXmlFile>..\surveillancetest\masterSuite.xml</suiteXmlFile>
-						<suiteXmlFile>..\Agile367\masterSuite.xml</suiteXmlFile>
+						<suiteXmlFile>./masterSuite.xml</suiteXmlFile>
 					</suiteXmlFiles>
+					<systemPropertyVariables>
+						<java.awt.headless>true</java.awt.headless>
+					</systemPropertyVariables>
 				</configuration>
 			</plugin>
 		</plugins>
