@@ -17,21 +17,16 @@ public class LoginPage
 	
 	public LoginPage enterLoginEmail(String value) throws Exception {
 		keywords.clearEnter("xpath", _instance.getValue("loginPage.Edit_userName"), value);
-		keywords.waitForPageLoad();
 		return this;
 	}
 	
 	public LoginPage clickOnLogin() throws Exception {
-		
 		keywords.jsClick("xpath", _instance.getValue("loginPage.BTN_Login"));
-		
 		return this;
 	}
 	
 	public LoginPage enterPassword(String value) throws Exception {
-		keywords.waitForPageLoad();
 		keywords.enterData("xpath", _instance.getValue("loginPage.Edit_Password"), value);
-		keywords.waitForPageLoad();
 		return this;
 	}
 	
