@@ -160,7 +160,6 @@ public class GenericKeywords extends ApplicationKeywords {
 			{
 				element = driver.findElement(By.tagName(locatorvalue));
 			}
-			
 			logger.info("find element action is Completed");
 
 		} catch (Throwable e) {
@@ -794,7 +793,7 @@ public class GenericKeywords extends ApplicationKeywords {
 	 * :<xpath>,<//input[@id='email']>
 	 */
 	public void jsClick(String locatorindicator, String locatorvalue) {
-		highlightElement(locatorindicator, locatorvalue); 
+		highlightElement(locatorindicator, locatorvalue);
 		WebElement element = elementFind(locatorindicator, locatorvalue);
 		// This will enable this element if element is invisible
 
