@@ -93,7 +93,7 @@ public class GenericKeywords extends ApplicationKeywords {
 
 		} else if (browserName.equalsIgnoreCase("firefox")) {
 			System.setProperty("webdriver.gecko.driver",
-					System.getProperty("user.dir") + "webDrivers\\geckodriver.exe");
+					System.getProperty("user.dir") + "/webDrivers/geckodriver.exe");
 			driver = new FirefoxDriver();
 		}
 
