@@ -36,7 +36,7 @@ public class CreateNewClientTest extends BaseTest
 		beforeClassForChild(this);
 	}
 	
-	@Test(priority = 0, dataProvider = "setData1",enabled =false)
+	@Test(priority = 0, dataProvider = "setData1")
 	public void NewClientwithmandatoryfields(Hashtable<String, String> h2) throws Throwable 
 	{
 	extentLoggerECP = parentExtentLogger.createNode("New Client with mandatory fields");
@@ -187,9 +187,9 @@ public class CreateNewClientTest extends BaseTest
 	passLog();
 	createNewClientPage.ClickonAllowedtouseD3CommandCenter(h2.get("useD3CommandCenter"));
 	passLog();
-	createNewClientPage.clickOnCancel();
+createNewClientPage.clickOnCancel();
 	passLog();
-	createNewClientPage.clickOnAddNewClient_clientpage();
+//	createNewClientPage.clickOnAddNewClient_clientpage();
 	passLog();
 	}
 	
