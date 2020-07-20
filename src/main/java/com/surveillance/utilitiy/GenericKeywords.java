@@ -21,6 +21,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.CapabilityType;
@@ -93,7 +94,7 @@ public class GenericKeywords extends ApplicationKeywords {
 		} else if (browserName.equalsIgnoreCase("firefox")) {
 			System.setProperty("webdriver.gecko.driver",
 					System.getProperty("user.dir") + "webDrivers\\geckodriver.exe");
-			driver = new EdgeDriver();
+			driver = new FirefoxDriver();
 		}
 
 		driver.manage().window().maximize();
