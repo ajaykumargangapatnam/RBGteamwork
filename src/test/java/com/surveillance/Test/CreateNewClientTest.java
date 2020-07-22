@@ -47,6 +47,7 @@ public class CreateNewClientTest extends BaseTest
 	passLog();
 	adminPage.clickonClients();
 	passLog();
+	Thread.sleep(5000);
 	createNewClientPage.clickOnAddNewClient_clientpage();
 	passLog();
 	createNewClientPage.enterName(h2.get("Name"));
@@ -75,6 +76,7 @@ public class CreateNewClientTest extends BaseTest
 	passLog();
 	adminPage.clickonClients();
 	passLog();
+	Thread.sleep(5000);
 	createNewClientPage.clickOnAddNewClient_clientpage();
 	passLog();
 	createNewClientPage.enterName(h2.get("Name"));

@@ -37,7 +37,7 @@ public class AddNewUserTest extends BaseTest{
 	}
 
 	
-	@Test(priority = 0, dataProvider = "setData1")
+//	@Test(priority = 0, dataProvider = "setData1")
 	public void AddNewUserWithMadatoryFields(Hashtable<String, String> h2) throws Throwable 
 	{
 		extentLoggerECP = parentExtentLogger.createNode("Add User with Madatory Fields");
@@ -69,7 +69,7 @@ public class AddNewUserTest extends BaseTest{
 
 	}		
 	
-	@Test(priority = 0, dataProvider = "setData1")
+//	@Test(priority = 0, dataProvider = "setData1")
 	public void AddNewUserWithAllFields(Hashtable<String, String> h2) throws Throwable 
 	{
 		extentLoggerECP = parentExtentLogger.createNode("Add User with all Fields");
@@ -112,7 +112,52 @@ public class AddNewUserTest extends BaseTest{
 //		addNewUserPage.enterConfirmPassword(h2.get("ConfirmPassword"));
 //		addNewUserPage.clickonResetSubmit();
 			}	
-
+//	@Test(priority = 0, dataProvider = "setData1")
+	public void AddNewUser(Hashtable<String, String> h2) throws Throwable 
+	{
+		extentLoggerECP = parentExtentLogger.createNode("Add User with all Fields");
+		loginTest.logintest(h2);
+		passLog();
+		homePage.clickOnUserAdmin();
+		passLog();
+		addNewUserPage.enterFilter(h2.get("Filter"));
+		passLog();
+		addNewUserPage.selectResultsperPage(h2.get("ResultsperPage"));
+		passLog();
+		addNewUserPage.ClickonAllUsers();
+		passLog();
+		addNewUserPage.ClickonExpiredUsers();
+		passLog();
+		addNewUserPage.ClickonNonexpiredUsers();
+	}
+	@Test(priority = 0, dataProvider = "setData1")
+	public void AddNewUservalidation(Hashtable<String, String> h2) throws Throwable 
+	{
+		extentLoggerECP = parentExtentLogger.createNode("Valid Error Messsage");
+		loginTest.logintest(h2);
+		passLog();
+		homePage.clickOnUserAdmin();
+		passLog();
+		addNewUserPage.clickAdminAddNewUser();
+		passLog();
+	addNewUserPage.clickonAddNewUser();
+		passLog();
+		s_assert = new SoftAssert();
+		String actualMustbeavalidEmailAddressthatemailbecansentto=addNewUserPage.verifyMustbeavalidEmailAddressthatemailbecansentto();
+		s_assert.assertEquals(actualMustbeavalidEmailAddressthatemailbecansentto, "Must be a valid Email Address that email be can sent to.");
+		passLog();
+		String actualPleaseselectaClient=addNewUserPage.verifyPleaseselectaClient();
+		s_assert.assertEquals(actualPleaseselectaClient, "Please select a Client.");
+		passLog();
+		String actualPleaseselectaUserRole=addNewUserPage.verifyPleaseselectaUserRole();
+		s_assert.assertEquals(actualPleaseselectaUserRole, "Please select a User Role.");
+		passLog();
+		String actualPleaseenteraname=addNewUserPage.verifyPleaseenteraname();
+		s_assert.assertEquals(actualPleaseenteraname, "Please enter a name.");
+		passLog();
+		
+		
+	}
 	@DataProvider
 	public Object[][] setData1() {
 		Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "/TestData/testdata.xlsx");

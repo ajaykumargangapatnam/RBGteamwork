@@ -232,7 +232,6 @@ PropertySingleton _instance = null;
 		return this;
 	}
 	
-	
 	public AddNewUserPage SelectAllPoliciesAssigned() throws Throwable
 	{
 	keywords.selectAllOptions("xpath", _instance.getValue("AddNewUser.DropDown_PoliciesAssigned"));
@@ -265,4 +264,43 @@ PropertySingleton _instance = null;
 		keywords.isdisplay("xpath", _instance.getValue("AddNewUser.SucessBanner"), displaymessage);
 		return this;
 	}
+	public AddNewUserPage enterFilter(String data) throws Throwable
+	{
+		keywords.enterData("xpath", _instance.getValue("AddNewUser.Edit_Filter"),data);
+		return this;
+	}
+	public AddNewUserPage selectResultsperPage(String data) throws Throwable
+	{
+		keywords.SelectDropDown("xpath", _instance.getValue("AddNewUser.DropDown_ResultsperPage"),data);
+		return this;
+	}
+	public AddNewUserPage ClickonAllUsers() throws Exception {
+		keywords.click("xpath", _instance.getValue("AddNewUser.Radio_AllUsers"));
+		return this;
+	}
+	public AddNewUserPage ClickonExpiredUsers() throws Exception {
+		keywords.click("xpath", _instance.getValue("AddNewUser.Radio_ExpiredUsers"));
+		return this;
+	}
+	public AddNewUserPage ClickonNonexpiredUsers() throws Exception {
+		keywords.click("xpath", _instance.getValue("AddNewUser.Radio_NonexpiredUsers"));
+		return this;
+	}
+	public String verifyMustbeavalidEmailAddressthatemailbecansentto() throws Exception {
+		String Data= keywords.getText("xpath", _instance.getValue("AddNewUser.LBL_MustbeavalidEmailAddressthatemailbecansentto"));
+		return Data;
+	}
+	public String verifyPleaseselectaClient() throws Exception {
+		String Data= keywords.getText("xpath", _instance.getValue("AddNewUser.LBL_PleaseselectaClient"));
+		return Data;
+	}
+	public String verifyPleaseenteraname() throws Exception {
+		String Data= keywords.getText("xpath", _instance.getValue("AddNewUser.LBL_Pleaseenteraname"));
+		return Data;
+	}
+	public String verifyPleaseselectaUserRole() throws Exception {
+		String Data= keywords.getText("xpath", _instance.getValue("AddNewUser.LBL_PleaseselectaUserRole"));
+		return Data;
+	}
+	
 }
