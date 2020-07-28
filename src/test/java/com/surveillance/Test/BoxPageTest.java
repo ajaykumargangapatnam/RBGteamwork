@@ -66,7 +66,7 @@ public class BoxPageTest   extends BaseTest{
 	passLog();
 	}
 
-	@Test(priority = 0, dataProvider = "setData1")
+//	@Test(priority = 0, dataProvider = "setData1")
 	public void BoxPageTest2(Hashtable<String, String> h2) throws Throwable 
 	{
 	extentLoggerECP = parentExtentLogger.createNode("Box Page Test for Search");
@@ -82,6 +82,29 @@ public class BoxPageTest   extends BaseTest{
 	Thread.sleep(15000);
 	passLog();
 	boxpage.clickonSearch();
+	passLog();
+	}
+	@Test(priority = 0, dataProvider = "setData1")
+	public void BoxPageTestvErrorvalidation(Hashtable<String, String> h2) throws Throwable 
+	{
+	extentLoggerECP = parentExtentLogger.createNode("Box Page Test for Search");
+
+	loginTest.logintest(h2);
+	passLog();
+	homepagetestpage.clickOnSYSTEMADMIN();
+	passLog();
+	boxpage.clickonHardware();
+	passLog();
+	boxpage.clickonBoxes();
+	passLog();
+	Thread.sleep(5000);
+	boxpage.clickonNewBox();
+	passLog();
+	boxpage.clickonSave();
+	passLog();
+	s_assert = new SoftAssert();
+	String actualBoxVersionisrequired=boxpage.verifyBoxVersionisrequired();
+	s_assert.assertEquals(actualBoxVersionisrequired, "Box Version is required");
 	passLog();
 	}
 	@DataProvider

@@ -37,7 +37,7 @@ public class AddNewUserTest extends BaseTest{
 	}
 
 	
-//	@Test(priority = 0, dataProvider = "setData1")
+	@Test(priority = 0, dataProvider = "setData1")
 	public void AddNewUserWithMadatoryFields(Hashtable<String, String> h2) throws Throwable 
 	{
 		extentLoggerECP = parentExtentLogger.createNode("Add User with Madatory Fields");
@@ -69,7 +69,7 @@ public class AddNewUserTest extends BaseTest{
 
 	}		
 	
-//	@Test(priority = 0, dataProvider = "setData1")
+	@Test(priority = 0, dataProvider = "setData1")
 	public void AddNewUserWithAllFields(Hashtable<String, String> h2) throws Throwable 
 	{
 		extentLoggerECP = parentExtentLogger.createNode("Add User with all Fields");
@@ -112,7 +112,7 @@ public class AddNewUserTest extends BaseTest{
 //		addNewUserPage.enterConfirmPassword(h2.get("ConfirmPassword"));
 //		addNewUserPage.clickonResetSubmit();
 			}	
-//	@Test(priority = 0, dataProvider = "setData1")
+	@Test(priority = 0, dataProvider = "setData1")
 	public void AddNewUser(Hashtable<String, String> h2) throws Throwable 
 	{
 		extentLoggerECP = parentExtentLogger.createNode("Add User with all Fields");
@@ -141,6 +141,34 @@ public class AddNewUserTest extends BaseTest{
 		addNewUserPage.clickAdminAddNewUser();
 		passLog();
 	addNewUserPage.clickonAddNewUser();
+		passLog();
+		s_assert = new SoftAssert();
+		String actualMustbeavalidEmailAddressthatemailbecansentto=addNewUserPage.verifyMustbeavalidEmailAddressthatemailbecansentto();
+		s_assert.assertEquals(actualMustbeavalidEmailAddressthatemailbecansentto, "Must be a valid Email Address that email be can sent to.");
+		passLog();
+		String actualPleaseselectaClient=addNewUserPage.verifyPleaseselectaClient();
+		s_assert.assertEquals(actualPleaseselectaClient, "Please select a Client.");
+		passLog();
+		String actualPleaseselectaUserRole=addNewUserPage.verifyPleaseselectaUserRole();
+		s_assert.assertEquals(actualPleaseselectaUserRole, "Please select a User Role.");
+		passLog();
+		String actualPleaseenteraname=addNewUserPage.verifyPleaseenteraname();
+		s_assert.assertEquals(actualPleaseenteraname, "Please enter a name.");
+		passLog();
+		
+		
+	}
+	@Test(priority = 0, dataProvider = "setData1")
+	public void AddNewUservalidationforedit(Hashtable<String, String> h2) throws Throwable 
+	{
+		extentLoggerECP = parentExtentLogger.createNode("Valid Error Messsage for Edit Button");
+		loginTest.logintest(h2);
+		passLog();
+		homePage.clickOnUserAdmin();
+		passLog();
+		addNewUserPage.clickAdminAddNewUser();
+		passLog();
+	addNewUserPage.clickonAddNewUserAndEdituserCameraRights();
 		passLog();
 		s_assert = new SoftAssert();
 		String actualMustbeavalidEmailAddressthatemailbecansentto=addNewUserPage.verifyMustbeavalidEmailAddressthatemailbecansentto();

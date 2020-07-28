@@ -70,5 +70,9 @@ public class BoxPage {
 			keywords.waitForPageLoad();
 			return this;
 		}
+		 public String verifyBoxVersionisrequired() throws Exception {
+		    	String Data= keywords.getText("xpath", _instance.getValue("BoxesPage.LBL_BoxVersionisrequired"));
+		    	return Data;
+		 }
 		
 }

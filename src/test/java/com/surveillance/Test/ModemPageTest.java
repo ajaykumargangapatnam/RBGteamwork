@@ -152,7 +152,7 @@ public class ModemPageTest  extends BaseTest{
         passLog();
 }
 
-//       @Test(priority = 0, dataProvider = "setData1")
+    @Test(priority = 0, dataProvider = "setData1")
 	public void AddMultipleNewModems (Hashtable<String, String> h2) throws Throwable 
 	{
 	extentLoggerECP = parentExtentLogger.createNode("Add Multiple New Modems");
