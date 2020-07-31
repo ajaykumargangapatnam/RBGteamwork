@@ -103,7 +103,7 @@ public class AdminReportTest extends BaseTest
 	
 	}
 	
-	@Test(priority = 1, dataProvider = "setDataForFrequencybyLocationReport")
+//	@Test(priority = 1, dataProvider = "setDataForFrequencybyLocationReport")
 	public void FrequencybyLocationReport(Hashtable<String, String> h2) throws Throwable 
 	{
 		extentLoggerECP = parentExtentLogger.createNode("Frequency by Location Report");
