@@ -41,7 +41,7 @@ public class NotificationsTest extends BaseTest
 	}
 	
 	
-	@Test(priority = 0, dataProvider = "setData1")
+//	@Test(priority = 0, dataProvider = "setData1")
 	public void userAdministrator(Hashtable<String, String> h2) throws Throwable 
 	{
 		extentLoggerECP = parentExtentLogger.createNode("verify D3CommandCenterTest ");
@@ -73,7 +73,7 @@ public class NotificationsTest extends BaseTest
 			
 	}
 
-	@Test(priority = 1, dataProvider = "setData1")
+//	@Test(priority = 1, dataProvider = "setData1")
 	public void veryFySubscribedNotifications(Hashtable<String, String> h2) throws Throwable 
 	{
 		extentLoggerECP = parentExtentLogger.createNode("verify D3CommandCenterTest ");

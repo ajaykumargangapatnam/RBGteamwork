@@ -36,7 +36,7 @@ public class CreateNewClientTest extends BaseTest
 		beforeClassForChild(this);
 	}
 	
-	@Test(priority = 0, dataProvider = "setData1")
+	@Test(priority = 0, dataProvider = "setData1",enabled =false)
 	public void NewClientwithmandatoryfields(Hashtable<String, String> h2) throws Throwable 
 	{
 	extentLoggerECP = parentExtentLogger.createNode("New Client with mandatory fields");
@@ -47,7 +47,6 @@ public class CreateNewClientTest extends BaseTest
 	passLog();
 	adminPage.clickonClients();
 	passLog();
-	Thread.sleep(5000);
 	createNewClientPage.clickOnAddNewClient_clientpage();
 	passLog();
 	createNewClientPage.enterName(h2.get("Name"));
@@ -76,7 +75,6 @@ public class CreateNewClientTest extends BaseTest
 	passLog();
 	adminPage.clickonClients();
 	passLog();
-	Thread.sleep(5000);
 	createNewClientPage.clickOnAddNewClient_clientpage();
 	passLog();
 	createNewClientPage.enterName(h2.get("Name"));
@@ -189,35 +187,13 @@ public class CreateNewClientTest extends BaseTest
 	passLog();
 	createNewClientPage.ClickonAllowedtouseD3CommandCenter(h2.get("useD3CommandCenter"));
 	passLog();
-createNewClientPage.clickOnCancel();
+	createNewClientPage.clickOnCancel();
 	passLog();
-//	createNewClientPage.clickOnAddNewClient_clientpage();
-	passLog();
-	}
-
-	@Test(priority = 0, dataProvider = "setData1")
-	public void createNewClienterrorvalidation(Hashtable<String, String> h2) throws Throwable 
-	{
-	extentLoggerECP = parentExtentLogger.createNode("create New Client error validation");
-	loginTest.logintest(h2);
-	passLog();
-	homePage.clickOnUserAdmin();
-	passLog();
-	adminPage.clickonClients();
-	passLog();
-	Thread.sleep(5000);
 	createNewClientPage.clickOnAddNewClient_clientpage();
 	passLog();
-	createNewClientPage.clickOnAddNewClient();
-	passLog();
-	s_assert = new SoftAssert();
-	String actualClientmusthaveaname=createNewClientPage.verifyClientmusthaveaname();
-	s_assert.assertEquals(actualClientmusthaveaname, "Client must have a name.");
-	passLog();
-	String actualTheClientwasNOTaddedPleasetryagainandverifythisisnotaduplicate=createNewClientPage. verifyTheClientwasNOTaddedPleasetryagainandverifythisisnotaduplicate();
-	s_assert.assertEquals(actualTheClientwasNOTaddedPleasetryagainandverifythisisnotaduplicate, "The Client was NOT added. Please try again and verify this is not a duplicate.");
-	passLog();
 	}
+	
+	
 	@DataProvider
 	public Object[][] setDataforAllFileds() {
 		Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "\\TestData\\testdata.xlsx");
