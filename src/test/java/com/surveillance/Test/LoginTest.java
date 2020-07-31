@@ -41,6 +41,7 @@ public class LoginTest extends BaseTest{
 		
 		
 		login.clickOnLogin();
+		System.out.println("dONE");
 		
 	}
 	
@@ -60,13 +61,7 @@ public class LoginTest extends BaseTest{
 		
 	}
 	
-	@DataProvider
-	public Object[][] setData1() {
-		Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "/TestData/testdata.xlsx");
-		return ReadData.getData("Logintest", "LoginTC", xls);
-	}
-
-	@Test(priority = 0)
+@Test(priority = 0)
 	public void loginWithInvalidCredentials() throws Exception 
 	{
 		extentLoggerECP = parentExtentLogger.createNode("login With Invalid Credentials");
@@ -110,17 +105,22 @@ public class LoginTest extends BaseTest{
 	login.clickOnLogin();
 	passLog();
 	Thread.sleep(5000);
-	String actualNOTYOU=login.verifyNOTYOU();
-	System.out.println("actualNOTYOU "+actualNOTYOU);
-	s_assert.assertEquals(actualNOTYOU, "NOT YOU?");
-	passLog();
-	String actualPassword=login.verifyPassword();
-	s_assert.assertEquals(actualPassword, "Password");
-	passLog();
-	boolean actualInputPassword=login.verifyInputPassword();
-	s_assert.assertEquals(actualInputPassword, true);
-	passLog();
-	s_assert.assertAll();
+//	String actualNOTYOU=login.verifyNOTYOU();
+//	System.out.println("actualNOTYOU "+actualNOTYOU);
+//	s_assert.assertEquals(actualNOTYOU, "NOT YOU?");
+//	passLog();
+//	String actualPassword=login.verifyPassword();
+//	s_assert.assertEquals(actualPassword, "Password");
+//	passLog();
+//	boolean actualInputPassword=login.verifyInputPassword();
+//	s_assert.assertEquals(actualInputPassword, true);
+//	passLog();
+//	s_assert.assertAll();
+	}
+	@DataProvider
+	public Object[][] setData1() {
+		Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "/TestData/testdata.xlsx");
+		return ReadData.getData("Logintest", "LoginTC", xls);
 	}
 	
 }

@@ -283,6 +283,7 @@ public class CreateNewClientPage {
 			return this;
 		}
 		public CreateNewClientPage clickOnAddNewClient() throws Exception {
+			
 			keywords.jsClick("xpath", _instance.getValue("CreateNewClientPage.BTN_AddNewClient"));
 			
 			return this;
@@ -291,4 +292,13 @@ public class CreateNewClientPage {
 			keywords.jsClick("xpath", _instance.getValue("CreateNewClientPage.BTN_AddNewClient_clientpage"));
 			return this;
 		}
+
+    public String verifyClientmusthaveaname() throws Exception {
+	String Data= keywords.getText("xpath", _instance.getValue("CreateNewClientPage.LBL_Clientmusthaveaname"));
+	return Data;
+}
+    public String verifyTheClientwasNOTaddedPleasetryagainandverifythisisnotaduplicate() throws Exception {
+    	String Data= keywords.getText("xpath", _instance.getValue("CreateNewClientPage.LBL_TheClientwasNOTaddedPleasetryagainandverifythisisnotaduplicate"));
+    	return Data;
+    }
 		}
