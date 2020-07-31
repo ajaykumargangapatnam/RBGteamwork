@@ -195,9 +195,12 @@ public class ViewProfilePageTest extends BaseTest{
 	        s_assert.assertTrue(expectedModifiedBy.equals("ModifiedBy"));
 	        passLog();
 }
-			
+//	@Test(priority = 0, dataProvider = "setData1")
+//
+//			public void ViewProfile2(Hashtable<String, String> h2) throws Throwable
+
 	@Test(priority = 0, dataProvider = "setData1")
-	public void ViewProfile2(Hashtable<String, String> h2) throws Throwable 
+	public void ViewProfile2(Hashtable<String, String> h2) throws Throwable
 			{
 			extentLoggerECP = parentExtentLogger.createNode("Verify View Profile Page Test For Lables");
 
