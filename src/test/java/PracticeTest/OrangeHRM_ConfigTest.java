@@ -33,7 +33,7 @@ public class OrangeHRM_ConfigTest extends BaseTest
 		beforeClassForChild(this);
 	}
 	
-	@Test(priority=0)
+	@Test(priority=0 , dataProvider=setData0)
 	public void LoginwithValidCredentials(Hashtable<String, String>h1) throws Throwable
 	{
 		extentLoggerECP = parentExtentLogger.createNode("user can login with valid credentials");

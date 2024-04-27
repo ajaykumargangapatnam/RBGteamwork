@@ -1,15 +1,20 @@
 package com.surveillance.utilitiy;
 import java.awt.HeadlessException; //put this here for jenkins
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
+
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.Alert;
@@ -21,6 +26,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.CapabilityType;
@@ -30,7 +36,12 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class GenericKeywords extends ApplicationKeywords {
+public class GenericKeywords extends ApplicationKeywords
+{
+	public static Xls_Reader workBook;
+	public static int dataRowNumber;
+	public static Hashtable<String, String>[][]   datadrive;
+	public static Hashtable<String, String> getDataFromWorkBook;
 
 	public GenericKeywords(String classname) {
 		System.out.println("GenericKeywords class Name: " + classname);
@@ -50,7 +61,7 @@ public class GenericKeywords extends ApplicationKeywords {
 			if(System.getProperty("os.name").equalsIgnoreCase("Linux"))
 			{
 				logger.info("openBrowser action is started");
-				   System.setProperty("webdriver.chrome.driver", "/var/lib/jenkins/tools/chromedriver/chromedriver");
+				   System.setProperty("webdriver.chrome.driver", "/webDrivers/chromedriver_Linux");
 				   ChromeOptions opt = new ChromeOptions();
 				   opt.setBinary("/usr/bin/google-chrome-stable");  //chrome binary location specified here
 				   opt.addArguments("start-maximized", "--disable-gpu", "--no-sandbox", "--disable-extensions", "--disable-dev-shm-usage", "--headless");
@@ -58,11 +69,18 @@ public class GenericKeywords extends ApplicationKeywords {
 				   opt.setExperimentalOption("useAutomationExtension", false);
 				   driver = new ChromeDriver(opt);
 			}
+			else if (System.getProperty("os.name").contains("mac"))
+			{
+				logger.info("openBrowser action is started");
+				   System.setProperty("webdriver.chrome.driver", "/webDrivers/chromedriver_mac");
+			}
 			else{
 			logger.info("openBrowser action is started");
 			System.setProperty("webdriver.chrome.driver",
 					System.getProperty("user.dir") + "/webDrivers/chromedriver.exe");
-			driver = new ChromeDriver();
+			ChromeOptions co =new ChromeOptions();
+			co.addArguments("--remote-allow-origins=*");
+			driver = new ChromeDriver(co);
 			}
 
 		} else if (browserName.equalsIgnoreCase("Jenkins")){
@@ -75,25 +93,27 @@ public class GenericKeywords extends ApplicationKeywords {
 			opt.setExperimentalOption("useAutomationExtension", false);
 			driver = new ChromeDriver(opt);
 
-		}else if (browserName.equalsIgnoreCase("IE")) {
-
-			DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
-			capabilities.setCapability("requireWindowFocus", true);
-			capabilities.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, false);
-			capabilities.setCapability("ie.ensureCleanSession", true);
-			System.setProperty("webdriver.ie.driver",
-					System.getProperty("user.dir") + "/webDrivers/IEDriverServer.exe");
-			driver = new InternetExplorerDriver();
-
-		} else if (browserName.equalsIgnoreCase("Edge")) {
+		}
+//			else if (browserName.equalsIgnoreCase("IE")) {
+//
+////			DesiredCapabilities capabilities = DesiredCapabilities.htmlUnit();
+//			capabilities.setCapability("requireWindowFocus", true);
+//			capabilities.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, false);
+//			capabilities.setCapability("ie.ensureCleanSession", true);
+//			System.setProperty("webdriver.ie.driver",
+//					System.getProperty("user.dir") + "/webDrivers/IEDriverServer.exe");
+//			driver = new InternetExplorerDriver();
+//
+//		} 
+			else if (browserName.equalsIgnoreCase("Edge")) {
 			System.setProperty("webdriver.edge.driver",
 					System.getProperty("user.dir") + "/webDrivers/MicrosoftWebDriver.exe");
 			driver = new EdgeDriver();
 
 		} else if (browserName.equalsIgnoreCase("firefox")) {
 			System.setProperty("webdriver.gecko.driver",
-					System.getProperty("user.dir") + "webDrivers\\geckodriver.exe");
-			driver = new EdgeDriver();
+					System.getProperty("user.dir") + "/webDrivers/geckodriver.exe");
+			driver = new FirefoxDriver();
 		}
 
 		driver.manage().window().maximize();
@@ -103,7 +123,7 @@ public class GenericKeywords extends ApplicationKeywords {
 		 * Dimension(1936, 1056); Resize the current window to the given dimension
 		 * driver.manage().window().setSize(d);
 		 */
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 		logger.info(browserName + " launched successfully");
 		}
 	
@@ -201,7 +221,7 @@ public class GenericKeywords extends ApplicationKeywords {
 			{
 				element = driver.findElements(By.tagName(locatorvalue));
 			}
-			logger.info("find element action is Completed");
+			logger.info("find elementS action is Completed");
 
 		} catch (Throwable e) {
 			logger.info("element is not found:" + e);
@@ -237,7 +257,7 @@ public class GenericKeywords extends ApplicationKeywords {
 	}
 	
 	/**
-	 * Method Name : click purpose : clicks on the web element. parameters
+	 * Method Name : click purpose : clicks on the webelement. parameters
 	 * :locatorindicator, locatorvalue Example : Example :
 	 * <xpath>,<//*[@id='tabletoolbar']>
 	 */
@@ -267,6 +287,12 @@ public class GenericKeywords extends ApplicationKeywords {
 	 * parameters : locator type,locator value , data Example
 	 * :<xpath>,<//input[@id='email']>,<Data>
 	 */
+	public void alertclick(String locatorindicator,String locatorvalue)
+	{
+		logger.info("alert popwindow started");
+		elementFind(locatorindicator,locatorvalue).click();
+		logger.info("alert popwindow ended stared New account");
+	}
 	public void JSenterData(String locatorindicator, String locatorvalue, String data) {
 
 		logger.info("enter data action is started");
@@ -841,7 +867,7 @@ public class GenericKeywords extends ApplicationKeywords {
 	 * dismiss the alert. parameters : data Example : <accept>
 	 */
 	public void handleAlert(String data) {
-		if (data.equals("accept")) {
+		if (data.equals("accept")) { 
 			driver.switchTo().alert().accept();
 System.out.println("ALERT ACCPTING");
 		} else if (data.equals("dismiss")) {
@@ -950,8 +976,15 @@ System.out.println("ALERT ACCPTING");
 	 * visible upto a maximum time of 30 seconds . parameters : locator value
 	 * Example : <//input[@id='email']>
 	 */
+	
+	public void doubleclick(String locatorindicator, String locatorvalue)
+	{
+		WebElement element = elementFind(locatorindicator, locatorvalue);
+		Actions action = new Actions(driver);
+		action.doubleClick(element).perform();
+	}
 	public void waitForInvisible(String xpath) {
-		WebDriverWait wait = new WebDriverWait(driver, 30);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		try {
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(xpath)));
 			
@@ -1031,7 +1064,7 @@ System.out.println("ALERT ACCPTING");
 	}
 
 	public static String TimeStampFolder() {
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy_MM_dd//");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy_MM_dd/");
 		String format = dateFormat.format(new Date());
 
 		return format;
@@ -1090,7 +1123,7 @@ public void fileDownload()
      options.setExperimentalOption("prefs", chromePrefs);
      options.addArguments("--test-type");
      options.addArguments("--disable-extensions"); //to disable browser extension popup
-     options.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+//     options.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
 }
 public boolean isEnabled(String locatorindicator, String locatorvalue)
 {
@@ -1111,7 +1144,7 @@ public boolean isDisplayed(String locatorindicator, String locatorvalue)
 
 public void waitForPageLoad() {
 
-    Wait<WebDriver> wait = new WebDriverWait(driver, 30);
+    Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(30));
     wait.until(new Function<WebDriver, Boolean>() {
         public Boolean apply(WebDriver driver) {
             System.out.println("Current Window State       : "
@@ -1124,5 +1157,12 @@ public void waitForPageLoad() {
 }
 
 
+
+
+//public WebElement searchForElement(String replaceData)
+//{
+//	driver.findElement(By.xpath(""));
+//}
+//
 }
 
