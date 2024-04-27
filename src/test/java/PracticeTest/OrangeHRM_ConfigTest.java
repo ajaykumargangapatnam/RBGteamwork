@@ -1,0 +1,56 @@
+package PracticeTest;
+
+import java.util.Hashtable;
+
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+
+import com.surveillance.Test.BaseTest;
+import com.surveillance.utilitiy.GenericKeywordsWithPage;
+import com.surveillance.utilitiy.PropertySingleton;
+import com.surveillance.utilitiy.ReadData;
+import com.surveillance.utilitiy.Xls_Reader;
+
+import practicepage.OrangeHRM_Login;
+import practicepage.OrangeHRM_LoginPage;
+
+public class OrangeHRM_ConfigTest extends BaseTest
+{
+	OrangeHRM_LoginPage oc;
+	PropertySingleton _instance = null;
+	SoftAssert s1 = new SoftAssert();
+	
+	public OrangeHRM_ConfigTest()
+	{
+		_instance = PropertySingleton.getInstance();
+	}
+	
+	@BeforeClass
+	public void startReport()
+	{
+		beforeClassForChild(this);
+	}
+	
+	@Test(priority=0)
+	public void LoginwithValidCredentials(Hashtable<String, String>h1) throws Throwable
+	{
+		extentLoggerECP = parentExtentLogger.createNode("user can login with valid credentials");
+		
+		oc = new OrangeHRM_LoginPage(GenericKeywordsWithPage.driver);
+		
+		oc.enter_Username(h1.get("userName"));
+		oc.enter_Password(h1.get("password"));
+		oc.click_Login();
+		Thread.sleep(5000);
+	}
+	
+	@DataProvider
+	public Object[][] setData0() 
+	{
+		Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "/TestData/testdata.xlsx");
+		
+		return ReadData.getData("OrangeHRM_AllTestcases", "OrangeHRM_ConfigTestCases", xls);
+	}
+}
