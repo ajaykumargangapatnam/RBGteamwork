@@ -33,7 +33,15 @@ public class OrangeHRM_ConfigTest extends BaseTest
 		beforeClassForChild(this);
 	}
 	
-	@Test(priority=0 , dataProvider=setData0)
+	@DataProvider
+	public Object[][] setData0() 
+	{
+		Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "/TestData/testdata.xlsx");
+		
+		return ReadData.getData("OrangeHRM_AllTestcases", "OrangeHRM_ConfigTestCases", xls);
+	}
+	
+	@Test(priority=0 , dataProvider="setData0")
 	public void LoginwithValidCredentials(Hashtable<String, String>h1) throws Throwable
 	{
 		extentLoggerECP = parentExtentLogger.createNode("user can login with valid credentials");
@@ -46,11 +54,30 @@ public class OrangeHRM_ConfigTest extends BaseTest
 		Thread.sleep(5000);
 	}
 	
-	@DataProvider
-	public Object[][] setData0() 
+	@Test(priority=1 , dataProvider="setData0")
+	public void LoginwithInValidCredentials(Hashtable<String, String>h1) throws Throwable
 	{
-		Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "/TestData/testdata.xlsx");
+		extentLoggerECP = parentExtentLogger.createNode("user can login with Invalid credentials");
 		
-		return ReadData.getData("OrangeHRM_AllTestcases", "OrangeHRM_ConfigTestCases", xls);
+		oc = new OrangeHRM_LoginPage(GenericKeywordsWithPage.driver);
+		
+		oc.enter_Username(h1.get("InvalidUserName"));
+		oc.enter_Password(h1.get("InvalidPassword"));
+		oc.click_Login();
+		Thread.sleep(5000);
+	}
+	
+	@Test(priority=2 , dataProvider="setData0")
+	public void LoginAgainwithAInValidCredentials(Hashtable<String, String>h1) throws Throwable
+	{
+		extentLoggerECP = parentExtentLogger.createNode("user can login again with Invalid credentials");
+		
+		oc = new OrangeHRM_LoginPage(GenericKeywordsWithPage.driver);
+		
+		oc.enter_Username(h1.get("InvalidUserName"));
+		oc.enter_Password(h1.get("InvalidPassword"));
+		oc.click_Login();
+		oc.click_ForgotBtn();
+		Thread.sleep(5000);
 	}
 }
