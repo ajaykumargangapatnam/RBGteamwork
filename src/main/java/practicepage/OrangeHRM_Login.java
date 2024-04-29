@@ -1,14 +1,16 @@
 package practicepage;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.surveillance.utilitiy.ApplicationKeywords;
 import com.surveillance.utilitiy.GenericKeywordsWithPage;
 
-public class OrangeHRM_Login 
+public class OrangeHRM_Login extends ApplicationKeywords
 {
 	public OrangeHRM_Login(WebDriver driver) 
 	{
@@ -164,20 +166,36 @@ public class OrangeHRM_Login
 	{
 		keywords.click(editbtn);
 	}
-//	public void Clear_skill() throws Throwable
-//	{
-//		keywords.doubleclick(clearskill);
-//		Thread.sleep(3000);
-//		keywords.clearData(clearskill);
-//		
-//	}
-//	
-//	public void Clear_Description() throws Throwable
-//	{
-//		keywords.doubleclick(cleardescription);
-//		Thread.sleep(3000);
-//		keywords.clearData(cleardescription);
-//	}
+	public void ClearandEnter_skill(String uname) throws Throwable
+	{
+		keywords.click(skillname);
+		Actions a1 = new Actions(keywords.driver);
+		a1.keyDown(Keys.CONTROL);
+		a1.sendKeys("a");
+		a1.keyUp(Keys.CONTROL).perform();
+		Thread.sleep(3000);
+		a1.keyDown(Keys.BACK_SPACE).perform();
+		
+		Thread.sleep(3000);
+		a1.keyUp(Keys.CONTROL).sendKeys(uname);
+		a1.keyUp(Keys.CONTROL).perform();	
+	}
+	
+	public void ClearandEnter_Description(String udname) throws Throwable
+	{
+		keywords.click(descripbox);
+		Actions a1 = new Actions(keywords.driver);
+		a1.keyDown(Keys.CONTROL);
+		a1.sendKeys("a");
+		a1.keyUp(Keys.CONTROL).perform();
+		Thread.sleep(3000);
+		a1.keyDown(Keys.BACK_SPACE).perform();
+		
+		Thread.sleep(3000);
+		a1.keyUp(Keys.CONTROL).sendKeys(udname);
+		a1.keyUp(Keys.CONTROL).perform();
+		
+	}
 	
 	public void ReEnter_skillname(String skname)
 	{

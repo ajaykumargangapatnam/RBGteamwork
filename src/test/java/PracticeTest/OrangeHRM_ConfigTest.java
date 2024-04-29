@@ -92,9 +92,46 @@ public class OrangeHRM_ConfigTest extends BaseTest
 		oc.click_Login();
 		oc.Clickon_Admin();
 		oc.Clickon_Configuration();
+		Thread.sleep(3000);
 		oc.Clickon_EmailConfig();
-		oc.Clear_Email(h1.get("EmialId"));
+		Thread.sleep(3000);
+		oc.ClearandEnter_Email(h1.get("EmialId"));
+		Thread.sleep(3000);
+		oc.Clickon_Emailsave();
+		Thread.sleep(3000);
+		oc.Clickon_Configuration();
+		Thread.sleep(3000);
+		oc.Clickon_EmailConfig();
+		Thread.sleep(3000);
+		oc.Clickon_Reset();
 		Thread.sleep(5000);
 	}
 	
+	@Test(priority=4 , dataProvider="setData0")
+	public void ClickonEmialSubscription(Hashtable<String, String>h1) throws Throwable
+	{
+		extentLoggerECP = parentExtentLogger.createNode("user can click on Email Configuration");
+		
+		oc = new OrangeHRM_LoginPage(GenericKeywordsWithPage.driver);
+		
+		oc.enter_Username(h1.get("userName"));
+		oc.enter_Password(h1.get("password"));
+		oc.click_Login();
+		oc.Clickon_Admin();
+		oc.Clickon_Configuration();
+		Thread.sleep(3000);
+		oc.Clickon_EmailSubscription();
+		Thread.sleep(3000);
+		oc.clickon_Addbtn();
+		Thread.sleep(3000);
+		oc.clickon_Addbtn();
+		Thread.sleep(3000);
+		oc.Enter_InputName(h1.get("Name"));
+		Thread.sleep(3000);
+		oc.Enter_EmailName(h1.get("Emailname"));
+		Thread.sleep(3000);
+		oc.Clickon_Emailsave();
+		Thread.sleep(5000);
+		
+	}
 }

@@ -1,6 +1,5 @@
 package practicepage;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -41,6 +40,33 @@ public class OrangeHRM_LoginPage extends ApplicationKeywords
 	@FindBy(xpath="//label[contains(text(),'Mail Sent As')]/following::div/input")
 	WebElement clearemail;
 	
+	@FindBy(xpath="//button[@type='submit']")
+	WebElement savebtn;
+	
+	@FindBy(xpath="(//button[@type='button'])[3]")
+	WebElement resetbtn;
+	
+	@FindBy(xpath="//a[contains(text(),'Email Subscriptions')]")
+	WebElement emailsubscrip;
+	
+	@FindBy(xpath="(//button[@type='button'])[3]")
+	WebElement subsripbtn;
+	
+	@FindBy(xpath="(//button[@type='button'])[3]")
+	WebElement addbtn;
+	
+	@FindBy(xpath="//label[contains(text(),'Name')]/following::div[1]/input")
+	WebElement namebox;
+	
+	@FindBy(xpath="//label[contains(text(),'Email')]/following::div[1]/input")
+	WebElement emailbox;
+	
+	@FindBy(xpath="//button[@type='submit']")
+	WebElement  emailsavebtn;
+	
+	@FindBy(xpath="(//span[@class='oxd-switch-input oxd-switch-input--active --label-right'])[1]")
+	WebElement  subscripadd;
+	
 	GenericKeywordsWithPage keywords = new GenericKeywordsWithPage("OrangeHRM_Login");
 
 	public void enter_Username(String user)
@@ -78,16 +104,57 @@ public class OrangeHRM_LoginPage extends ApplicationKeywords
 		keywords.click(emailconfig);
 	}
 	
-	public void Clear_Email(String email) throws Throwable
+	public void ClearandEnter_Email(String ename) throws Throwable
 	{
 		keywords.click(clearemail);
 		Thread.sleep(3000);
-	    driver.findElement(By.xpath("//label[contains(text(),'Mail Sent As')]/following::div/input"));
-		Actions a1 = new Actions(driver);
+		Actions a1 = new Actions(keywords.driver);
 		a1.keyDown(Keys.CONTROL);
-		keywords.clearData(clearemail);
-		a1.sendKeys(email);
-		a1.perform();
+		a1.sendKeys("a");
+		a1.keyUp(Keys.CONTROL).perform();
+		Thread.sleep(3000);
+		a1.keyDown(Keys.BACK_SPACE).perform();
+		
+		Thread.sleep(3000);
+		a1.keyUp(Keys.CONTROL).sendKeys(ename);
+		a1.keyUp(Keys.CONTROL).perform();
+		keywords.click(savebtn);
+	}
+	
+	public void Clickon_Reset()
+	{
+		keywords.click(resetbtn);
+	}
+	
+	public void Clickon_EmailSubscription()
+	{
+		keywords.click(emailsubscrip);
+	}
+	
+	public void Clickon_Subscripbtn()
+	{
+		keywords.click(subsripbtn);
+	}
+	
+	public void clickon_Addbtn()
+	{
+		keywords.click(addbtn);
+	}
+	
+	public void Enter_InputName(String name)
+	{
+		keywords.enterData(namebox, name);
 	}
 
+	public void Enter_EmailName(String ename)
+	{
+		keywords.enterData(emailbox, ename);
+	}
+	
+	public void Clickon_Emailsave()
+	{
+		keywords.click(emailsavebtn);
+	}
+	
+	
 }
