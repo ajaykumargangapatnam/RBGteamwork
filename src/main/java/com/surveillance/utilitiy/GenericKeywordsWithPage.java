@@ -964,6 +964,7 @@ public class GenericKeywordsWithPage extends ApplicationKeywords
 		Actions action = new Actions(driver);
 		action.doubleClick(element).perform();
 	}
+	
 	public void waitForInvisible(String xpath) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		try {
