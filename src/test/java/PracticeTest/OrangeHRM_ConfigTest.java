@@ -40,45 +40,45 @@ public class OrangeHRM_ConfigTest extends BaseTest
 		return ReadData.getData("OrangeHRM_AllTestcases", "OrangeHRM_ConfigTestCases", xls);
 	}
 	
-//	@Test(priority=0 , dataProvider="setData0")
-//	public void LoginwithValidCredentials(Hashtable<String, String>h1) throws Throwable
-//	{
-//		extentLoggerECP = parentExtentLogger.createNode("user can login with valid credentials");
-//		
-//		oc = new OrangeHRM_LoginPage(GenericKeywordsWithPage.driver);
-//		
-//		oc.enter_Username(h1.get("userName"));
-//		oc.enter_Password(h1.get("password"));
-//		oc.click_Login();
-//		Thread.sleep(5000);
-//	}
-//	
-//	@Test(priority=1 , dataProvider="setData0")
-//	public void LoginwithInValidCredentials(Hashtable<String, String>h1) throws Throwable
-//	{
-//		extentLoggerECP = parentExtentLogger.createNode("user can login with Invalid credentials");
-//		
-//		oc = new OrangeHRM_LoginPage(GenericKeywordsWithPage.driver);
-//		
-//		oc.enter_Username(h1.get("InvalidUserName"));
-//		oc.enter_Password(h1.get("InvalidPassword"));
-//		oc.click_Login();
-//		Thread.sleep(5000);
-//	}
-//	
-//	@Test(priority=2 , dataProvider="setData0")
-//	public void LoginAgainwithAInValidCredentials(Hashtable<String, String>h1) throws Throwable
-//	{
-//		extentLoggerECP = parentExtentLogger.createNode("user can login again with Invalid credentials");
-//		
-//		oc = new OrangeHRM_LoginPage(GenericKeywordsWithPage.driver);
-//		
-//		oc.enter_Username(h1.get("InvalidUserName"));
-//		oc.enter_Password(h1.get("InvalidPassword"));
-//		oc.click_Login();
-//		oc.click_ForgotBtn();
-//		Thread.sleep(5000);
-//	}
+	@Test(priority=0 , dataProvider="setData0")
+	public void LoginwithValidCredentials(Hashtable<String, String>h1) throws Throwable
+	{
+		extentLoggerECP = parentExtentLogger.createNode("user can login with valid credentials");
+		
+		oc = new OrangeHRM_LoginPage(GenericKeywordsWithPage.driver);
+		
+		oc.enter_Username(h1.get("userName"));
+		oc.enter_Password(h1.get("password"));
+		oc.click_Login();
+		Thread.sleep(5000);
+	}
+	
+	@Test(priority=1 , dataProvider="setData0")
+	public void LoginwithInValidCredentials(Hashtable<String, String>h1) throws Throwable
+	{
+		extentLoggerECP = parentExtentLogger.createNode("user can login with Invalid credentials");
+		
+		oc = new OrangeHRM_LoginPage(GenericKeywordsWithPage.driver);
+		
+		oc.enter_Username(h1.get("InvalidUserName"));
+		oc.enter_Password(h1.get("InvalidPassword"));
+		oc.click_Login();
+		Thread.sleep(5000);
+	}
+	
+	@Test(priority=2 , dataProvider="setData0")
+	public void LoginAgainwithAInValidCredentials(Hashtable<String, String>h1) throws Throwable
+	{
+		extentLoggerECP = parentExtentLogger.createNode("user can login again with Invalid credentials");
+		
+		oc = new OrangeHRM_LoginPage(GenericKeywordsWithPage.driver);
+		
+		oc.enter_Username(h1.get("InvalidUserName"));
+		oc.enter_Password(h1.get("InvalidPassword"));
+		oc.click_Login();
+		oc.click_ForgotBtn();
+		Thread.sleep(5000);
+	}
 	
 	@Test(priority=3 , dataProvider="setData0")
 	public void ClickonEmialConfiguration(Hashtable<String, String>h1) throws Throwable
