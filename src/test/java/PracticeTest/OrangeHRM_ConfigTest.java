@@ -241,9 +241,9 @@ public class OrangeHRM_ConfigTest extends BaseTest
 	}
 	
 	@Test(priority=9 , dataProvider="setData0")
-	public void ClickAgainOnModules(Hashtable<String, String>h1) throws Throwable
+	public void ClickAgainOnSocialMediaAuthentication(Hashtable<String, String>h1) throws Throwable
 	{
-		extentLoggerECP = parentExtentLogger.createNode("user can click Again on Modules ");
+		extentLoggerECP = parentExtentLogger.createNode("user can click Again on SocialMediaAuthentication ");
 		
 		oc = new OrangeHRM_LoginPage(GenericKeywordsWithPage.driver);
 		

@@ -1,9 +1,7 @@
 package OrangeHRM_ConfigPage;
 
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -118,16 +116,19 @@ public class OrangeHRM_SocialMediaPage
 	{
 		keywords.click(nameinputbox);
 		Thread.sleep(3000);
-		Actions a1 = new Actions(keywords.driver);
-		a1.keyDown(Keys.CONTROL);
-		a1.sendKeys("a");
-		a1.keyUp(Keys.CONTROL).perform();
-		Thread.sleep(3000);
-		a1.keyDown(Keys.BACK_SPACE).perform();
+//		Actions a1 = new Actions(keywords.driver);
+//		a1.keyDown(Keys.CONTROL);
+//		a1.sendKeys("a");
+//		a1.keyUp(Keys.CONTROL).perform();
+//		Thread.sleep(3000);
+//		a1.keyDown(Keys.BACK_SPACE).perform();
+//		
+//		Thread.sleep(3000);
+//		a1.keyUp(Keys.CONTROL).sendKeys(ndata);
+//		a1.keyUp(Keys.CONTROL).perform();
 		
-		Thread.sleep(3000);
-		a1.keyUp(Keys.CONTROL).sendKeys(ndata);
-		a1.keyUp(Keys.CONTROL).perform();
+		keywords.backspace(nameinputbox);
+		keywords.enterData(nameinputbox, ndata);
 		
 	}
 	
@@ -135,16 +136,19 @@ public class OrangeHRM_SocialMediaPage
 	{
 		keywords.click(providerinputbox);
 		Thread.sleep(3000);
-		Actions a1 = new Actions(keywords.driver);
-		a1.keyDown(Keys.CONTROL);
-		a1.sendKeys("a");
-		a1.keyUp(Keys.CONTROL).perform();
-		Thread.sleep(3000);
-		a1.keyDown(Keys.BACK_SPACE).perform();
+//		Actions a1 = new Actions(keywords.driver);
+//		a1.keyDown(Keys.CONTROL);
+//		a1.sendKeys("a");
+//		a1.keyUp(Keys.CONTROL).perform();
+//		Thread.sleep(3000);
+//		a1.keyDown(Keys.BACK_SPACE).perform();
+//		
+//		Thread.sleep(3000);
+//		a1.keyUp(Keys.CONTROL).sendKeys(pdata);
+//		a1.keyUp(Keys.CONTROL).perform();
 		
-		Thread.sleep(3000);
-		a1.keyUp(Keys.CONTROL).sendKeys(pdata);
-		a1.keyUp(Keys.CONTROL).perform();
+		keywords.backspace(providerinputbox);
+		keywords.enterData(providerinputbox, pdata);
 	}
 	
 	
@@ -152,32 +156,38 @@ public class OrangeHRM_SocialMediaPage
 	{
 		keywords.click(clientinputbox);
 		Thread.sleep(3000);
-		Actions a1 = new Actions(keywords.driver);
-		a1.keyDown(Keys.CONTROL);
-		a1.sendKeys("a");
-		a1.keyUp(Keys.CONTROL).perform();
-		Thread.sleep(3000);
-		a1.keyDown(Keys.BACK_SPACE).perform();
+//		Actions a1 = new Actions(keywords.driver);
+//		a1.keyDown(Keys.CONTROL);
+//		a1.sendKeys("a");
+//		a1.keyUp(Keys.CONTROL).perform();
+//		Thread.sleep(3000);
+//		a1.keyDown(Keys.BACK_SPACE).perform();
+//		
+//		Thread.sleep(3000);
+//		a1.keyUp(Keys.CONTROL).sendKeys(cdata);
+//		a1.keyUp(Keys.CONTROL).perform();
 		
-		Thread.sleep(3000);
-		a1.keyUp(Keys.CONTROL).sendKeys(cdata);
-		a1.keyUp(Keys.CONTROL).perform();
+		keywords.backspace(clientinputbox);
+		keywords.enterData(clientinputbox, cdata);
 	}
 	
 	public void EditClientsecretInputBox(String csdata) throws Throwable
 	{
 		keywords.click(clientsecterinputbox);
-		Thread.sleep(3000);
-		Actions a1 = new Actions(keywords.driver);
-		a1.keyDown(Keys.CONTROL);
-		a1.sendKeys("a");
-		a1.keyUp(Keys.CONTROL).perform();
-		Thread.sleep(3000);
-		a1.keyDown(Keys.BACK_SPACE).perform();
+//		Thread.sleep(3000);
+//		Actions a1 = new Actions(keywords.driver);
+//		a1.keyDown(Keys.CONTROL);
+//		a1.sendKeys("a");
+//		a1.keyUp(Keys.CONTROL).perform();
+//		Thread.sleep(3000);
+//		a1.keyDown(Keys.BACK_SPACE).perform();
+//		
+//		Thread.sleep(3000);
+//		a1.keyUp(Keys.CONTROL).sendKeys(csdata);
+//		a1.keyUp(Keys.CONTROL).perform();
 		
-		Thread.sleep(3000);
-		a1.keyUp(Keys.CONTROL).sendKeys(csdata);
-		a1.keyUp(Keys.CONTROL).perform();
+		keywords.backspace(clientsecterinputbox);
+		keywords.enterData(clientsecterinputbox, csdata);
 	}
 
 }

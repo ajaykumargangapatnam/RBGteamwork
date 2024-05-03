@@ -965,6 +965,16 @@ public class GenericKeywordsWithPage extends ApplicationKeywords
 		action.doubleClick(element).perform();
 	}
 	
+	public void backspace(WebElement element) throws Throwable
+	{
+		Actions a1 = new Actions(driver);
+		a1.keyDown(Keys.CONTROL);
+		a1.sendKeys("a");
+		a1.keyUp(Keys.CONTROL).perform();
+		Thread.sleep(3000);
+		a1.keyDown(Keys.BACK_SPACE).perform();
+		a1.keyUp(Keys.CONTROL).perform();
+	}
 	public void waitForInvisible(String xpath) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		try {

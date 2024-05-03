@@ -71,15 +71,18 @@ public class OrangeHRM_LDAPConfigPage
 	{
 		keywords.click(hostname);
 		Thread.sleep(3000);
-		Actions a1 = new Actions(keywords.driver);
-		a1.keyDown(Keys.CONTROL);
-		a1.sendKeys("a");
-		a1.keyUp(Keys.CONTROL).perform();
-		Thread.sleep(3000);
-		a1.keyDown(Keys.BACK_SPACE).perform();
+//		Actions a1 = new Actions(keywords.driver);
+//		a1.keyDown(Keys.CONTROL);
+//		a1.sendKeys("a");
+//		a1.keyUp(Keys.CONTROL).perform();
+//		Thread.sleep(3000);
+//		a1.keyDown(Keys.BACK_SPACE).perform();
+//		
+//		Thread.sleep(3000);
+//		a1.keyUp(Keys.CONTROL).sendKeys(hname).perform();
 		
-		Thread.sleep(3000);
-		a1.keyUp(Keys.CONTROL).sendKeys(hname).perform();
+		keywords.backspace(hostname);
+		keywords.enterData(hostname, hname);
 	}
 	
 	@FindBy(xpath="//label[text()='Port']/parent::div/following-sibling::div/input")
@@ -88,15 +91,18 @@ public class OrangeHRM_LDAPConfigPage
 	{
 		keywords.click(portname);
 		Thread.sleep(3000);
-		Actions a1 = new Actions(keywords.driver);
-		a1.keyDown(Keys.CONTROL);
-		a1.sendKeys("a");
-		a1.keyUp(Keys.CONTROL).perform();
-		Thread.sleep(3000);
-		a1.keyDown(Keys.BACK_SPACE).perform();
+//		Actions a1 = new Actions(keywords.driver);
+//		a1.keyDown(Keys.CONTROL);
+//		a1.sendKeys("a");
+//		a1.keyUp(Keys.CONTROL).perform();
+//		Thread.sleep(3000);
+//		a1.keyDown(Keys.BACK_SPACE).perform();
+//		
+//		Thread.sleep(3000);
+//		a1.keyUp(Keys.CONTROL).sendKeys(pname).perform();
 		
-		Thread.sleep(3000);
-		a1.keyUp(Keys.CONTROL).sendKeys(pname).perform();
+		keywords.backspace(portname);
+		keywords.enterData(portname, pname);
 	}
 	
 	@FindBy(xpath="//label[text()='Encryption']/parent::div/following-sibling::div/child::div/div/child::div[text()='-- Select --']")
@@ -170,15 +176,18 @@ public class OrangeHRM_LDAPConfigPage
 	{
 		keywords.click(usernamebox);
 		Thread.sleep(3000);
-		Actions a1 = new Actions(keywords.driver);
-		a1.keyDown(Keys.CONTROL);
-		a1.sendKeys("a");
-		a1.keyUp(Keys.CONTROL).perform();
-		Thread.sleep(3000);
-		a1.keyDown(Keys.BACK_SPACE).perform();
+//		Actions a1 = new Actions(keywords.driver);
+//		a1.keyDown(Keys.CONTROL);
+//		a1.sendKeys("a");
+//		a1.keyUp(Keys.CONTROL).perform();
+//		Thread.sleep(3000);
+//		a1.keyDown(Keys.BACK_SPACE).perform();
+//		
+//		Thread.sleep(3000);
+//		a1.keyUp(Keys.CONTROL).sendKeys(uname).perform();
 		
-		Thread.sleep(3000);
-		a1.keyUp(Keys.CONTROL).sendKeys(uname).perform();
+		keywords.backspace(usernamebox);
+		keywords.enterData(usernamebox, uname);
 	}
 	
 	@FindBy(xpath="//label[text()='User Search Filter']/parent::div/following-sibling::div/input")
@@ -187,15 +196,18 @@ public class OrangeHRM_LDAPConfigPage
 	{
 		keywords.click(usersearchbox);
 		Thread.sleep(3000);
-		Actions a1 = new Actions(keywords.driver);
-		a1.keyDown(Keys.CONTROL);
-		a1.sendKeys("a");
-		a1.keyUp(Keys.CONTROL).perform();
-		Thread.sleep(3000);
-		a1.keyDown(Keys.BACK_SPACE).perform();
+//		Actions a1 = new Actions(keywords.driver);
+//		a1.keyDown(Keys.CONTROL);
+//		a1.sendKeys("a");
+//		a1.keyUp(Keys.CONTROL).perform();
+//		Thread.sleep(3000);
+//		a1.keyDown(Keys.BACK_SPACE).perform();
+//		
+//		Thread.sleep(3000);
+//		a1.keyUp(Keys.CONTROL).sendKeys(usname).perform();
 		
-		Thread.sleep(3000);
-		a1.keyUp(Keys.CONTROL).sendKeys(usname).perform();
+		keywords.backspace(usersearchbox);
+		keywords.enterData(usersearchbox, usname);
 	}
 	
 	@FindBy(xpath="//label[text()='User Unique ID Attribute']/parent::div/following-sibling::div/input")
@@ -211,15 +223,18 @@ public class OrangeHRM_LDAPConfigPage
 	{
 		keywords.click(firstbox);
 		Thread.sleep(3000);
-		Actions a1 = new Actions(keywords.driver);
-		a1.keyDown(Keys.CONTROL);
-		a1.sendKeys("a");
-		a1.keyUp(Keys.CONTROL).perform();
-		Thread.sleep(3000);
-		a1.keyDown(Keys.BACK_SPACE).perform();
+//		Actions a1 = new Actions(keywords.driver);
+//		a1.keyDown(Keys.CONTROL);
+//		a1.sendKeys("a");
+//		a1.keyUp(Keys.CONTROL).perform();
+//		Thread.sleep(3000);
+//		a1.keyDown(Keys.BACK_SPACE).perform();
+//		
+//		Thread.sleep(3000);
+//		a1.keyUp(Keys.CONTROL).sendKeys(fname).perform();
 		
-		Thread.sleep(3000);
-		a1.keyUp(Keys.CONTROL).sendKeys(fname).perform();
+		keywords.backspace(firstbox);
+		keywords.enterData(firstbox, fname);
 		
 	}
 	
@@ -236,15 +251,18 @@ public class OrangeHRM_LDAPConfigPage
 	{
 		keywords.click(lastbox);
 		Thread.sleep(3000);
-		Actions a1 = new Actions(keywords.driver);
-		a1.keyDown(Keys.CONTROL);
-		a1.sendKeys("a");
-		a1.keyUp(Keys.CONTROL).perform();
-		Thread.sleep(3000);
-		a1.keyDown(Keys.BACK_SPACE).perform();
+//		Actions a1 = new Actions(keywords.driver);
+//		a1.keyDown(Keys.CONTROL);
+//		a1.sendKeys("a");
+//		a1.keyUp(Keys.CONTROL).perform();
+//		Thread.sleep(3000);
+//		a1.keyDown(Keys.BACK_SPACE).perform();
+//		
+//		Thread.sleep(3000);
+//		a1.keyUp(Keys.CONTROL).sendKeys(lname).perform();	
 		
-		Thread.sleep(3000);
-		a1.keyUp(Keys.CONTROL).sendKeys(lname).perform();	
+		keywords.backspace(lastbox);
+		keywords.enterData(lastbox, lname);
 		
 	}
 	@FindBy(xpath="//p[text()='User Status']/parent::div/following-sibling::div[1]/child::div/child::div/following-sibling::div/input")
@@ -274,15 +292,18 @@ public class OrangeHRM_LDAPConfigPage
 	{
 		keywords.click(syncbox);
 		Thread.sleep(3000);
-		Actions a1 = new Actions(keywords.driver);
-		a1.keyDown(Keys.CONTROL);
-		a1.sendKeys("a");
-		a1.keyUp(Keys.CONTROL).perform();
-		Thread.sleep(3000);
-		a1.keyDown(Keys.BACK_SPACE).perform();
+//		Actions a1 = new Actions(keywords.driver);
+//		a1.keyDown(Keys.CONTROL);
+//		a1.sendKeys("a");
+//		a1.keyUp(Keys.CONTROL).perform();
+//		Thread.sleep(3000);
+//		a1.keyDown(Keys.BACK_SPACE).perform();
+//		
+//		Thread.sleep(3000);
+//		a1.keyUp(Keys.CONTROL).sendKeys(siname).perform();
 		
-		Thread.sleep(3000);
-		a1.keyUp(Keys.CONTROL).sendKeys(siname).perform();
+		keywords.backspace(syncbox);
+		keywords.enterData(syncbox, siname);
 	}
 	
 	@FindBy(xpath="//button[text()=' Save ']")

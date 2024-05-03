@@ -41,7 +41,7 @@ public class OrangeHRM_LDAPConfigTest extends BaseTest
 	}
 	
 	@Test(dataProvider="setData0")
-	public void EnterCredentialsinLDAPCongig(Hashtable<String, String>h1) throws Throwable
+	public void EnterCredentialsinLDAPConfig(Hashtable<String, String>h1) throws Throwable
 	{
 		extentLoggerECP = parentExtentLogger.createNode("user can click on Email Configuration");
 		

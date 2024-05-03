@@ -45,7 +45,7 @@ public class OrangeHRM_SocialMediaTest extends BaseTest
 	@Test(priority=0 , dataProvider="setData0")
 	public void ClickonSspialMediaAuthentication(Hashtable<String, String>h1) throws Throwable
 	{
-		extentLoggerECP = parentExtentLogger.createNode("user can click on SspialMediaAuthentication ");
+		extentLoggerECP = parentExtentLogger.createNode("user can click on SocialMediaAuthentication ");
 		
 		sp = new OrangeHRM_SocialMediaPage(GenericKeywordsWithPage.driver);
 		
@@ -57,7 +57,7 @@ public class OrangeHRM_SocialMediaTest extends BaseTest
 		Thread.sleep(3000);
 		sp.SocialMediaAuthentication();
 		sp.SocialAddBtn();
-		sp.NameInputBox(h1.get("SspialName"));
+		sp.NameInputBox(h1.get("SocialName"));
 		sp.ProviderInputBox(h1.get("ProvideURL"));
 		sp.ClientInputBox(h1.get("ClientID"));
 		sp.ClientsecretInputBox(h1.get("ClientSecret"));
@@ -68,7 +68,7 @@ public class OrangeHRM_SocialMediaTest extends BaseTest
 	@Test(priority=1 , dataProvider="setData0")
 	public void ClickAgainOnSspialMediaAuthentication(Hashtable<String, String>h1) throws Throwable
 	{
-		extentLoggerECP = parentExtentLogger.createNode("user can click Again on SspialMediaAuthentication ");
+		extentLoggerECP = parentExtentLogger.createNode("user can click Again on SocialMediaAuthentication ");
 		
 		sp = new OrangeHRM_SocialMediaPage(GenericKeywordsWithPage.driver);
 		
@@ -81,7 +81,7 @@ public class OrangeHRM_SocialMediaTest extends BaseTest
 		sp.SocialMediaAuthentication();
 		sp.Clickon_EditBtn();
 		Thread.sleep(3000);
-		sp.EditNameInputBox(h1.get("UpdateSspialName"));
+		sp.EditNameInputBox(h1.get("UpdateSocialName"));
 		sp.EditProviderInputBox(h1.get("UpdateProvideURL"));
 		sp.EditClientInputBox(h1.get("UpdateClientID"));
 		sp.EditClientsecretInputBox(h1.get("UpdateClientSecret"));
