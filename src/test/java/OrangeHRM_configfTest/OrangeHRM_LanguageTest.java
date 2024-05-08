@@ -40,7 +40,7 @@ public class OrangeHRM_LanguageTest extends BaseTest
 		return ReadData.getData("OrangeHRM_AllTestcases", "OrangeHRM_ConfigTestCases", xls);
 	}
 	
-	@Test(dataProvider="setData0")
+	@Test(priority=7,dataProvider="setData0")
 	public void ClickonLanguagePackages(Hashtable<String, String>h1) throws Throwable
 	{
 		extentLoggerECP = parentExtentLogger.createNode("user can click on LanguagePackages ");
@@ -48,18 +48,27 @@ public class OrangeHRM_LanguageTest extends BaseTest
 		lp = new OrangeHRM_LanguagePage(GenericKeywordsWithPage.driver);
 		
 		lp.enter_Username(h1.get("userName"));
+		passLog("username enterded");
 		lp.enter_Password(h1.get("password"));
+		passLog("password entered");
 		lp.click_Login();
+		passLog("clicked on login");
 		lp.Clickon_Admin();
+		passLog("clicked on admin");
 		lp.Clickon_Configuration();
+		passLog("clicked on configuration");
 		Thread.sleep(3000);
 		lp.Clickon_LanguagePackages();
+		passLog("clicked on language");
 		Thread.sleep(3000);
 		lp.Clickon_LPAddBtn();
+		passLog("clicked on LDAPAdd");
 		Thread.sleep(3000);
 		lp.Enter_language();
+		passLog("language entered");
 		Thread.sleep(3000);
 		lp.Clickon_LangSaveBox();
+		passLog("clickon lang save");
 		Thread.sleep(10000);
 	}
 

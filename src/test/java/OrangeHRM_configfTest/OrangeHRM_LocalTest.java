@@ -40,26 +40,35 @@ public class OrangeHRM_LocalTest extends BaseTest
 		return ReadData.getData("OrangeHRM_AllTestcases", "OrangeHRM_ConfigTestCases", xls);
 	}
 
-	@Test(dataProvider="setData0")
+	@Test(priority = 6, dataProvider="setData0")
 	public void ClickonLocalization(Hashtable<String, String>h1) throws Throwable
 	{
-		extentLoggerECP = parentExtentLogger.createNode("user can click on Llpalization");
+		extentLoggerECP = parentExtentLogger.createNode("user can click on Localization");
 		
 		lp = new OrangeHRM_LocalPage(GenericKeywordsWithPage.driver);
 		
 		lp.enter_Username(h1.get("userName"));
+		passLog("username entered");
 		lp.enter_Password(h1.get("password"));
+		passLog("password entered");
 		lp.click_Login();
+		passLog("clicked on login");
 		lp.Clickon_Admin();
+		passLog("clicked on admin");
 		lp.Clickon_Configuration();
+		passLog("clicked on configuration");
 		Thread.sleep(3000);
 		lp.Clickon_Localization();
+		passLog("clicked on localization");
 		Thread.sleep(3000);
 		lp.Enter_CountryLanguage();
+		passLog("clicked on country");
 		Thread.sleep(3000);
 		lp.Enter_DOY();
+		passLog("clicked on DOY");
 		Thread.sleep(3000);
 		lp.Clickon_LocalSave();
+		passLog("clicked on local save");
 		Thread.sleep(5000);
 	}
 }

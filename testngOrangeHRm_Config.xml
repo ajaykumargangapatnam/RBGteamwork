@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Regression Suite">
+  <test name="Test">
+    <classes>
+      <class name="OrangeHRM_configfTest.OrangeHRM_EmailConfigTest"/>
+      <class name="OrangeHRM_configfTest.OrangeHRM_ModuleTest"/>
+      <class name="OrangeHRM_configfTest.OrangeHRM_LoginTest"/>
+      <class name="OrangeHRM_configfTest.OrangeHRM_LanguageTest"/>
+      <class name="OrangeHRM_configfTest.OrangeHRM_RegisterClientTest"/>
+      <class name="OrangeHRM_configfTest.OrangeHRM_LDAPConfigTest"/>
+      <class name="OrangeHRM_configfTest.OrangeHRM_LocalTest"/>
+      <class name="OrangeHRM_configfTest.OrangeHRM_SocialMediaTest"/>
+      <class name="OrangeHRM_configfTest.OrangeHRM_EmailSubscripTest"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

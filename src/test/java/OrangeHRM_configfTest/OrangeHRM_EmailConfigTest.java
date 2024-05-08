@@ -41,7 +41,7 @@ public class OrangeHRM_EmailConfigTest extends BaseTest
 		return ReadData.getData("OrangeHRM_AllTestcases", "OrangeHRM_ConfigTestCases", xls);
 	}
 	
-	@Test(dataProvider="setData0")
+	@Test(priority=3, dataProvider="setData0")
 	public void ClickonEmialConfiguration(Hashtable<String, String>h1) throws Throwable
 	{
 		extentLoggerECP = parentExtentLogger.createNode("user can click on Email Configuration");
@@ -49,22 +49,34 @@ public class OrangeHRM_EmailConfigTest extends BaseTest
 		ec = new OrangeHRM_EmailConfigPage(GenericKeywordsWithPage.driver);
 		
 		ec.enter_Username(h1.get("userName"));
+		passLog("username entered");
 		ec.enter_Password(h1.get("password"));
+		passLog("password entered");
 		ec.click_Login();
+		passLog("user logged in");
+		Thread.sleep(5000);
 		ec.Clickon_Admin();
+		passLog("clicked on admin");
 		ec.Clickon_Configuration();
+		passLog("clicked on configuration");
 		Thread.sleep(3000);
 		ec.Clickon_EmailConfig();
+		passLog("cliked on email configuration");
 		Thread.sleep(3000);
 		ec.ClearandEnter_Email(h1.get("EmialId"));
+		passLog("data clear and data entered");
 		Thread.sleep(3000);
 		ec.Clickon_Save();
+		passLog("clicked on save");
 		Thread.sleep(3000);
 		ec.Clickon_Configuration();
+		passLog("again clicked on email configuratioon");
 		Thread.sleep(3000);
 		ec.Clickon_EmailConfig();
+		passLog("again cliked on email configuration");
 		Thread.sleep(3000);
 		ec.Clickon_Reset();
+		passLog("clicked on reset");
 		Thread.sleep(5000);
 	}
 

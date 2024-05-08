@@ -42,7 +42,7 @@ public class OrangeHRM_RegisterClientTest extends BaseTest
 		return ReadData.getData("OrangeHRM_AllTestcases", "OrangeHRM_ConfigTestCases", xls);
 	}
 	
-	@Test(dataProvider="setData0")
+	@Test(priority=9,dataProvider="setData0")
 	public void ClickonRegisterOAuthClient(Hashtable<String, String>h1) throws Throwable
 	{
 		extentLoggerECP = parentExtentLogger.createNode("user can click Again on RegisterOAuthClient ");
@@ -50,27 +50,44 @@ public class OrangeHRM_RegisterClientTest extends BaseTest
 		rc = new OrangeHRM_RegisterClientPage(GenericKeywordsWithPage.driver);
 		
 		rc.enter_Username(h1.get("userName"));
+		passLog("username entered");
 		rc.enter_Password(h1.get("password"));
+		passLog("password entered");
 		rc.click_Login();
+		passLog("clicked on login");
 		rc.Clickon_Admin();
+		passLog("clicked on admin");
 		rc.Clickon_Configuration();
+		passLog("clicked on configuration");
 		Thread.sleep(3000);
 		rc.RegisterOAuthClient();
+		passLog("clicked on registerclient");
 		rc.OAuthAddbtn();
+		passLog("clicked on add");
 		rc.Enter_OAuthInputName(h1.get("OAuthName"));
+		passLog("Oauthname entered");
 		rc.Enter_RedirectURIName(h1.get("RequiredURI"));
+		passLog("requiredURI entered");
 		rc.OAuthSavebtn();
+		passLog("clicked on OAutsave");
 		Thread.sleep(15000);
 		rc.Clickon_Configuration();
+		passLog("clicked on configuration");
 		Thread.sleep(3000);
 		rc.RegisterOAuthClient();
+		passLog("clicked on registerclient");
 		Thread.sleep(3000);
 		rc.Clickon_Checkbox();
+		passLog("checkbox clicked");
 		Thread.sleep(3000);
 		rc.Clickon_EditBtn();
+		passLog("editbtn clicked");
 		Thread.sleep(3000);
-		rc.UpdateEnter_OAuthInputName(h1.get("OAuthName"));
-		rc.UpdateEnter_RedirectURIName(h1.get("OAuthName"));
+		rc.UpdateEnter_OAuthInputName(h1.get("UpdateOAuthName"));
+		passLog("updateOauthname entered");
+		rc.UpdateEnter_RedirectURIName(h1.get("UpdateReqiuredURI"));
+		passLog("UpdateReqiuredURI entered");
+		Thread.sleep(10000);
 	}
 
 }

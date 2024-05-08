@@ -41,7 +41,7 @@ public class OrangeHRM_ModuleTest extends BaseTest
 		return ReadData.getData("OrangeHRM_AllTestcases", "OrangeHRM_ConfigTestCases", xls);
 	}
 	
-	@Test(dataProvider="setData0")
+	@Test(priority=8,dataProvider="setData0")
 	public void ClickonModules(Hashtable<String, String>h1) throws Throwable
 	{
 		extentLoggerECP = parentExtentLogger.createNode("user can click on Modules ");
@@ -49,30 +49,45 @@ public class OrangeHRM_ModuleTest extends BaseTest
 		mp = new OrangeHRM_ModulePage(GenericKeywordsWithPage.driver);
 		
 		mp.enter_Username(h1.get("userName"));
+		passLog("username entered");
 		mp.enter_Password(h1.get("password"));
+		passLog("password entered");
 		mp.click_Login();
+		passLog("clicked on login");
 		mp.Clickon_Admin();
+		passLog("clicked on admin");
 		mp.Clickon_Configuration();
+		passLog("clicked on configuration");
 		Thread.sleep(3000);
 		mp.Clickon_Modules();
+		passLog("clicked on modules");
 		Thread.sleep(3000);
 		mp.Clickon_LeaveModule();
+		passLog("clicked on leave modules");
 		Thread.sleep(3000);
 		mp.Clickon_TimeModule();
+		passLog("clicked on time module");
 		Thread.sleep(3000);
 		mp.Clickon_RecruitmentModule();
+		passLog("clicked on recruitment module");
 		Thread.sleep(3000);
 		mp.Clickon_PerformanceModule();
+		passLog("clicked on performance moodule");
 		Thread.sleep(3000);
 		mp.Clickon_DirectoryModule();
+		passLog("clicked on directory module");
 		Thread.sleep(3000);
 		mp.Clickon_maintananceModule();
+		passLog("clicked on maintainance module");
 		Thread.sleep(3000);
 		mp.Clickon_MobileModule();
+		passLog("clicked omn mobile module");
 		Thread.sleep(3000);
 		mp.Clickon_ClaimModule();
+		passLog("clicked on clain module");
 		Thread.sleep(3000);
 		mp.Clickon_ModuleSave();
+		passLog("clicked on module save");
 		Thread.sleep(5000);
 	}
 

@@ -48,8 +48,11 @@ public class OrangeHRM_LoginTest extends BaseTest
 		lc = new OrangeHRM_LoginCases(GenericKeywordsWithPage.driver);
 		
 		lc.enter_Username(h1.get("userName"));
+		passLog("username entered");
 		lc.enter_Password(h1.get("password"));
+		passLog("password entered");
 		lc.click_Login();
+		passLog("user logged in");
 		Thread.sleep(5000);
 	}
 	
@@ -61,8 +64,11 @@ public class OrangeHRM_LoginTest extends BaseTest
 		lc = new OrangeHRM_LoginCases(GenericKeywordsWithPage.driver);
 		
 		lc.enter_Username(h1.get("InvalidUserName"));
+		passLog("invalid username entered");
 		lc.enter_Password(h1.get("InvalidPassword"));
+		passLog("Invalid password entered");
 		lc.click_Login();
+		passLog("user not logged in");
 		Thread.sleep(5000);
 	}
 	
@@ -74,9 +80,13 @@ public class OrangeHRM_LoginTest extends BaseTest
 		lc = new OrangeHRM_LoginCases(GenericKeywordsWithPage.driver);
 		
 		lc.enter_Username(h1.get("InvalidUserName"));
+		passLog("invalid username entered");
 		lc.enter_Password(h1.get("InvalidPassword"));
+		passLog("Invalid password entered");
 		lc.click_Login();
+		passLog("user not logged in");
 		lc.click_ForgotBtn();
+		passLog("clicked on forgot password");
 		Thread.sleep(5000);
 	}
 
