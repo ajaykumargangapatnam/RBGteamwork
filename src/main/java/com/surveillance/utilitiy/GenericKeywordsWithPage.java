@@ -975,6 +975,7 @@ public class GenericKeywordsWithPage extends ApplicationKeywords
 		a1.keyDown(Keys.BACK_SPACE).perform();
 		a1.keyUp(Keys.CONTROL).perform();
 	}
+	
 	public void waitForInvisible(String xpath) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		try {
