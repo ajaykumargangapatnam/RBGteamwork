@@ -44,7 +44,7 @@ public class OrangeHRM_LanguagePage
 	@FindBy(xpath="//button[text()=' Save ']")
 	WebElement langsave;
 	
-	GenericKeywordsWithPage keywords = new GenericKeywordsWithPage("OrangeHRM_LoginPage");
+	GenericKeywordsWithPage keywords = new GenericKeywordsWithPage("OrangeHRM_LanguagePage");
 
 	public void enter_Username(String user)
 	{

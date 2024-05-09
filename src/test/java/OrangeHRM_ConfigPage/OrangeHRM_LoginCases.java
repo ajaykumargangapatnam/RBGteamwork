@@ -26,7 +26,7 @@ public class OrangeHRM_LoginCases
 	@FindBy(xpath="//p[@class='oxd-text oxd-text--p orangehrm-login-forgot-header']")
 	WebElement loginForgotBtn;
 	
-	GenericKeywordsWithPage keywords = new GenericKeywordsWithPage("OrangeHRM_LoginPage");
+	GenericKeywordsWithPage keywords = new GenericKeywordsWithPage("OrangeHRM_LoginCases");
 
 	public void enter_Username(String user)
 	{

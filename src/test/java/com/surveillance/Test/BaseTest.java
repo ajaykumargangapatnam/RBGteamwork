@@ -165,6 +165,22 @@ public class BaseTest
 		
 	}
 	
+	public void passLog(String stepName) throws Exception
+	{
+		extentLoggerECP.log(Status.PASS,
+				MarkupHelper.createLabel("" + stepName, ExtentColor.GREEN));
+		String screenshotPath = getScreenShot(GenericKeywords.driver, "passlog");
+		System.out.println("Passed log done :"+screenshotPath);
+		
+		// To add it in the extent report
+//		extentLoggerECP.pass(
+//				"Test step Passed Snapshot is below " + extentLoggerECP.addScreenCaptureFromPath(screenshotPath));
+		extentLoggerECP.pass("",MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
+//		MediaEntityBuilder.createScreenCaptureFromBase64String(screenshotPath).build();
+		
+		
+	}
+	
 	@AfterSuite
 	public void endReport() {
 		extent.flush();

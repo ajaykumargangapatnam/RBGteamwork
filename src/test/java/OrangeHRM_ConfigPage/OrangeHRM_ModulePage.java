@@ -29,7 +29,7 @@ public class OrangeHRM_ModulePage
 	@FindBy(xpath="//span[contains(text(),'Configuration')]")
 	WebElement configuration;
 	
-	GenericKeywordsWithPage keywords = new GenericKeywordsWithPage("OrangeHRM_LoginPage");
+	GenericKeywordsWithPage keywords = new GenericKeywordsWithPage("OrangeHRM_ModulePage");
 	
 	public void enter_Username(String user)
 	{

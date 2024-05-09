@@ -32,7 +32,7 @@ public class OrangeHRM_RegisterClientPage
 	@FindBy(xpath="//span[contains(text(),'Configuration')]")
 	WebElement configuration;
 	
-	GenericKeywordsWithPage keywords = new GenericKeywordsWithPage("OrangeHRM_LoginPage");
+	GenericKeywordsWithPage keywords = new GenericKeywordsWithPage("OrangeHRM_RegisterClientPage");
 
 	public void enter_Username(String user)
 	{
@@ -108,13 +108,19 @@ public class OrangeHRM_RegisterClientPage
 		keywords.click(editbtn);
 	}
 	
-	public void UpdateEnter_OAuthInputName(String oadata)
+	public void UpdateEnter_OAuthInputName(String oadata) throws Throwable
 	{
+		keywords.click(oauthinputbox);
+		Thread.sleep(3000);
+		keywords.backspace(oauthinputbox);
 		keywords.enterData(oauthinputbox, oadata);
 	}
 	
-	public void UpdateEnter_RedirectURIName(String rdata)
+	public void UpdateEnter_RedirectURIName(String rdata) throws Throwable
 	{
+		keywords.click(requiredinputbox);
+		Thread.sleep(3000);
+		keywords.backspace(requiredinputbox);
 		keywords.enterData(requiredinputbox, rdata);
 	}
 

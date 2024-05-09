@@ -41,13 +41,13 @@ public class OrangeHRM_LocalPage
 	@FindBy(xpath="//label[text()='Date Format']/parent::div/following-sibling::div/child::div/child::div/child::div[@class='oxd-select-text-input']")
 	WebElement  datebox; 
 	
-	@FindBy(xpath="//span[text()='dd-mm-yyyy ( 03-05-2024 )']")
+	@FindBy(xpath="//span[contains(text(),'dd-mm-yyyy ')]")
 	WebElement  dateyear;
 	
 	@FindBy(xpath="//button[text()=' Save ']")
 	WebElement  localsave;
 	
-	GenericKeywordsWithPage keywords = new GenericKeywordsWithPage("OrangeHRM_LoginPage");
+	GenericKeywordsWithPage keywords = new GenericKeywordsWithPage("OrangeHRM_LocalPage");
 
 	public void enter_Username(String user)
 	{

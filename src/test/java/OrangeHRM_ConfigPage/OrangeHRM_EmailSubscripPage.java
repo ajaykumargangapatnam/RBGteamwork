@@ -65,7 +65,7 @@ public class OrangeHRM_EmailSubscripPage
 	@FindBy(xpath="//div[text()='Leave Rejections']/parent::div/following-sibling::div/following-sibling::div/div/child::div/label/input")
 	WebElement  rejectionsbtn;
 	
-	GenericKeywordsWithPage keywords = new GenericKeywordsWithPage("OrangeHRM_LoginPage");
+	GenericKeywordsWithPage keywords = new GenericKeywordsWithPage("OrangeHRM_EmailSubscripPage");
 	
 	public void enter_Username(String user)
 	{

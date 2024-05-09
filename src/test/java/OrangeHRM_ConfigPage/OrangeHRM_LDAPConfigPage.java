@@ -1,9 +1,7 @@
 package OrangeHRM_ConfigPage;
 
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -31,7 +29,7 @@ public class OrangeHRM_LDAPConfigPage
 	@FindBy(xpath="//span[contains(text(),'Configuration')]")
 	WebElement configuration;
 	
-    GenericKeywordsWithPage keywords = new GenericKeywordsWithPage("OrangeHRM_LoginPage");
+    GenericKeywordsWithPage keywords = new GenericKeywordsWithPage("OrangeHRM_LDAPConfigPage");
 	
 	public void enter_Username(String user)
 	{

@@ -1,9 +1,7 @@
 package OrangeHRM_ConfigPage;
 
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -43,7 +41,7 @@ public class OrangeHRM_EmailConfigPage
 	@FindBy(xpath="(//button[@type='button'])[3]")
 	WebElement resetbtn;
 	
-	GenericKeywordsWithPage keywords = new GenericKeywordsWithPage("OrangeHRM_LoginPage");
+	GenericKeywordsWithPage keywords = new GenericKeywordsWithPage("OrangeHRM_LoginCases");
 	
 	public void enter_Username(String user)
 	{
@@ -78,17 +76,20 @@ public class OrangeHRM_EmailConfigPage
 	public void ClearandEnter_Email(String ename) throws Throwable
 	{
 		keywords.click(clearemail);
-		Thread.sleep(3000);
-		Actions a1 = new Actions(keywords.driver);
-		a1.keyDown(Keys.CONTROL);
-		a1.sendKeys("a");
-		a1.keyUp(Keys.CONTROL).perform();
-		Thread.sleep(3000);
-		a1.keyDown(Keys.BACK_SPACE).perform();
+//		Thread.sleep(3000);
+//		Actions a1 = new Actions(keywords.driver);
+//		a1.keyDown(Keys.CONTROL);
+//		a1.sendKeys("a");
+//		a1.keyUp(Keys.CONTROL).perform();
+//		Thread.sleep(3000);
+//		a1.keyDown(Keys.BACK_SPACE).perform();
+//		
+//		Thread.sleep(3000);
+//		a1.keyUp(Keys.CONTROL).sendKeys(ename);
+//		a1.keyUp(Keys.CONTROL).perform();
 		
-		Thread.sleep(3000);
-		a1.keyUp(Keys.CONTROL).sendKeys(ename);
-		a1.keyUp(Keys.CONTROL).perform();
+		keywords.backspace(clearemail);
+		keywords.enterData(clearemail, ename);
 		keywords.click(savebtn);
 	}
 	
