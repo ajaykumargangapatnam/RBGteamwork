@@ -969,11 +969,12 @@ public class GenericKeywordsWithPage extends ApplicationKeywords
 	{
 		Actions a1 = new Actions(driver);
 		a1.keyDown(Keys.CONTROL);
-		a1.sendKeys("a");
-		a1.keyUp(Keys.CONTROL).perform();
+		a1.sendKeys("a").perform();
+		a1.keyUp(Keys.CONTROL);
 		Thread.sleep(3000);
 		a1.keyDown(Keys.BACK_SPACE).perform();
-		a1.keyUp(Keys.CONTROL).perform();
+		a1.keyUp(Keys.CONTROL);
+		a1.perform();
 	}
 	
 	public void waitForInvisible(String xpath) {

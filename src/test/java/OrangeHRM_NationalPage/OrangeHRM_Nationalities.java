@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.surveillance.utilitiy.GenericKeywordsWithPage;
 
-public class OrangeHRM_Nationalities 
+public class OrangeHRM_Nationalities
 {
 	public OrangeHRM_Nationalities(WebDriver driver)
 	{

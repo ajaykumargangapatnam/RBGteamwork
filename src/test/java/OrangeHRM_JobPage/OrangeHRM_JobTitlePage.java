@@ -58,8 +58,8 @@ public class OrangeHRM_JobTitlePage
 	public void clickon_Browse() throws IOException  
 	{
 		keyword.click(browse);
-		//browse.sendKeys("C:\\Users\\91994\\Pictures\\Screenshots\\Untitled.png");
-		Runtime.getRuntime().exec("C:\\Users\\91994\\Pictures\\Screenshots\\Untitled.png");
+		
+		Runtime.getRuntime().exec("‪C:\\Users\\91994\\Pictures\\Screenshots\\Screenshot(48).png");
 	}
 	
 	@FindBy(xpath="//label[text()='Note']/parent::div/following-sibling::div/textarea")

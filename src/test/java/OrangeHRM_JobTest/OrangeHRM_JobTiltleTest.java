@@ -75,9 +75,9 @@ public class OrangeHRM_JobTiltleTest extends BaseTest
 		oj.Enter_description(h1.get("JobDescription"));
 		passLog("decdiption entered");
 		Thread.sleep(5000);
-//		oj.clickon_Browse();
-//		passLog("file entered");
-//		Thread.sleep(3000);
+		oj.clickon_Browse();
+		passLog("file entered");
+		Thread.sleep(3000);
 		oj.Enter_Note(h1.get("JobNote"));
 		passLog("note Entered");
 		oj.Clcikon_Save();
