@@ -75,17 +75,19 @@ public class GenericKeywords extends ApplicationKeywords {
 			opt.setExperimentalOption("useAutomationExtension", false);
 			driver = new ChromeDriver(opt);
 
-		}else if (browserName.equalsIgnoreCase("IE")) {
-
-			DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
-			capabilities.setCapability("requireWindowFocus", true);
-			capabilities.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, false);
-			capabilities.setCapability("ie.ensureCleanSession", true);
-			System.setProperty("webdriver.ie.driver",
-					System.getProperty("user.dir") + "/webDrivers/IEDriverServer.exe");
-			driver = new InternetExplorerDriver();
-
-		} else if (browserName.equalsIgnoreCase("Edge")) {
+		}
+//		else if (browserName.equalsIgnoreCase("IE")) {
+//
+//			DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
+//			capabilities.setCapability("requireWindowFocus", true);
+//			capabilities.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, false);
+//			capabilities.setCapability("ie.ensureCleanSession", true);
+//			System.setProperty("webdriver.ie.driver",
+//					System.getProperty("user.dir") + "/webDrivers/IEDriverServer.exe");
+//			driver = new InternetExplorerDriver();
+//
+//		} 
+		else if (browserName.equalsIgnoreCase("Edge")) {
 			System.setProperty("webdriver.edge.driver",
 					System.getProperty("user.dir") + "/webDrivers/MicrosoftWebDriver.exe");
 			driver = new EdgeDriver();
@@ -951,13 +953,13 @@ System.out.println("ALERT ACCPTING");
 	 * Example : <//input[@id='email']>
 	 */
 	public void waitForInvisible(String xpath) {
-		WebDriverWait wait = new WebDriverWait(driver, 30);
-		try {
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(xpath)));
-			
-		} catch (Exception e) {
-			 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
-		}
+//		//WebDriverWait wait = new WebDriverWait(driver, 30);
+//		try {
+//			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(xpath)));
+//			
+//		} catch (Exception e) {
+//			 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+//		}
 	}
 
 	/**
@@ -1090,7 +1092,7 @@ public void fileDownload()
      options.setExperimentalOption("prefs", chromePrefs);
      options.addArguments("--test-type");
      options.addArguments("--disable-extensions"); //to disable browser extension popup
-     options.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+    // options.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
 }
 public boolean isEnabled(String locatorindicator, String locatorvalue)
 {
@@ -1111,16 +1113,16 @@ public boolean isDisplayed(String locatorindicator, String locatorvalue)
 
 public void waitForPageLoad() {
 
-    Wait<WebDriver> wait = new WebDriverWait(driver, 30);
-    wait.until(new Function<WebDriver, Boolean>() {
-        public Boolean apply(WebDriver driver) {
-            System.out.println("Current Window State       : "
-                + String.valueOf(((JavascriptExecutor) driver).executeScript("return document.readyState")));
-            return String
-                .valueOf(((JavascriptExecutor) driver).executeScript("return document.readyState"))
-                .equals("complete");
-        }
-    });
+//    Wait<WebDriver> wait = new WebDriverWait(driver, 30);
+//    wait.until(new Function<WebDriver, Boolean>() {
+//        public Boolean apply(WebDriver driver) {
+//            System.out.println("Current Window State       : "
+//                + String.valueOf(((JavascriptExecutor) driver).executeScript("return document.readyState")));
+//            return String
+//                .valueOf(((JavascriptExecutor) driver).executeScript("return document.readyState"))
+//                .equals("complete");
+//        }
+ //   });
 }
 
 
