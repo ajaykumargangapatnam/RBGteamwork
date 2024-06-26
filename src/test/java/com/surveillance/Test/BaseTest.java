@@ -9,6 +9,7 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
@@ -151,6 +152,21 @@ public class BaseTest
 	}
  
 	public void passLog() throws Exception
+	{
+		extentLoggerECP.log(Status.PASS,
+				MarkupHelper.createLabel("" + " Test step PASSED", ExtentColor.GREEN));
+		String screenshotPath = getScreenShot(GenericKeywords.driver, "passlog");
+		System.out.println("Passed log done :"+screenshotPath);
+		// To add it in the extent report
+//		extentLoggerECP.pass(
+//				"Test step Passed Snapshot is below " + extentLoggerECP.addScreenCaptureFromPath(screenshotPath));
+		extentLoggerECP.pass("",MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
+//		MediaEntityBuilder.createScreenCaptureFromBase64String(screenshotPath).build();
+		
+		
+	}
+	
+	public void passLog(String stepName) throws Exception
 	{
 		extentLoggerECP.log(Status.PASS,
 				MarkupHelper.createLabel("" + " Test step PASSED", ExtentColor.GREEN));
