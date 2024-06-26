@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 import com.surveillance.utilitiy.GenericKeywordsWithPage;
 
@@ -38,6 +39,24 @@ public class Opencart_Customers
 		keys.jsClick(editbtn);
 	}
 	
+	@FindBy(xpath="//select[@name='store_id']")
+	WebElement store;
+	public void clickon_Store()
+	{
+		Select s1 = new Select(store);
+		keys.jsClick(store);
+		s1.selectByVisibleText("Default");
+	}
+	
+	@FindBy(xpath="//select[@name='customer_group_id']")
+	WebElement custstore;
+	public void clickon_CustomerStore()
+	{
+		Select s1 = new Select(custstore);
+		keys.jsClick(custstore);
+		s1.selectByVisibleText("Default");
+	}
+	
 	@FindBy(xpath="//input[@name='firstname']")
 	WebElement firstname;
 	public void enter_Firstname(String fname)
@@ -50,6 +69,20 @@ public class Opencart_Customers
 	public void enter_Lastname(String lname)
 	{
 		keys.clearEnter(lastname, lname);
+	}
+	
+	@FindBy(xpath="//input[@name='email']")
+	WebElement email;
+	public void enter_CustomerEmail(String ename)
+	{
+		keys.clearEnter(email, ename);
+	}
+	
+	@FindBy(xpath="//input[@name='telephone']")
+	WebElement telephone;
+	public void enter_Telephone(String tname)
+	{
+		keys.clearEnter(telephone, tname);
 	}
 	
 	@FindBy(xpath="//input[@name='password']")
